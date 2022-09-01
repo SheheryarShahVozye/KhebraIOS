@@ -1,0 +1,834 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		141A43FA28BF324600FA094A /* OrderDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A43F928BF324600FA094A /* OrderDetailScreen.swift */; };
+		141A43FC28BF475200FA094A /* CompleteOrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */; };
+		141A43FE28BF5CE100FA094A /* TechnicianCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A43FD28BF5CE100FA094A /* TechnicianCard.swift */; };
+		141A440128BF76B800FA094A /* TechnicianDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A440028BF76B800FA094A /* TechnicianDetail.swift */; };
+		145C298128B41FB200A317DC /* KhebraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298028B41FB200A317DC /* KhebraApp.swift */; };
+		145C298328B41FB200A317DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298228B41FB200A317DC /* ContentView.swift */; };
+		145C298528B41FB500A317DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145C298428B41FB500A317DC /* Assets.xcassets */; };
+		145C298828B41FB500A317DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145C298728B41FB500A317DC /* Preview Assets.xcassets */; };
+		145C299228B41FB600A317DC /* KhebraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C299128B41FB600A317DC /* KhebraTests.swift */; };
+		145C299C28B41FB600A317DC /* KhebraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C299B28B41FB600A317DC /* KhebraUITests.swift */; };
+		145C299E28B41FB600A317DC /* KhebraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C299D28B41FB600A317DC /* KhebraUITestsLaunchTests.swift */; };
+		145C29AF28B4241C00A317DC /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C29AE28B4241C00A317DC /* ViewRouter.swift */; };
+		145C29B228B4248800A317DC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C29B128B4248800A317DC /* SplashScreen.swift */; };
+		145C746228BFF8FA003E7164 /* SocialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C746128BFF8FA003E7164 /* SocialCard.swift */; };
+		145C746428BFFC28003E7164 /* ShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C746328BFFC27003E7164 /* ShareApp.swift */; };
+		145C746628C0005A003E7164 /* ConnectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C746528C0005A003E7164 /* ConnectScreen.swift */; };
+		14C85D7128BD4E8A0019066A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D7028BD4E8A0019066A /* LoginScreen.swift */; };
+		14C85D7428BD5DC20019066A /* STCRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14C85D7328BD5DC20019066A /* STCRegular.ttf */; };
+		14C85D7628BD5DD30019066A /* STC Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14C85D7528BD5DD30019066A /* STC Bold.ttf */; };
+		14C85D7C28BD622F0019066A /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D7B28BD622F0019066A /* LoginTextField.swift */; };
+		14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D7E28BDE22E0019066A /* CustomButton.swift */; };
+		14C85D8128BDF01D0019066A /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D8028BDF01D0019066A /* SignUpScreen.swift */; };
+		14C85D8328BDF1780019066A /* VerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D8228BDF1780019066A /* VerificationScreen.swift */; };
+		14C85D8628BDF50F0019066A /* TopNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D8528BDF50F0019066A /* TopNavigation.swift */; };
+		14C85D8928BDF54F0019066A /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D8828BDF54F0019066A /* AppUtil.swift */; };
+		14C85D8B28BE42710019066A /* AccountCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D8A28BE42710019066A /* AccountCompletion.swift */; };
+		14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D8C28BE44230019066A /* CustomTextField.swift */; };
+		14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D9128BE46600019066A /* DashboardScreen.swift */; };
+		14C85D9428BE5DC60019066A /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D9328BE5DC60019066A /* BottomNavigation.swift */; };
+		14C85D9728BE89010019066A /* DashboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D9628BE89010019066A /* DashboardCard.swift */; };
+		14C85D9A28BE98050019066A /* OrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D9928BE98050019066A /* OrderScreen.swift */; };
+		14C85D9C28BE9E240019066A /* MyOrderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D9B28BE9E240019066A /* MyOrderCard.swift */; };
+		14C85D9E28BF22250019066A /* TrackingOrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D9D28BF22250019066A /* TrackingOrderScreen.swift */; };
+		14CEBC4E28BFCBED004A6FF2 /* CustomerReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC4D28BFCBED004A6FF2 /* CustomerReviewCard.swift */; };
+		14CEBC5028BFD59A004A6FF2 /* OrderCancelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */; };
+		14CEBC5328BFE429004A6FF2 /* MoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */; };
+		14CEBC5528BFE5A7004A6FF2 /* MoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC5428BFE5A7004A6FF2 /* MoreCard.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		145C298E28B41FB600A317DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 145C297528B41FB200A317DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 145C297C28B41FB200A317DC;
+			remoteInfo = Khebra;
+		};
+		145C299828B41FB600A317DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 145C297528B41FB200A317DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 145C297C28B41FB200A317DC;
+			remoteInfo = Khebra;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		141A43F928BF324600FA094A /* OrderDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailScreen.swift; sourceTree = "<group>"; };
+		141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderScreen.swift; sourceTree = "<group>"; };
+		141A43FD28BF5CE100FA094A /* TechnicianCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianCard.swift; sourceTree = "<group>"; };
+		141A440028BF76B800FA094A /* TechnicianDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianDetail.swift; sourceTree = "<group>"; };
+		145C297D28B41FB200A317DC /* Khebra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Khebra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		145C298028B41FB200A317DC /* KhebraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraApp.swift; sourceTree = "<group>"; };
+		145C298228B41FB200A317DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		145C298428B41FB500A317DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		145C298728B41FB500A317DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		145C298D28B41FB600A317DC /* KhebraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KhebraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		145C299128B41FB600A317DC /* KhebraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraTests.swift; sourceTree = "<group>"; };
+		145C299728B41FB600A317DC /* KhebraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KhebraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		145C299B28B41FB600A317DC /* KhebraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraUITests.swift; sourceTree = "<group>"; };
+		145C299D28B41FB600A317DC /* KhebraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		145C29AE28B4241C00A317DC /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		145C29B128B4248800A317DC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		145C746128BFF8FA003E7164 /* SocialCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCard.swift; sourceTree = "<group>"; };
+		145C746328BFFC27003E7164 /* ShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareApp.swift; sourceTree = "<group>"; };
+		145C746528C0005A003E7164 /* ConnectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectScreen.swift; sourceTree = "<group>"; };
+		14C85D7028BD4E8A0019066A /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		14C85D7228BD56200019066A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		14C85D7328BD5DC20019066A /* STCRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STCRegular.ttf; sourceTree = "<group>"; };
+		14C85D7528BD5DD30019066A /* STC Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STC Bold.ttf"; sourceTree = "<group>"; };
+		14C85D7B28BD622F0019066A /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		14C85D7E28BDE22E0019066A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		14C85D8028BDF01D0019066A /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		14C85D8228BDF1780019066A /* VerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationScreen.swift; sourceTree = "<group>"; };
+		14C85D8528BDF50F0019066A /* TopNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigation.swift; sourceTree = "<group>"; };
+		14C85D8828BDF54F0019066A /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
+		14C85D8A28BE42710019066A /* AccountCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCompletion.swift; sourceTree = "<group>"; };
+		14C85D8C28BE44230019066A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		14C85D9128BE46600019066A /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
+		14C85D9328BE5DC60019066A /* BottomNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigation.swift; sourceTree = "<group>"; };
+		14C85D9628BE89010019066A /* DashboardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCard.swift; sourceTree = "<group>"; };
+		14C85D9928BE98050019066A /* OrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreen.swift; sourceTree = "<group>"; };
+		14C85D9B28BE9E240019066A /* MyOrderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderCard.swift; sourceTree = "<group>"; };
+		14C85D9D28BF22250019066A /* TrackingOrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingOrderScreen.swift; sourceTree = "<group>"; };
+		14CEBC4D28BFCBED004A6FF2 /* CustomerReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerReviewCard.swift; sourceTree = "<group>"; };
+		14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelScreen.swift; sourceTree = "<group>"; };
+		14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreScreen.swift; sourceTree = "<group>"; };
+		14CEBC5428BFE5A7004A6FF2 /* MoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCard.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		145C297A28B41FB200A317DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145C298A28B41FB600A317DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145C299428B41FB600A317DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		141A43FF28BF769600FA094A /* Technician */ = {
+			isa = PBXGroup;
+			children = (
+				141A440028BF76B800FA094A /* TechnicianDetail.swift */,
+			);
+			path = Technician;
+			sourceTree = "<group>";
+		};
+		145C297428B41FB200A317DC = {
+			isa = PBXGroup;
+			children = (
+				145C297F28B41FB200A317DC /* Khebra */,
+				145C299028B41FB600A317DC /* KhebraTests */,
+				145C299A28B41FB600A317DC /* KhebraUITests */,
+				145C297E28B41FB200A317DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		145C297E28B41FB200A317DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				145C297D28B41FB200A317DC /* Khebra.app */,
+				145C298D28B41FB600A317DC /* KhebraTests.xctest */,
+				145C299728B41FB600A317DC /* KhebraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		145C297F28B41FB200A317DC /* Khebra */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D8728BDF52C0019066A /* New Group */,
+				14C85D7528BD5DD30019066A /* STC Bold.ttf */,
+				14C85D7328BD5DC20019066A /* STCRegular.ttf */,
+				14C85D7228BD56200019066A /* Info.plist */,
+				145C29AD28B423FE00A317DC /* Observables */,
+				145C29AB28B423E500A317DC /* Utils */,
+				145C29AA28B423D800A317DC /* Views */,
+				145C298028B41FB200A317DC /* KhebraApp.swift */,
+				145C298228B41FB200A317DC /* ContentView.swift */,
+				145C298428B41FB500A317DC /* Assets.xcassets */,
+				145C298628B41FB500A317DC /* Preview Content */,
+			);
+			path = Khebra;
+			sourceTree = "<group>";
+		};
+		145C298628B41FB500A317DC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				145C298728B41FB500A317DC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		145C299028B41FB600A317DC /* KhebraTests */ = {
+			isa = PBXGroup;
+			children = (
+				145C299128B41FB600A317DC /* KhebraTests.swift */,
+			);
+			path = KhebraTests;
+			sourceTree = "<group>";
+		};
+		145C299A28B41FB600A317DC /* KhebraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				145C299B28B41FB600A317DC /* KhebraUITests.swift */,
+				145C299D28B41FB600A317DC /* KhebraUITestsLaunchTests.swift */,
+			);
+			path = KhebraUITests;
+			sourceTree = "<group>";
+		};
+		145C29AA28B423D800A317DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D8E28BE46410019066A /* Customer */,
+				14C85D7728BD5ED40019066A /* Components */,
+				145C29B028B4246B00A317DC /* Accounts */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		145C29AB28B423E500A317DC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D8828BDF54F0019066A /* AppUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		145C29AD28B423FE00A317DC /* Observables */ = {
+			isa = PBXGroup;
+			children = (
+				145C29AE28B4241C00A317DC /* ViewRouter.swift */,
+			);
+			path = Observables;
+			sourceTree = "<group>";
+		};
+		145C29B028B4246B00A317DC /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				145C29B128B4248800A317DC /* SplashScreen.swift */,
+				14C85D7028BD4E8A0019066A /* LoginScreen.swift */,
+				14C85D8028BDF01D0019066A /* SignUpScreen.swift */,
+				14C85D8228BDF1780019066A /* VerificationScreen.swift */,
+				14C85D8A28BE42710019066A /* AccountCompletion.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		14C85D7728BD5ED40019066A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D9528BE88ED0019066A /* Cards */,
+				14C85D8428BDF3050019066A /* General */,
+				14C85D7D28BD62450019066A /* Buttons */,
+				14C85D7A28BD61FA0019066A /* Textfields */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		14C85D7A28BD61FA0019066A /* Textfields */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D7B28BD622F0019066A /* LoginTextField.swift */,
+				14C85D8C28BE44230019066A /* CustomTextField.swift */,
+			);
+			path = Textfields;
+			sourceTree = "<group>";
+		};
+		14C85D7D28BD62450019066A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D7E28BDE22E0019066A /* CustomButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		14C85D8428BDF3050019066A /* General */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D8528BDF50F0019066A /* TopNavigation.swift */,
+				14C85D9328BE5DC60019066A /* BottomNavigation.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		14C85D8728BDF52C0019066A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		14C85D8E28BE46410019066A /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				14CEBC5128BFE415004A6FF2 /* Profile */,
+				141A43FF28BF769600FA094A /* Technician */,
+				14C85D9828BE97E30019066A /* Order */,
+				14C85D8F28BE46490019066A /* Dashboard */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		14C85D8F28BE46490019066A /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D9128BE46600019066A /* DashboardScreen.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		14C85D9528BE88ED0019066A /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D9628BE89010019066A /* DashboardCard.swift */,
+				14C85D9B28BE9E240019066A /* MyOrderCard.swift */,
+				141A43FD28BF5CE100FA094A /* TechnicianCard.swift */,
+				14CEBC4D28BFCBED004A6FF2 /* CustomerReviewCard.swift */,
+				14CEBC5428BFE5A7004A6FF2 /* MoreCard.swift */,
+				145C746128BFF8FA003E7164 /* SocialCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		14C85D9828BE97E30019066A /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				14C85D9928BE98050019066A /* OrderScreen.swift */,
+				14C85D9D28BF22250019066A /* TrackingOrderScreen.swift */,
+				141A43F928BF324600FA094A /* OrderDetailScreen.swift */,
+				141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */,
+				14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		14CEBC5128BFE415004A6FF2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */,
+				145C746328BFFC27003E7164 /* ShareApp.swift */,
+				145C746528C0005A003E7164 /* ConnectScreen.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		145C297C28B41FB200A317DC /* Khebra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 145C29A128B41FB600A317DC /* Build configuration list for PBXNativeTarget "Khebra" */;
+			buildPhases = (
+				145C297928B41FB200A317DC /* Sources */,
+				145C297A28B41FB200A317DC /* Frameworks */,
+				145C297B28B41FB200A317DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Khebra;
+			productName = Khebra;
+			productReference = 145C297D28B41FB200A317DC /* Khebra.app */;
+			productType = "com.apple.product-type.application";
+		};
+		145C298C28B41FB600A317DC /* KhebraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 145C29A428B41FB600A317DC /* Build configuration list for PBXNativeTarget "KhebraTests" */;
+			buildPhases = (
+				145C298928B41FB600A317DC /* Sources */,
+				145C298A28B41FB600A317DC /* Frameworks */,
+				145C298B28B41FB600A317DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				145C298F28B41FB600A317DC /* PBXTargetDependency */,
+			);
+			name = KhebraTests;
+			productName = KhebraTests;
+			productReference = 145C298D28B41FB600A317DC /* KhebraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		145C299628B41FB600A317DC /* KhebraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 145C29A728B41FB600A317DC /* Build configuration list for PBXNativeTarget "KhebraUITests" */;
+			buildPhases = (
+				145C299328B41FB600A317DC /* Sources */,
+				145C299428B41FB600A317DC /* Frameworks */,
+				145C299528B41FB600A317DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				145C299928B41FB600A317DC /* PBXTargetDependency */,
+			);
+			name = KhebraUITests;
+			productName = KhebraUITests;
+			productReference = 145C299728B41FB600A317DC /* KhebraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		145C297528B41FB200A317DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					145C297C28B41FB200A317DC = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					145C298C28B41FB600A317DC = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 145C297C28B41FB200A317DC;
+					};
+					145C299628B41FB600A317DC = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 145C297C28B41FB200A317DC;
+					};
+				};
+			};
+			buildConfigurationList = 145C297828B41FB200A317DC /* Build configuration list for PBXProject "Khebra" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 145C297428B41FB200A317DC;
+			productRefGroup = 145C297E28B41FB200A317DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				145C297C28B41FB200A317DC /* Khebra */,
+				145C298C28B41FB600A317DC /* KhebraTests */,
+				145C299628B41FB600A317DC /* KhebraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		145C297B28B41FB200A317DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C85D7428BD5DC20019066A /* STCRegular.ttf in Resources */,
+				145C298828B41FB500A317DC /* Preview Assets.xcassets in Resources */,
+				145C298528B41FB500A317DC /* Assets.xcassets in Resources */,
+				14C85D7628BD5DD30019066A /* STC Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145C298B28B41FB600A317DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145C299528B41FB600A317DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		145C297928B41FB200A317DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C85D9728BE89010019066A /* DashboardCard.swift in Sources */,
+				14CEBC4E28BFCBED004A6FF2 /* CustomerReviewCard.swift in Sources */,
+				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
+				14CEBC5028BFD59A004A6FF2 /* OrderCancelScreen.swift in Sources */,
+				141A440128BF76B800FA094A /* TechnicianDetail.swift in Sources */,
+				141A43FC28BF475200FA094A /* CompleteOrderScreen.swift in Sources */,
+				14CEBC5328BFE429004A6FF2 /* MoreScreen.swift in Sources */,
+				141A43FE28BF5CE100FA094A /* TechnicianCard.swift in Sources */,
+				145C29B228B4248800A317DC /* SplashScreen.swift in Sources */,
+				145C29AF28B4241C00A317DC /* ViewRouter.swift in Sources */,
+				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
+				14C85D8628BDF50F0019066A /* TopNavigation.swift in Sources */,
+				14C85D9C28BE9E240019066A /* MyOrderCard.swift in Sources */,
+				14C85D8328BDF1780019066A /* VerificationScreen.swift in Sources */,
+				14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */,
+				14C85D8928BDF54F0019066A /* AppUtil.swift in Sources */,
+				145C746228BFF8FA003E7164 /* SocialCard.swift in Sources */,
+				14C85D8128BDF01D0019066A /* SignUpScreen.swift in Sources */,
+				14C85D7C28BD622F0019066A /* LoginTextField.swift in Sources */,
+				14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */,
+				145C746428BFFC28003E7164 /* ShareApp.swift in Sources */,
+				14C85D9428BE5DC60019066A /* BottomNavigation.swift in Sources */,
+				145C746628C0005A003E7164 /* ConnectScreen.swift in Sources */,
+				14C85D9E28BF22250019066A /* TrackingOrderScreen.swift in Sources */,
+				14C85D8B28BE42710019066A /* AccountCompletion.swift in Sources */,
+				14C85D9A28BE98050019066A /* OrderScreen.swift in Sources */,
+				141A43FA28BF324600FA094A /* OrderDetailScreen.swift in Sources */,
+				145C298128B41FB200A317DC /* KhebraApp.swift in Sources */,
+				14CEBC5528BFE5A7004A6FF2 /* MoreCard.swift in Sources */,
+				14C85D7128BD4E8A0019066A /* LoginScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145C298928B41FB600A317DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145C299228B41FB600A317DC /* KhebraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		145C299328B41FB600A317DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145C299C28B41FB600A317DC /* KhebraUITests.swift in Sources */,
+				145C299E28B41FB600A317DC /* KhebraUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		145C298F28B41FB600A317DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 145C297C28B41FB200A317DC /* Khebra */;
+			targetProxy = 145C298E28B41FB600A317DC /* PBXContainerItemProxy */;
+		};
+		145C299928B41FB600A317DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 145C297C28B41FB200A317DC /* Khebra */;
+			targetProxy = 145C299828B41FB600A317DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		145C299F28B41FB600A317DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		145C29A028B41FB600A317DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		145C29A228B41FB600A317DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Khebra/Preview Content\"";
+				DEVELOPMENT_TEAM = QZ3C9L496T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Khebra/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sheheryarshah.Khebra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		145C29A328B41FB600A317DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Khebra/Preview Content\"";
+				DEVELOPMENT_TEAM = QZ3C9L496T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Khebra/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sheheryarshah.Khebra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		145C29A528B41FB600A317DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QZ3C9L496T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sheheryarshah.KhebraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Khebra.app/Khebra";
+			};
+			name = Debug;
+		};
+		145C29A628B41FB600A317DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QZ3C9L496T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sheheryarshah.KhebraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Khebra.app/Khebra";
+			};
+			name = Release;
+		};
+		145C29A828B41FB600A317DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QZ3C9L496T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sheheryarshah.KhebraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Khebra;
+			};
+			name = Debug;
+		};
+		145C29A928B41FB600A317DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QZ3C9L496T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sheheryarshah.KhebraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Khebra;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		145C297828B41FB200A317DC /* Build configuration list for PBXProject "Khebra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145C299F28B41FB600A317DC /* Debug */,
+				145C29A028B41FB600A317DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		145C29A128B41FB600A317DC /* Build configuration list for PBXNativeTarget "Khebra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145C29A228B41FB600A317DC /* Debug */,
+				145C29A328B41FB600A317DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		145C29A428B41FB600A317DC /* Build configuration list for PBXNativeTarget "KhebraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145C29A528B41FB600A317DC /* Debug */,
+				145C29A628B41FB600A317DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		145C29A728B41FB600A317DC /* Build configuration list for PBXNativeTarget "KhebraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				145C29A828B41FB600A317DC /* Debug */,
+				145C29A928B41FB600A317DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 145C297528B41FB200A317DC /* Project object */;
+}
