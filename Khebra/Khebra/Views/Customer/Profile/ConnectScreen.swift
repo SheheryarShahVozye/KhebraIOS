@@ -13,8 +13,19 @@ struct ConnectScreen: View {
             VStack{
                 TopNavigation(titleText: "Share App and win with us")
                 ScrollView{
+                   
+                    ConnectCard(borderColor: "137D3B", name: "Whatsapp", ImageName: "whatsapp")
                     
+                    ConnectCard(borderColor: "fontBlue", name: "quick conversation", ImageName: "quickconvo")
+                    
+                    ConnectCard(borderColor: "buttonbg", name: "Telephone Conversation", ImageName: "telephoneconvo")
+                    
+                    ConnectCard(borderColor: "F44336", name: "Send Email", ImageName: "gmail")
+                        
                 }
+                
+                
+                
                 
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)

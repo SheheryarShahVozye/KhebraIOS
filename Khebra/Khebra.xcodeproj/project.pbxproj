@@ -11,6 +11,12 @@
 		141A43FC28BF475200FA094A /* CompleteOrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */; };
 		141A43FE28BF5CE100FA094A /* TechnicianCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A43FD28BF5CE100FA094A /* TechnicianCard.swift */; };
 		141A440128BF76B800FA094A /* TechnicianDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A440028BF76B800FA094A /* TechnicianDetail.swift */; };
+		141B6D0E28C082E500EA7479 /* ConnectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D0D28C082E500EA7479 /* ConnectCard.swift */; };
+		141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D0F28C08C9200EA7479 /* UserAgreementScreen.swift */; };
+		141B6D1228C08DBF00EA7479 /* AgreementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1128C08DBF00EA7479 /* AgreementCard.swift */; };
+		141B6D1428C08FFD00EA7479 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1328C08FFD00EA7479 /* Profile.swift */; };
+		141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1528C09A4300EA7479 /* MyPointScreen.swift */; };
+		141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1828C0A41700EA7479 /* PointCard.swift */; };
 		145C298128B41FB200A317DC /* KhebraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298028B41FB200A317DC /* KhebraApp.swift */; };
 		145C298328B41FB200A317DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298228B41FB200A317DC /* ContentView.swift */; };
 		145C298528B41FB500A317DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145C298428B41FB500A317DC /* Assets.xcassets */; };
@@ -68,6 +74,12 @@
 		141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderScreen.swift; sourceTree = "<group>"; };
 		141A43FD28BF5CE100FA094A /* TechnicianCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianCard.swift; sourceTree = "<group>"; };
 		141A440028BF76B800FA094A /* TechnicianDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianDetail.swift; sourceTree = "<group>"; };
+		141B6D0D28C082E500EA7479 /* ConnectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCard.swift; sourceTree = "<group>"; };
+		141B6D0F28C08C9200EA7479 /* UserAgreementScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreementScreen.swift; sourceTree = "<group>"; };
+		141B6D1128C08DBF00EA7479 /* AgreementCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCard.swift; sourceTree = "<group>"; };
+		141B6D1328C08FFD00EA7479 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		141B6D1528C09A4300EA7479 /* MyPointScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointScreen.swift; sourceTree = "<group>"; };
+		141B6D1828C0A41700EA7479 /* PointCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCard.swift; sourceTree = "<group>"; };
 		145C297D28B41FB200A317DC /* Khebra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Khebra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145C298028B41FB200A317DC /* KhebraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraApp.swift; sourceTree = "<group>"; };
 		145C298228B41FB200A317DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -313,6 +325,9 @@
 				14CEBC4D28BFCBED004A6FF2 /* CustomerReviewCard.swift */,
 				14CEBC5428BFE5A7004A6FF2 /* MoreCard.swift */,
 				145C746128BFF8FA003E7164 /* SocialCard.swift */,
+				141B6D0D28C082E500EA7479 /* ConnectCard.swift */,
+				141B6D1128C08DBF00EA7479 /* AgreementCard.swift */,
+				141B6D1828C0A41700EA7479 /* PointCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -335,6 +350,9 @@
 				14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */,
 				145C746328BFFC27003E7164 /* ShareApp.swift */,
 				145C746528C0005A003E7164 /* ConnectScreen.swift */,
+				141B6D0F28C08C9200EA7479 /* UserAgreementScreen.swift */,
+				141B6D1328C08FFD00EA7479 /* Profile.swift */,
+				141B6D1528C09A4300EA7479 /* MyPointScreen.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -480,17 +498,23 @@
 				14CEBC5328BFE429004A6FF2 /* MoreScreen.swift in Sources */,
 				141A43FE28BF5CE100FA094A /* TechnicianCard.swift in Sources */,
 				145C29B228B4248800A317DC /* SplashScreen.swift in Sources */,
+				141B6D0E28C082E500EA7479 /* ConnectCard.swift in Sources */,
 				145C29AF28B4241C00A317DC /* ViewRouter.swift in Sources */,
+				141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */,
 				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
 				14C85D8628BDF50F0019066A /* TopNavigation.swift in Sources */,
+				141B6D1228C08DBF00EA7479 /* AgreementCard.swift in Sources */,
 				14C85D9C28BE9E240019066A /* MyOrderCard.swift in Sources */,
 				14C85D8328BDF1780019066A /* VerificationScreen.swift in Sources */,
+				141B6D1428C08FFD00EA7479 /* Profile.swift in Sources */,
+				141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */,
 				14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */,
 				14C85D8928BDF54F0019066A /* AppUtil.swift in Sources */,
 				145C746228BFF8FA003E7164 /* SocialCard.swift in Sources */,
 				14C85D8128BDF01D0019066A /* SignUpScreen.swift in Sources */,
 				14C85D7C28BD622F0019066A /* LoginTextField.swift in Sources */,
 				14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */,
+				141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */,
 				145C746428BFFC28003E7164 /* ShareApp.swift in Sources */,
 				14C85D9428BE5DC60019066A /* BottomNavigation.swift in Sources */,
 				145C746628C0005A003E7164 /* ConnectScreen.swift in Sources */,
