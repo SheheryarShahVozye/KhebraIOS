@@ -17,6 +17,8 @@
 		141B6D1428C08FFD00EA7479 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1328C08FFD00EA7479 /* Profile.swift */; };
 		141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1528C09A4300EA7479 /* MyPointScreen.swift */; };
 		141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1828C0A41700EA7479 /* PointCard.swift */; };
+		141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */; };
+		141B6D1D28C1240E00EA7479 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1C28C1240E00EA7479 /* Rating.swift */; };
 		145C298128B41FB200A317DC /* KhebraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298028B41FB200A317DC /* KhebraApp.swift */; };
 		145C298328B41FB200A317DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298228B41FB200A317DC /* ContentView.swift */; };
 		145C298528B41FB500A317DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145C298428B41FB500A317DC /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		141B6D1328C08FFD00EA7479 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		141B6D1528C09A4300EA7479 /* MyPointScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointScreen.swift; sourceTree = "<group>"; };
 		141B6D1828C0A41700EA7479 /* PointCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCard.swift; sourceTree = "<group>"; };
+		141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrder.swift; sourceTree = "<group>"; };
+		141B6D1C28C1240E00EA7479 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		145C297D28B41FB200A317DC /* Khebra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Khebra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145C298028B41FB200A317DC /* KhebraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraApp.swift; sourceTree = "<group>"; };
 		145C298228B41FB200A317DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				141A440028BF76B800FA094A /* TechnicianDetail.swift */,
+				141B6D1C28C1240E00EA7479 /* Rating.swift */,
 			);
 			path = Technician;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				141A43F928BF324600FA094A /* OrderDetailScreen.swift */,
 				141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */,
 				14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */,
+				141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 				14C85D9728BE89010019066A /* DashboardCard.swift in Sources */,
 				14CEBC4E28BFCBED004A6FF2 /* CustomerReviewCard.swift in Sources */,
 				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
+				141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */,
 				14CEBC5028BFD59A004A6FF2 /* OrderCancelScreen.swift in Sources */,
 				141A440128BF76B800FA094A /* TechnicianDetail.swift in Sources */,
 				141A43FC28BF475200FA094A /* CompleteOrderScreen.swift in Sources */,
@@ -518,6 +525,7 @@
 				145C746428BFFC28003E7164 /* ShareApp.swift in Sources */,
 				14C85D9428BE5DC60019066A /* BottomNavigation.swift in Sources */,
 				145C746628C0005A003E7164 /* ConnectScreen.swift in Sources */,
+				141B6D1D28C1240E00EA7479 /* Rating.swift in Sources */,
 				14C85D9E28BF22250019066A /* TrackingOrderScreen.swift in Sources */,
 				14C85D8B28BE42710019066A /* AccountCompletion.swift in Sources */,
 				14C85D9A28BE98050019066A /* OrderScreen.swift in Sources */,
