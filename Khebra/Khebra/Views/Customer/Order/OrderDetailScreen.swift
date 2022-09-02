@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OrderDetailScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
+    
     var body: some View {
         ZStack{
             VStack{
@@ -225,7 +227,29 @@ struct OrderDetailScreen: View {
                                 )
                             
                         }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
-                         
+                        VStack{
+                            HStack{
+                                Text("Technicians")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("fontBlue"))
+                                
+                                Spacer()
+                                
+                               
+                            }.padding(.horizontal)
+                            
+                            VStack{
+                                ForEach(0 ..< 5, id:\.self) { _ in
+                                    TechnicianCard()
+                                        .onTapGesture{
+                                            viewRouter.currentPage = "TechnicianDetail"
+                                        }
+                                }
+                            }
+                        }
+                       
+                        /*
                         ZStack{
                             RoundedRectangle(cornerRadius: 5)
                                 .foregroundColor(Color("White"))
@@ -456,11 +480,11 @@ struct OrderDetailScreen: View {
                             
                         }.frame(width: UIScreen.main.bounds.width - 50, height: 500, alignment: .center)
                             .padding(.top)
-                        
+                        */
                         VStack{
                          
                             OrderButton(title: "Pay (720 SAR)", callback: {
-                                
+                                viewRouter.currentPage = "CompleteOrderScreen"
                             }).padding(.vertical)
                         }
                     }

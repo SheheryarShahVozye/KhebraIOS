@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{

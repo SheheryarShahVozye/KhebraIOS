@@ -18,7 +18,7 @@ struct BottomNavigation: View {
             Spacer()
             VStack{
                 Spacer()
-                if viewRouter.currentPage == "Dashboard" {
+                if viewRouter.currentPage == "DashboardScreen" {
                     Image("Iconly-Bold-Home")
                         .scaledToFit()
                         .padding(.horizontal,10)
@@ -43,7 +43,7 @@ struct BottomNavigation: View {
                
                 Spacer()
             }.onTapGesture {
-                viewRouter.currentPage = "Dashboard"
+                viewRouter.currentPage = "DashboardScreen"
                 
             }
            
@@ -52,7 +52,7 @@ struct BottomNavigation: View {
             
             VStack{
                 Spacer()
-                if viewRouter.currentPage == "Orders" {
+                if viewRouter.currentPage == "OrderScreen" {
                     Image("orders-yellow")
                         .padding(.horizontal,10)
                         .padding(.bottom,5)
@@ -75,7 +75,7 @@ struct BottomNavigation: View {
                
                 Spacer()
             }.onTapGesture {
-                viewRouter.currentPage = "Orders"
+                viewRouter.currentPage = "OrderScreen"
             }
             
            
@@ -142,7 +142,7 @@ struct BottomNavigation: View {
              
                 VStack{
                     Spacer()
-                    if viewRouter.currentPage == "More" {
+                    if viewRouter.currentPage == "MoreScreen" {
                         
                         Image("more-yellow")
                             .scaledToFit()
@@ -168,7 +168,7 @@ struct BottomNavigation: View {
                    
                     Spacer()
                 }.onTapGesture {
-                    viewRouter.currentPage = "More"
+                    viewRouter.currentPage = "MoreScreen"
                 }.padding(.top,10)
                 
                 Spacer()

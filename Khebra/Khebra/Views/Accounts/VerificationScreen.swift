@@ -74,7 +74,7 @@ struct VerificationScreen: View {
                         }.padding(.vertical,10)
                         
                         CustomButton(title: "Next", callback: {
-                            
+                            viewRouter.currentPage = "AccountCompletion"
                         }).padding()
                         
                         HStack{

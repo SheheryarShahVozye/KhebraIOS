@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CompleteOrderScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
@@ -39,7 +40,9 @@ struct CompleteOrderScreen: View {
                                         .foregroundColor(Color("buttonbg"))
                                         .font(.system(size: 16))
                                         .fontWeight(.medium)
-                                )
+                                ).onTapGesture{
+                                    viewRouter.currentPage = "DashboardScreen"
+                                }
                             
                         }.frame(width: 150, height: 50, alignment: .center)
                         
@@ -56,7 +59,9 @@ struct CompleteOrderScreen: View {
                                         .foregroundColor(Color("White"))
                                         .font(.system(size: 16))
                                         .fontWeight(.medium)
-                                )
+                                ).onTapGesture{
+                                    viewRouter.currentPage = "RatingScreen"
+                                }
                             
                         }.frame(width: 150, height: 50, alignment: .center)
                         

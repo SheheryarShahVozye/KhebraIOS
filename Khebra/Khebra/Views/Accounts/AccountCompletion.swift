@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountCompletion: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
@@ -32,7 +33,7 @@ struct AccountCompletion: View {
                     
                     Spacer()
                     CustomButton(title: "Next", callback: {
-                        
+                        viewRouter.currentPage = "DashboardScreen"
                     })
                     Spacer()
                 }

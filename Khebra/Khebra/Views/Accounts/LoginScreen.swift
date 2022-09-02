@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
@@ -42,7 +43,7 @@ struct LoginScreen: View {
                             .padding(.vertical,5)
                         
                         CustomButton(title: "Login", callback: {
-                            
+                            viewRouter.currentPage = "VerificationScreen"
                         }).padding(.top)
                     }
                    
@@ -52,6 +53,9 @@ struct LoginScreen: View {
                             .fontWeight(.regular)
                             .font(.system(size: 16))
                             .foregroundColor(Color("fontBlue"))
+                            .onTapGesture {
+                                viewRouter.currentPage = "DashboardScreen"
+                            }
                     }.padding(.top)
                     Spacer()
                     HStack{
@@ -65,6 +69,9 @@ struct LoginScreen: View {
                             .fontWeight(.regular)
                             .font(.system(size: 12))
                             .foregroundColor(Color("fontBlue"))
+                            .onTapGesture {
+                                viewRouter.currentPage = "SignUpScreen"
+                            }
                     }.padding(.vertical,20)
                     
                 }.padding(.horizontal,30)

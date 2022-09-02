@@ -102,6 +102,9 @@ struct DashboardScreen: View {
                             LazyVGrid(columns: columns, spacing: 15) {
                                 ForEach(0 ..< AppUtil.serviceTypes.count,id:\.self) { val in
                                     DashboardCard(imageName: AppUtil.serviceImages[val],serviceName: AppUtil.serviceTypes[val])
+                                        .onTapGesture {
+                                            viewRouter.currentPage = "CreateOrder"
+                                        }
                                 }
                             }.frame(width: UIScreen.main.bounds.width - 50)
                         }.padding(.top,20)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateOrder: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     @State var details: String = ""
     var body: some View {
         ZStack{
@@ -388,7 +389,7 @@ struct CreateOrder: View {
                             CustomTextField(value: .constant(""), placeHolder: "Coupon Code")
                             
                             CustomButton(title: "Send Order", callback: {
-                                
+                                viewRouter.currentPage = "OrderDetailScreen"
                             }).padding(.vertical)
                         }
                     }

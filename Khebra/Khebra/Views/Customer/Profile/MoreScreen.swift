@@ -13,6 +13,7 @@ struct MoreScreen: View {
     "Connect Us","Favorite Technicians","FAQ","Logout"]
     var itemImages: [String] = ["wallet","points","orders-grat","pricelist","userAgreement","registerService","User","about","share",
     "connect","heart","faq","logout"]
+    @EnvironmentObject var viewRouter: ViewRouter
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -31,8 +32,35 @@ struct MoreScreen: View {
                                 MoreCardWallet(value: "0.00")
                             } else if  moreItems[item] == "My Point" {
                                 MoreCardWallet(name: "My Point", Imagename: "points", value: "0.00")
+                                    .onTapGesture {
+                                        viewRouter.currentPage = "MyPointScreen"
+                                    }
                             } else {
                                 MoreCard(name: moreItems[item],Imagename: itemImages[item])
+                                    .onTapGesture {
+                                        if moreItems[item] == "User Agreements" {
+                                            viewRouter.currentPage = "UserAgreementScreen"
+                                        }
+                                        
+                                        if moreItems[item] == "Profile" {
+                                            viewRouter.currentPage = "ProfileScreen"
+                                        }
+                                        
+                                        if moreItems[item] == "Share App and win with us" {
+                                            viewRouter.currentPage = "ShareApp"
+                                        }
+                                        if moreItems[item] == "Connect Us" {
+                                            viewRouter.currentPage = "ConnectScreen"
+                                        }
+                                        
+                                        if  moreItems[item] == "Logout" {
+                                            viewRouter.currentPage = "LoginScreen"
+                                        }
+                                        
+                                        if  moreItems[item] == "Orders" {
+                                            viewRouter.currentPage = "OrderScreen"
+                                        }
+                                    }
                             }
                            
                         }

@@ -32,7 +32,7 @@ struct TopNavigation: View {
                     Text(titleText)
                         .font(Font.custom("STC Bold", size: 18))
                         .foregroundColor(Color(textColor))
-                        .fontWeight(.regular)
+                        .fontWeight(.medium)
                         .padding(.trailing,20)
                         //.padding(.leading)
                        
