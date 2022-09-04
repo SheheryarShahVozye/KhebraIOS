@@ -1,14 +1,13 @@
 //
-//  BottomNavigation.swift
+//  BottomNavTechnician.swift
 //  Khebra
 //
-//  Created by Sheheryar on 30/08/2022.
+//  Created by Sheheryar on 04/09/2022.
 //
 
 import SwiftUI
 
-struct BottomNavigation: View {
-    
+struct BottomNavTechnician: View {
     var textColor: String = "B2C1E3"
     var buttonbg: String = "buttonbg"
     @EnvironmentObject var viewRouter: ViewRouter
@@ -84,21 +83,21 @@ struct BottomNavigation: View {
             VStack{
                 Spacer()
                 if viewRouter.currentPage == "OfferScreen" {
-                    Image("offers-gray")
+                    Image("bellIcon")
                         .padding(.horizontal,10)
                         .padding(.bottom,5)
                         
-                    Text("Offers")
+                    Text("Notifications")
                         .font(.system(size: 12))
                         .foregroundColor(Color(buttonbg))
                         .fontWeight(.medium)
                 }
                 else {
-                    Image("offers-gray")
+                    Image("bellIcon")
                         .padding(.horizontal,10)
                         .padding(.bottom,5)
 
-                    Text("Offers")
+                    Text("Notifications")
                         .font(.system(size: 12))
                         .foregroundColor(Color(textColor))
                         .fontWeight(.medium)
@@ -111,34 +110,7 @@ struct BottomNavigation: View {
             
             Group {
                 Spacer()
-                VStack{
-                    Spacer()
-                    if viewRouter.currentPage == "BusinessSector" {
-                        Image("business-yellow")
-                            .padding(.horizontal,10)
-                            .padding(.bottom,5)
-                            
-                        Text("Business Sector")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(buttonbg))
-                            .fontWeight(.medium)
-                    }
-                    else {
-                        Image("business-sector")
-                            .padding(.horizontal,10)
-                            .padding(.bottom,5)
-
-                        Text("Business Sector")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(textColor))
-                            .fontWeight(.medium)
-                    }
-                   
-                    Spacer()
-                }.onTapGesture {
-                    viewRouter.currentPage = "BusinessSector"
-                }
-                Spacer()
+               
              
                 VStack{
                     Spacer()
@@ -184,8 +156,8 @@ struct BottomNavigation: View {
     }
 }
 
-struct BottomNavigation_Previews: PreviewProvider {
+struct BottomNavTechnician_Previews: PreviewProvider {
     static var previews: some View {
-        BottomNavigation()
+        BottomNavTechnician()
     }
 }

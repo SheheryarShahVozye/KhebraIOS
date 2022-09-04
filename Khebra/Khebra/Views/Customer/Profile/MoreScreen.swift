@@ -60,6 +60,10 @@ struct MoreScreen: View {
                                         if  moreItems[item] == "Orders" {
                                             viewRouter.currentPage = "OrderScreen"
                                         }
+                                        
+                                        if moreItems[item] == "Favorite Technicians" {
+                                            viewRouter.currentPage = "FavTechnicianScreen"
+                                        }
                                     }
                             }
                            

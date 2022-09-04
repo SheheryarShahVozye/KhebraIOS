@@ -10,16 +10,18 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-        if viewRouter.currentPage == "splashscreen" {
-            SplashScreen()
-                .onAppear(perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        viewRouter.currentPage = "LoginScreen"
-                    }
-                })
-        } else {
-            RouteManager()
-        }
+//        if viewRouter.currentPage == "splashscreen" {
+//            SplashScreen()
+//                .onAppear(perform: {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                        viewRouter.currentPage = "LoginScreen"
+//                    }
+//                })
+//        } else {
+//            RouteManager()
+//        }
+        OrderDashboardScreen()
+     
     }
 }
 
@@ -64,6 +66,12 @@ struct RouteManager: View {
             CompleteOrderScreen()
         } else if viewRouter.currentPage == "RatingScreen" {
             RatingScreen()
+        } else if viewRouter.currentPage == "OfferScreen" {
+            OfferScreen()
+        } else if viewRouter.currentPage == "FavTechnicianScreen" {
+            FavTechnicianScreen()
+        } else if viewRouter.currentPage == "BusinessSectorScreen" {
+            BusinessSectorScreen()
         }
         
     }

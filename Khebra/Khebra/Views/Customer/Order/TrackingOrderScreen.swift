@@ -234,9 +234,177 @@ struct TrackingOrderScreen: View {
                                 Spacer()
                             }.padding(.horizontal,25)
                             VStack{
+                                VStack{
+                                    HStack {
+                                        VStack{
+                                            ZStack{
+                                                Circle()
+                                                    .foregroundColor(Color("White"))
+                                                
+                                                Circle()
+                                                    .stroke(Color("buttonbg"),lineWidth: 2)
+                                                    .overlay(
+                                                        Image("recievedOrder")
+                                                            .scaledToFit())
+                                            }.frame(width: 29, height: 29, alignment: .center)
+                                            DottedLine()
+                                                .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
+                                                .frame(width: 1, height: 50)
+                                                .foregroundColor(Color("buttonbg"))
+                                                .offset(y:-5)
+                                            
+                                            Spacer()
+                                        }
+                                       
+                                        
+                                        VStack{
+                                            HStack{
+                                                Text("The technician received the order")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color("5A5A5A"))
+                                                Spacer()
+                                            }
+                                            HStack{
+                                                Image("time")
+                                                    .scaledToFit()
+                                                Text("6/6/2022, 05:30 PM")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color("B2C1E3"))
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    
+                                   
+                                        
+                                }.padding(.leading)
+                                
+                                VStack{
+                                    HStack {
+                                        VStack{
+                                            ZStack{
+                                                Circle()
+                                                    .foregroundColor(Color("White"))
+                                                
+                                                Circle()
+                                                    .stroke(Color("B2C1E3"),lineWidth: 2)
+                                                    .overlay(
+                                                        Image("bluetruck")
+                                                            .scaledToFit())
+                                            }.frame(width: 29, height: 29, alignment: .center)
+                                            DottedLine()
+                                                .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
+                                                .frame(width: 1, height: 50)
+                                                .foregroundColor(Color("B2C1E3"))
+                                                .offset(y:-5)
+                                            
+                                            Spacer()
+                                        }
+                                       
+                                        
+                                        VStack{
+                                            HStack{
+                                                Text("In the way")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color("5A5A5A"))
+                                                Spacer()
+                                            }
+                                            HStack{
+                                                Image("time")
+                                                    .scaledToFit()
+                                                Text("6/6/2022, 05:30 PM")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color("B2C1E3"))
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    
+                                   
+                                        
+                                }.padding(.leading)
+                                    .offset(y:-10)
+                                VStack{
+                                    HStack {
+                                        VStack{
+                                            ZStack{
+                                                Circle()
+                                                    .foregroundColor(Color("White"))
+                                                
+                                                Circle()
+                                                    .stroke(Color("B2C1E3"),lineWidth: 2)
+                                                    .overlay(
+                                                        Image("arrivedblue")
+                                                            .scaledToFit())
+                                            }.frame(width: 29, height: 29, alignment: .center)
+                                           
+                                            
+                                            Spacer()
+                                        }
+                                       
+                                        
+                                        VStack{
+                                            HStack{
+                                                Text("Arrived")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color("5A5A5A"))
+                                                Spacer()
+                                            }
+                                            HStack{
+                                                Image("time")
+                                                    .scaledToFit()
+                                                    
+                                                    
+                                                Text("6/6/2022, 05:30 PM")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(Color("B2C1E3"))
+                                                Spacer()
+                                            }
+                                            Spacer()
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                              
+                                }.padding(.leading).offset(y:-20)
                                 
                             }
+                           
                         }.padding(.top)
+                        
+                        ZStack{
+                            
+                            RoundedRectangle(cornerRadius: 5)
+                                 .foregroundColor(Color("White"))
+                            
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color("buttonbg"),lineWidth: 1)
+                                .overlay(
+                                    HStack{
+                                        Image("yellowphone")
+                                            .scaledToFit()
+                                        
+                                        Text("Contact the technician")
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color("buttonbg"))
+                                            .fontWeight(.regular)
+                                        
+                                       
+                                            
+                                    }.padding(.horizontal)
+                                )
+                            
+                        }.frame(width: 240, height: 55, alignment: .center)
                       
                     }.padding(.top)
                 }
@@ -262,5 +430,24 @@ struct Line: Shape {
         path.move(to: CGPoint(x: 0, y: 0))
         path.addLine(to: CGPoint(x: rect.width, y: 0))
         return path
+    }
+}
+
+struct DottedLine: Shape {
+        
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        return path
+    }
+}
+
+struct TestDottedLineView: View {
+    var body: some View {
+        DottedLine()
+            .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
+            .frame(width: 1, height: 100)
+            .foregroundColor(Color.red)
     }
 }

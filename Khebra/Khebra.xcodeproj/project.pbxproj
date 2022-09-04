@@ -19,6 +19,25 @@
 		141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1828C0A41700EA7479 /* PointCard.swift */; };
 		141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */; };
 		141B6D1D28C1240E00EA7479 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1C28C1240E00EA7479 /* Rating.swift */; };
+		144635C328C25CDD00311865 /* OfferScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C228C25CDD00311865 /* OfferScreen.swift */; };
+		144635C528C25D8400311865 /* OffersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C428C25D8400311865 /* OffersCard.swift */; };
+		144635C728C266C800311865 /* FavTechnicianCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C628C266C800311865 /* FavTechnicianCard.swift */; };
+		144635C928C2692000311865 /* FavTechnicianScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C828C2692000311865 /* FavTechnicianScreen.swift */; };
+		144635CC28C26CD800311865 /* BusinessSectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635CB28C26CD800311865 /* BusinessSectorScreen.swift */; };
+		144635CE28C32C7B00311865 /* EngiDesignScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635CD28C32C7B00311865 /* EngiDesignScreen.swift */; };
+		144635D028C32CDA00311865 /* EngConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635CF28C32CDA00311865 /* EngConstruction.swift */; };
+		144635D228C32D0C00311865 /* MaintainanceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635D128C32D0C00311865 /* MaintainanceScreen.swift */; };
+		144635D428C3AE7E00311865 /* ChooseOnMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635D328C3AE7E00311865 /* ChooseOnMapScreen.swift */; };
+		144635D628C3CADF00311865 /* RegisterPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635D528C3CADF00311865 /* RegisterPasswordScreen.swift */; };
+		144635DA28C3D1B200311865 /* TechnicianDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635D928C3D1B200311865 /* TechnicianDashboard.swift */; };
+		144635DC28C3D36500311865 /* TechOrderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635DB28C3D36500311865 /* TechOrderCard.swift */; };
+		144635DE28C3DCCF00311865 /* BottomNavTechnician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635DD28C3DCCF00311865 /* BottomNavTechnician.swift */; };
+		144635E028C4795100311865 /* NotificationCrd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635DF28C4795100311865 /* NotificationCrd.swift */; };
+		144635E228C4806900311865 /* NotificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635E128C4806900311865 /* NotificationScreen.swift */; };
+		144635E428C486C500311865 /* OrderDashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635E328C486C500311865 /* OrderDashboardScreen.swift */; };
+		144635E628C4898300311865 /* TechOrderDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635E528C4898300311865 /* TechOrderDetailCard.swift */; };
+		144635E928C4957600311865 /* NewOrderDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635E828C4957600311865 /* NewOrderDetailScreen.swift */; };
+		144635EB28C4965D00311865 /* OrderNumCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635EA28C4965D00311865 /* OrderNumCard.swift */; };
 		145C298128B41FB200A317DC /* KhebraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298028B41FB200A317DC /* KhebraApp.swift */; };
 		145C298328B41FB200A317DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C298228B41FB200A317DC /* ContentView.swift */; };
 		145C298528B41FB500A317DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145C298428B41FB500A317DC /* Assets.xcassets */; };
@@ -84,6 +103,25 @@
 		141B6D1828C0A41700EA7479 /* PointCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCard.swift; sourceTree = "<group>"; };
 		141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrder.swift; sourceTree = "<group>"; };
 		141B6D1C28C1240E00EA7479 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		144635C228C25CDD00311865 /* OfferScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferScreen.swift; sourceTree = "<group>"; };
+		144635C428C25D8400311865 /* OffersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCard.swift; sourceTree = "<group>"; };
+		144635C628C266C800311865 /* FavTechnicianCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTechnicianCard.swift; sourceTree = "<group>"; };
+		144635C828C2692000311865 /* FavTechnicianScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTechnicianScreen.swift; sourceTree = "<group>"; };
+		144635CB28C26CD800311865 /* BusinessSectorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorScreen.swift; sourceTree = "<group>"; };
+		144635CD28C32C7B00311865 /* EngiDesignScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngiDesignScreen.swift; sourceTree = "<group>"; };
+		144635CF28C32CDA00311865 /* EngConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngConstruction.swift; sourceTree = "<group>"; };
+		144635D128C32D0C00311865 /* MaintainanceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainanceScreen.swift; sourceTree = "<group>"; };
+		144635D328C3AE7E00311865 /* ChooseOnMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOnMapScreen.swift; sourceTree = "<group>"; };
+		144635D528C3CADF00311865 /* RegisterPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPasswordScreen.swift; sourceTree = "<group>"; };
+		144635D928C3D1B200311865 /* TechnicianDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianDashboard.swift; sourceTree = "<group>"; };
+		144635DB28C3D36500311865 /* TechOrderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechOrderCard.swift; sourceTree = "<group>"; };
+		144635DD28C3DCCF00311865 /* BottomNavTechnician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavTechnician.swift; sourceTree = "<group>"; };
+		144635DF28C4795100311865 /* NotificationCrd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCrd.swift; sourceTree = "<group>"; };
+		144635E128C4806900311865 /* NotificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScreen.swift; sourceTree = "<group>"; };
+		144635E328C486C500311865 /* OrderDashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDashboardScreen.swift; sourceTree = "<group>"; };
+		144635E528C4898300311865 /* TechOrderDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechOrderDetailCard.swift; sourceTree = "<group>"; };
+		144635E828C4957600311865 /* NewOrderDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderDetailScreen.swift; sourceTree = "<group>"; };
+		144635EA28C4965D00311865 /* OrderNumCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNumCard.swift; sourceTree = "<group>"; };
 		145C297D28B41FB200A317DC /* Khebra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Khebra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145C298028B41FB200A317DC /* KhebraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhebraApp.swift; sourceTree = "<group>"; };
 		145C298228B41FB200A317DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +195,44 @@
 			path = Technician;
 			sourceTree = "<group>";
 		};
+		144635CA28C26C4600311865 /* Business Sector */ = {
+			isa = PBXGroup;
+			children = (
+				144635CB28C26CD800311865 /* BusinessSectorScreen.swift */,
+				144635CD28C32C7B00311865 /* EngiDesignScreen.swift */,
+				144635CF28C32CDA00311865 /* EngConstruction.swift */,
+				144635D128C32D0C00311865 /* MaintainanceScreen.swift */,
+			);
+			path = "Business Sector";
+			sourceTree = "<group>";
+		};
+		144635D728C3D19800311865 /* Technician */ = {
+			isa = PBXGroup;
+			children = (
+				144635E728C4956700311865 /* Orders */,
+				144635D828C3D1A200311865 /* Dashboard */,
+			);
+			path = Technician;
+			sourceTree = "<group>";
+		};
+		144635D828C3D1A200311865 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				144635D928C3D1B200311865 /* TechnicianDashboard.swift */,
+				144635E128C4806900311865 /* NotificationScreen.swift */,
+				144635E328C486C500311865 /* OrderDashboardScreen.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		144635E728C4956700311865 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				144635E828C4957600311865 /* NewOrderDetailScreen.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
 		145C297428B41FB200A317DC = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +299,7 @@
 		145C29AA28B423D800A317DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				144635D728C3D19800311865 /* Technician */,
 				14C85D8E28BE46410019066A /* Customer */,
 				14C85D7728BD5ED40019066A /* Components */,
 				145C29B028B4246B00A317DC /* Accounts */,
@@ -254,6 +331,7 @@
 				14C85D8028BDF01D0019066A /* SignUpScreen.swift */,
 				14C85D8228BDF1780019066A /* VerificationScreen.swift */,
 				14C85D8A28BE42710019066A /* AccountCompletion.swift */,
+				144635D528C3CADF00311865 /* RegisterPasswordScreen.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -291,6 +369,7 @@
 			children = (
 				14C85D8528BDF50F0019066A /* TopNavigation.swift */,
 				14C85D9328BE5DC60019066A /* BottomNavigation.swift */,
+				144635DD28C3DCCF00311865 /* BottomNavTechnician.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -305,6 +384,7 @@
 		14C85D8E28BE46410019066A /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				144635CA28C26C4600311865 /* Business Sector */,
 				14CEBC5128BFE415004A6FF2 /* Profile */,
 				141A43FF28BF769600FA094A /* Technician */,
 				14C85D9828BE97E30019066A /* Order */,
@@ -317,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				14C85D9128BE46600019066A /* DashboardScreen.swift */,
+				144635C228C25CDD00311865 /* OfferScreen.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -333,6 +414,12 @@
 				141B6D0D28C082E500EA7479 /* ConnectCard.swift */,
 				141B6D1128C08DBF00EA7479 /* AgreementCard.swift */,
 				141B6D1828C0A41700EA7479 /* PointCard.swift */,
+				144635C428C25D8400311865 /* OffersCard.swift */,
+				144635C628C266C800311865 /* FavTechnicianCard.swift */,
+				144635DB28C3D36500311865 /* TechOrderCard.swift */,
+				144635DF28C4795100311865 /* NotificationCrd.swift */,
+				144635E528C4898300311865 /* TechOrderDetailCard.swift */,
+				144635EA28C4965D00311865 /* OrderNumCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -346,6 +433,7 @@
 				141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */,
 				14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */,
 				141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */,
+				144635D328C3AE7E00311865 /* ChooseOnMapScreen.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -359,6 +447,7 @@
 				141B6D0F28C08C9200EA7479 /* UserAgreementScreen.swift */,
 				141B6D1328C08FFD00EA7479 /* Profile.swift */,
 				141B6D1528C09A4300EA7479 /* MyPointScreen.swift */,
+				144635C828C2692000311865 /* FavTechnicianScreen.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -496,16 +585,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C85D9728BE89010019066A /* DashboardCard.swift in Sources */,
+				144635D428C3AE7E00311865 /* ChooseOnMapScreen.swift in Sources */,
 				14CEBC4E28BFCBED004A6FF2 /* CustomerReviewCard.swift in Sources */,
+				144635CE28C32C7B00311865 /* EngiDesignScreen.swift in Sources */,
+				144635E028C4795100311865 /* NotificationCrd.swift in Sources */,
 				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
+				144635E928C4957600311865 /* NewOrderDetailScreen.swift in Sources */,
 				141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */,
+				144635D228C32D0C00311865 /* MaintainanceScreen.swift in Sources */,
 				14CEBC5028BFD59A004A6FF2 /* OrderCancelScreen.swift in Sources */,
+				144635D028C32CDA00311865 /* EngConstruction.swift in Sources */,
+				144635DA28C3D1B200311865 /* TechnicianDashboard.swift in Sources */,
 				141A440128BF76B800FA094A /* TechnicianDetail.swift in Sources */,
 				141A43FC28BF475200FA094A /* CompleteOrderScreen.swift in Sources */,
+				144635E428C486C500311865 /* OrderDashboardScreen.swift in Sources */,
+				144635CC28C26CD800311865 /* BusinessSectorScreen.swift in Sources */,
 				14CEBC5328BFE429004A6FF2 /* MoreScreen.swift in Sources */,
+				144635E228C4806900311865 /* NotificationScreen.swift in Sources */,
+				144635E628C4898300311865 /* TechOrderDetailCard.swift in Sources */,
 				141A43FE28BF5CE100FA094A /* TechnicianCard.swift in Sources */,
 				145C29B228B4248800A317DC /* SplashScreen.swift in Sources */,
+				144635D628C3CADF00311865 /* RegisterPasswordScreen.swift in Sources */,
 				141B6D0E28C082E500EA7479 /* ConnectCard.swift in Sources */,
+				144635DC28C3D36500311865 /* TechOrderCard.swift in Sources */,
 				145C29AF28B4241C00A317DC /* ViewRouter.swift in Sources */,
 				141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */,
 				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
@@ -518,17 +620,23 @@
 				14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */,
 				14C85D8928BDF54F0019066A /* AppUtil.swift in Sources */,
 				145C746228BFF8FA003E7164 /* SocialCard.swift in Sources */,
+				144635DE28C3DCCF00311865 /* BottomNavTechnician.swift in Sources */,
+				144635EB28C4965D00311865 /* OrderNumCard.swift in Sources */,
 				14C85D8128BDF01D0019066A /* SignUpScreen.swift in Sources */,
 				14C85D7C28BD622F0019066A /* LoginTextField.swift in Sources */,
 				14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */,
+				144635C528C25D8400311865 /* OffersCard.swift in Sources */,
 				141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */,
 				145C746428BFFC28003E7164 /* ShareApp.swift in Sources */,
+				144635C728C266C800311865 /* FavTechnicianCard.swift in Sources */,
 				14C85D9428BE5DC60019066A /* BottomNavigation.swift in Sources */,
+				144635C928C2692000311865 /* FavTechnicianScreen.swift in Sources */,
 				145C746628C0005A003E7164 /* ConnectScreen.swift in Sources */,
 				141B6D1D28C1240E00EA7479 /* Rating.swift in Sources */,
 				14C85D9E28BF22250019066A /* TrackingOrderScreen.swift in Sources */,
 				14C85D8B28BE42710019066A /* AccountCompletion.swift in Sources */,
 				14C85D9A28BE98050019066A /* OrderScreen.swift in Sources */,
+				144635C328C25CDD00311865 /* OfferScreen.swift in Sources */,
 				141A43FA28BF324600FA094A /* OrderDetailScreen.swift in Sources */,
 				145C298128B41FB200A317DC /* KhebraApp.swift in Sources */,
 				14CEBC5528BFE5A7004A6FF2 /* MoreCard.swift in Sources */,

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct OrderDetailScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    
+    @State var orderAccepted: Bool = false
+    @State var waitingForTech: Bool = true
     var body: some View {
         ZStack{
             VStack{
@@ -227,260 +228,284 @@ struct OrderDetailScreen: View {
                                 )
                             
                         }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
-                        VStack{
-                            HStack{
-                                Text("Technicians")
-                                    .font(.system(size: 18))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("fontBlue"))
-                                
-                                Spacer()
-                                
-                               
-                            }.padding(.horizontal)
-                            
+                        if !waitingForTech {
                             VStack{
-                                ForEach(0 ..< 5, id:\.self) { _ in
-                                    TechnicianCard()
-                                        .onTapGesture{
-                                            viewRouter.currentPage = "TechnicianDetail"
-                                        }
+                                HStack{
+                                    Text("Technicians")
+                                        .font(.system(size: 18))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color("fontBlue"))
+                                    
+                                    Spacer()
+                                    
+                                   
+                                }.padding(.horizontal)
+                                
+                                VStack{
+                                    ForEach(0 ..< 5, id:\.self) { _ in
+                                        TechnicianCard()
+                                            .onTapGesture{
+                                                viewRouter.currentPage = "TechnicianDetail"
+                                            }
+                                    }
                                 }
                             }
                         }
-                       
-                        /*
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 5)
-                                .foregroundColor(Color("White"))
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color("B2C1E3"),lineWidth: 1)
-                                .overlay(
-                                    VStack{
-                                        Group{
-                                            VStack{
-                                                HStack{
-                                                    Text("Tax No.")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("12345678")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Technician Fare")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("150 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Technician Fare")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("150 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                        }
-                                      
-                                        Group {
-                                            VStack{
-                                                HStack{
-                                                    Text("Spare parts")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("500 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Spare parts")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("500 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Spare parts delivery")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("500 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Total")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("500 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Discount")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("120 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Tax Value")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("120 SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Balance")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text("SAR")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("fontBlue"))
-                                                        
-                                                    
-                                                }
-                                            }.padding(.horizontal)
-                                                .padding(.top)
-                                        }
-                                      
-                                        VStack{
-                                            HStack{
-                                                Text("Total required payment")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.vertical)
-                                                    .padding(.leading)
-
-                                                Spacer()
-
-                                                Text("500 SAR")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing)
-
-
-                                            }
-                                        }.background(Color("fontBlue")
-                                                        .opacity(0.3))
-                                           
-                                            .padding(.top)
+                        else{
+                            VStack{
+                                HStack{
+                                    Text("Waiting for technicians to accept the Order")
+                                        .foregroundColor(Color("fontBlue"))
+                                        .font(.system(size: 20))
+                                        .fontWeight(.regular)
+                                        .multilineTextAlignment(.center)
                                        
-                                    }
-                                )
-                            
-                        }.frame(width: UIScreen.main.bounds.width - 50, height: 500, alignment: .center)
-                            .padding(.top)
-                        */
+                                        
+                       
+                                }.padding(.horizontal)
+                                
+                                Image("Group 984")
+                                    .scaledToFit()
+
+                                
+                            }.frame(width: UIScreen.main.bounds.width - 50)
+                                .padding(.vertical)
+                        }
+                       
+                        if orderAccepted {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 5)
+                                    .foregroundColor(Color("White"))
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color("B2C1E3"),lineWidth: 1)
+                                    .overlay(
+                                        VStack{
+                                            Group{
+                                                VStack{
+                                                    HStack{
+                                                        Text("Tax No.")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("12345678")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Technician Fare")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("150 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Technician Fare")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("150 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                            }
+                                          
+                                            Group {
+                                                VStack{
+                                                    HStack{
+                                                        Text("Spare parts")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("500 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Spare parts")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("500 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Spare parts delivery")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("500 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Total")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("500 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Discount")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("120 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Tax Value")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("120 SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Balance")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        
+                                                        Spacer()
+                                                        
+                                                        Text("SAR")
+                                                            .font(.system(size: 14))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(Color("fontBlue"))
+                                                            
+                                                        
+                                                    }
+                                                }.padding(.horizontal)
+                                                    .padding(.top)
+                                            }
+                                          
+                                            VStack{
+                                                HStack{
+                                                    Text("Total required payment")
+                                                        .font(.system(size: 14))
+                                                        .fontWeight(.regular)
+                                                        .foregroundColor(Color("fontBlue"))
+                                                        .padding(.vertical)
+                                                        .padding(.leading)
+
+                                                    Spacer()
+
+                                                    Text("500 SAR")
+                                                        .font(.system(size: 14))
+                                                        .fontWeight(.regular)
+                                                        .foregroundColor(Color("fontBlue"))
+                                                        .padding(.trailing)
+
+
+                                                }
+                                            }.background(Color("fontBlue")
+                                                            .opacity(0.3))
+                                               
+                                                .padding(.top)
+                                           
+                                        }
+                                    )
+                                
+                            }.frame(width: UIScreen.main.bounds.width - 50, height: 500, alignment: .center)
+                                .padding(.top)
+                        }
+                        
+                      
                         VStack{
                          
                             OrderButton(title: "Pay (720 SAR)", callback: {

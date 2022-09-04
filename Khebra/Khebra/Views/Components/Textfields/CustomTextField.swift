@@ -14,6 +14,7 @@ struct CustomTextField: View {
         RoundedRectangle(cornerRadius: 5)
              .frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)
              .foregroundColor(Color("White"))
+        
              .overlay(
                 HStack{
                     TextField(placeHolder, text: $value)

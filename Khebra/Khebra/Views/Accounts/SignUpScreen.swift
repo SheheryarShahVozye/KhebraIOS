@@ -43,7 +43,7 @@ struct SignUpScreen: View {
                             .padding(.vertical,5)
                         
                         CustomButton(title: "Sign Up", callback: {
-                            
+                            viewRouter.currentPage = "VerificationScreen"
                         }).padding(.top)
                     }
                    
@@ -66,7 +66,7 @@ struct SignUpScreen: View {
                             .fontWeight(.regular)
                             .font(.system(size: 12))
                             .foregroundColor(Color("fontBlue"))
-                    }.padding(.vertical,20)
+                    }.padding(.vertical,30)
                     
                 }.padding(.horizontal,30)
             }

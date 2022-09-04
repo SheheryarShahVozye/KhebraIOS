@@ -70,6 +70,9 @@ struct DashboardScreen: View {
                                 .fontWeight(.regular)
                            
                             ).padding(.top)
+                            .onTapGesture{
+                                viewRouter.currentPage = "BusinessSectorScreen"
+                            }
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 2)
