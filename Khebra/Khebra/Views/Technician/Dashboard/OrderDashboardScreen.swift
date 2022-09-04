@@ -161,7 +161,7 @@ struct OrderDashboardScreen: View {
                            
                         }
                     }.padding(.top)
-                    BottomNavigation()
+                    BottomNavTechnician()
                 }
                
             }

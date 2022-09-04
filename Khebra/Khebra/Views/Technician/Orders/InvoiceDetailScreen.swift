@@ -1,5 +1,5 @@
 //
-//  NewOrderDetailScreen.swift
+//  InvoiceDetailScreen.swift
 //  Khebra
 //
 //  Created by Sheheryar on 04/09/2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct NewOrderDetailScreen: View {
+struct InvoiceDetailScreen: View {
     var body: some View {
         ZStack{
             VStack{
-                TopNavigation(titleText: "New Order Details")
+                TopNavigation(titleText: "Invoice Detail")
                 
                 ScrollView{
                     VStack{
@@ -102,6 +102,7 @@ struct NewOrderDetailScreen: View {
                                     }.padding(.top,1)
                                 }.padding(.horizontal,5)
                             }.padding(.horizontal,20)
+                           
                             HStack{
                                 VStack {
                                     Image("time")
@@ -127,19 +128,75 @@ struct NewOrderDetailScreen: View {
                                     }.padding(.top,1)
                                 }.padding(.horizontal,5)
                             }.padding(.horizontal,20)
+                            
                         }
                         .padding(.top)
                         
+                        
+                        VStack{
+                            HStack{
+                                Text("Please enter the work fee without VAT")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color("5F5E5E"))
+                                    .fontWeight(.regular)
+                                
+                                Spacer()
+                            }.padding(.leading,25)
+                            InvoiceTextField(value: .constant(""))
+                        }.padding(.vertical,10)
+                        
+                        VStack{
+                            HStack{
+                                Text("Please enter the cost of spare parts (if any)")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color("5F5E5E"))
+                                    .fontWeight(.regular)
+                                
+                                Spacer()
+                            }.padding(.leading,25)
+                            InvoiceTextField(value: .constant(""))
+                        }.padding(.vertical,10)
+                        
+                        VStack{
+                            HStack{
+                                Text("Please upload the spare parts invoice")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color("5F5E5E"))
+                                    .fontWeight(.regular)
+                                
+                                Spacer()
+                            }.padding(.leading,25)
+                            ZStack{
+                              
+                                RoundedRectangle(cornerRadius: 0)
+                                     .foregroundColor(Color("White"))
+                                
+                                RoundedRectangle(cornerRadius: 0)
+                                    .stroke(Color("B2C1E3"),lineWidth: 1)
+                                    .overlay(
+                                        HStack{
+                                            Image("thumbnail")
+                                                .scaledToFit()
+                                            
+                                            Text("Upload File")
+                                                .font(.system(size: 14))
+                                                .foregroundColor(Color("B2C1E3"))
+                                                .fontWeight(.regular)
+                                        }.padding(.leading)
+                                    )
+                            }.frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)
+                        }.padding(.vertical,10)
+                        
                         VStack
                         {
-                            HStack{
-                                NewOrderButton(title: "Issuance of invoice")
-                                NewOrderButton(title: "Postponement Request")
-                                NewOrderButton(title: "Call Customer")
-                            }
-                        }.padding(.vertical)
+                            CustomButton(title: "Send to Customer", callback: {
+                                
+                            })
+                        }.padding(.vertical,20)
                     }
                 }
+                
+                BottomNavTechnician()
             }
           
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
@@ -148,8 +205,8 @@ struct NewOrderDetailScreen: View {
     }
 }
 
-struct NewOrderDetailScreen_Previews: PreviewProvider {
+struct InvoiceDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        NewOrderDetailScreen()
+        InvoiceDetailScreen()
     }
 }

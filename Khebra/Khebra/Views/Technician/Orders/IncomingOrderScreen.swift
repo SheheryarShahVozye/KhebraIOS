@@ -1,5 +1,5 @@
 //
-//  NewOrderDetailScreen.swift
+//  IncomingOrderScreen.swift
 //  Khebra
 //
 //  Created by Sheheryar on 04/09/2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct NewOrderDetailScreen: View {
+struct IncomingOrderScreen: View {
     var body: some View {
         ZStack{
             VStack{
-                TopNavigation(titleText: "New Order Details")
+                TopNavigation(titleText: "Incoming Order Details")
                 
                 ScrollView{
                     VStack{
@@ -133,13 +133,14 @@ struct NewOrderDetailScreen: View {
                         VStack
                         {
                             HStack{
-                                NewOrderButton(title: "Issuance of invoice")
-                                NewOrderButton(title: "Postponement Request")
-                                NewOrderButton(title: "Call Customer")
+                                OrderButton(title: "Apply Now", callback: {
+                                    
+                                })
                             }
                         }.padding(.vertical)
                     }
                 }
+                BottomNavTechnician()
             }
           
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
@@ -148,8 +149,8 @@ struct NewOrderDetailScreen: View {
     }
 }
 
-struct NewOrderDetailScreen_Previews: PreviewProvider {
+struct IncomingOrderScreen_Previews: PreviewProvider {
     static var previews: some View {
-        NewOrderDetailScreen()
+        IncomingOrderScreen()
     }
 }

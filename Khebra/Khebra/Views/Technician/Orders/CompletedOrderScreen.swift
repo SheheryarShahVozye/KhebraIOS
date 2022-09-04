@@ -1,5 +1,5 @@
 //
-//  NewOrderDetailScreen.swift
+//  CompletedOrderScreen.swift
 //  Khebra
 //
 //  Created by Sheheryar on 04/09/2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct NewOrderDetailScreen: View {
+struct CompletedOrderScreen: View {
     var body: some View {
         ZStack{
             VStack{
-                TopNavigation(titleText: "New Order Details")
+                TopNavigation(titleText: "Completed Order Details")
                 
                 ScrollView{
                     VStack{
@@ -102,6 +102,7 @@ struct NewOrderDetailScreen: View {
                                     }.padding(.top,1)
                                 }.padding(.horizontal,5)
                             }.padding(.horizontal,20)
+                            
                             HStack{
                                 VStack {
                                     Image("time")
@@ -127,19 +128,117 @@ struct NewOrderDetailScreen: View {
                                     }.padding(.top,1)
                                 }.padding(.horizontal,5)
                             }.padding(.horizontal,20)
+                            HStack{
+                                HStack{
+                                    VStack {
+                                        Image("invoiceLightBlue")
+                                           
+                                            .scaledToFit()
+                                        Spacer()
+                                    }
+                                    VStack{
+                                        HStack{
+                                            Text("Invoice No.")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            Spacer()
+                                        }
+                                        HStack{
+                                            Text("85465")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("5A5A5A"))
+                                            Spacer()
+                                        }.padding(.top,1)
+                                    }.padding(.horizontal,5)
+                                }.padding(.horizontal,20)
+                                
+                                HStack{
+                                    VStack {
+                                        Image("paymentmethod")
+
+                                            .scaledToFit()
+                                        Spacer()
+                                    }
+                                    VStack{
+                                        HStack{
+                                            Text("Payment status")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            Spacer()
+                                        }
+                                        HStack{
+                                            Text("Paid")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("5A5A5A"))
+                                            Spacer()
+                                        }.padding(.top,1)
+                                    }.padding(.horizontal,5)
+                                }.padding(.horizontal,20)
+                            }
+                            HStack{
+                                HStack{
+                                    VStack {
+                                        Image("pricelist")
+                                           
+                                            .scaledToFit()
+                                        Spacer()
+                                    }
+                                    VStack{
+                                        HStack{
+                                            Text("Total amount")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            Spacer()
+                                        }
+                                        HStack{
+                                            Text("720 R.S")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("5A5A5A"))
+                                            Spacer()
+                                        }.padding(.top,1)
+                                    }.padding(.horizontal,5)
+                                }.padding(.horizontal,20)
+                                
+                                HStack{
+                                    VStack {
+                                        Image("paymentmethod")
+
+                                            .scaledToFit()
+                                        Spacer()
+                                    }
+                                    VStack{
+                                        HStack{
+                                            Text("Payment Method")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            Spacer()
+                                        }
+                                        HStack{
+                                            Text("Cash / Credit Card")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(Color("5A5A5A"))
+                                            Spacer()
+                                        }.padding(.top,1)
+                                    }.padding(.horizontal,5)
+                                }.padding(.horizontal,20)
+                            }
+                          
+                            
                         }
                         .padding(.top)
                         
-                        VStack
-                        {
-                            HStack{
-                                NewOrderButton(title: "Issuance of invoice")
-                                NewOrderButton(title: "Postponement Request")
-                                NewOrderButton(title: "Call Customer")
-                            }
-                        }.padding(.vertical)
+                      
                     }
                 }
+                BottomNavTechnician()
             }
           
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
@@ -148,8 +247,8 @@ struct NewOrderDetailScreen: View {
     }
 }
 
-struct NewOrderDetailScreen_Previews: PreviewProvider {
+struct CompletedOrderScreen_Previews: PreviewProvider {
     static var previews: some View {
-        NewOrderDetailScreen()
+        CompletedOrderScreen()
     }
 }

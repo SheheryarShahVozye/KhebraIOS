@@ -1,5 +1,5 @@
 //
-//  NewOrderDetailScreen.swift
+//  DeferredOrderScreen.swift
 //  Khebra
 //
 //  Created by Sheheryar on 04/09/2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct NewOrderDetailScreen: View {
+struct DeferredOrderScreen: View {
     var body: some View {
         ZStack{
             VStack{
-                TopNavigation(titleText: "New Order Details")
+                TopNavigation(titleText: "Deferred Order Details")
                 
                 ScrollView{
                     VStack{
@@ -112,6 +112,31 @@ struct NewOrderDetailScreen: View {
                                 }
                                 VStack{
                                     HStack{
+                                        Text("Postponement ends")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.medium)
+                                            .foregroundColor(Color("B2C1E3"))
+                                        Spacer()
+                                    }
+                                    HStack{
+                                        Text("6/6/2022, 05:30 PM")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.medium)
+                                            .foregroundColor(Color("5A5A5A"))
+                                        Spacer()
+                                    }.padding(.top,1)
+                                }.padding(.horizontal,5)
+                            }.padding(.horizontal,20)
+                            HStack{
+                                VStack {
+                                    Image("time")
+                                        .resizable()
+                                        .frame(width: 15, height: 15, alignment: .center)
+                                        .scaledToFit()
+                                    Spacer()
+                                }
+                                VStack{
+                                    HStack{
                                         Text("Address")
                                             .font(.system(size: 14))
                                             .fontWeight(.medium)
@@ -127,19 +152,37 @@ struct NewOrderDetailScreen: View {
                                     }.padding(.top,1)
                                 }.padding(.horizontal,5)
                             }.padding(.horizontal,20)
+                            
                         }
                         .padding(.top)
                         
                         VStack
                         {
                             HStack{
-                                NewOrderButton(title: "Issuance of invoice")
-                                NewOrderButton(title: "Postponement Request")
-                                NewOrderButton(title: "Call Customer")
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 0)
+                                        .foregroundColor(Color("White"))
+                                    RoundedRectangle(cornerRadius: 0)
+                                        .stroke(Color("buttonbg"),lineWidth: 1)
+                                        .overlay(
+                                            HStack{
+                                                Image("android_phone")
+                                                    .scaledToFit()
+                                                
+                                                Text("Call Customer")
+                                                    .font(.system(size: 16))
+                                                    .foregroundColor(Color("buttonbg"))
+                                            }
+                                        )
+                                    
+                                }.frame(width: UIScreen.main.bounds.width - 75, height: 50, alignment: .center)
+                              
+                                
                             }
-                        }.padding(.vertical)
+                        }.padding(.vertical,20)
                     }
                 }
+                BottomNavTechnician()
             }
           
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
@@ -148,8 +191,8 @@ struct NewOrderDetailScreen: View {
     }
 }
 
-struct NewOrderDetailScreen_Previews: PreviewProvider {
+struct DeferredOrderScreen_Previews: PreviewProvider {
     static var previews: some View {
-        NewOrderDetailScreen()
+        DeferredOrderScreen()
     }
 }
