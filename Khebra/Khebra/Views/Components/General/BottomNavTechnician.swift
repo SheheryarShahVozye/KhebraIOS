@@ -17,7 +17,7 @@ struct BottomNavTechnician: View {
             Spacer()
             VStack{
                 Spacer()
-                if viewRouter.currentPage == "DashboardScreen" {
+                if viewRouter.currentPage == "TechnicianDashboard" {
                     Image("Iconly-Bold-Home")
                         .scaledToFit()
                         .padding(.horizontal,10)
@@ -42,7 +42,7 @@ struct BottomNavTechnician: View {
                
                 Spacer()
             }.onTapGesture {
-                viewRouter.currentPage = "DashboardScreen"
+                viewRouter.currentPage = "TechnicianDashboard"
                 
             }
            
@@ -51,7 +51,7 @@ struct BottomNavTechnician: View {
             
             VStack{
                 Spacer()
-                if viewRouter.currentPage == "OrderScreen" {
+                if viewRouter.currentPage == "OrderDashboardScreen" {
                     Image("orders-yellow")
                         .padding(.horizontal,10)
                         .padding(.bottom,5)
@@ -74,7 +74,7 @@ struct BottomNavTechnician: View {
                
                 Spacer()
             }.onTapGesture {
-                viewRouter.currentPage = "OrderScreen"
+                viewRouter.currentPage = "OrderDashboardScreen"
             }
             
            
@@ -82,7 +82,7 @@ struct BottomNavTechnician: View {
            
             VStack{
                 Spacer()
-                if viewRouter.currentPage == "OfferScreen" {
+                if viewRouter.currentPage == "NotificationScreen" {
                     Image("bellIcon")
                         .padding(.horizontal,10)
                         .padding(.bottom,5)
@@ -105,7 +105,7 @@ struct BottomNavTechnician: View {
                
                 Spacer()
             }.onTapGesture {
-                viewRouter.currentPage = "OfferScreen"
+                viewRouter.currentPage = "NotificationScreen"
             }
             
             Group {
@@ -114,7 +114,7 @@ struct BottomNavTechnician: View {
              
                 VStack{
                     Spacer()
-                    if viewRouter.currentPage == "MoreScreen" {
+                    if viewRouter.currentPage == "TechMoreScreen" {
                         
                         Image("more-yellow")
                             .scaledToFit()
@@ -140,7 +140,7 @@ struct BottomNavTechnician: View {
                    
                     Spacer()
                 }.onTapGesture {
-                    viewRouter.currentPage = "MoreScreen"
+                    viewRouter.currentPage = "TechMoreScreen"
                 }.padding(.top,10)
                 
                 Spacer()

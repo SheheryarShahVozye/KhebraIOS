@@ -58,6 +58,13 @@
 		149033D028C4FE2C00FC0264 /* InvoiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149033CF28C4FE2C00FC0264 /* InvoiceTextField.swift */; };
 		149033D528C50DB300FC0264 /* TechMoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149033D428C50DB300FC0264 /* TechMoreScreen.swift */; };
 		149033D728C53D5C00FC0264 /* IncomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149033D628C53D5C00FC0264 /* IncomeScreen.swift */; };
+		14AEB9B928C64E6D006688BD /* HowToUseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9B828C64E6D006688BD /* HowToUseScreen.swift */; };
+		14AEB9BD28C651F1006688BD /* TechProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9BC28C651F1006688BD /* TechProfileScreen.swift */; };
+		14AEB9BF28C65756006688BD /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9BE28C65756006688BD /* SettingScreen.swift */; };
+		14AEB9C128C6839D006688BD /* IncentivePenaltyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9C028C6839D006688BD /* IncentivePenaltyScreen.swift */; };
+		14AEB9C328C68B24006688BD /* RatingFactorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9C228C68B23006688BD /* RatingFactorScreen.swift */; };
+		14AEB9C528C72007006688BD /* InvoiceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9C428C72007006688BD /* InvoiceScreen.swift */; };
+		14AEB9C728C8A4FF006688BD /* NewInvoiceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEB9C628C8A4FF006688BD /* NewInvoiceScreen.swift */; };
 		14C85D7128BD4E8A0019066A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C85D7028BD4E8A0019066A /* LoginScreen.swift */; };
 		14C85D7428BD5DC20019066A /* STCRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14C85D7328BD5DC20019066A /* STCRegular.ttf */; };
 		14C85D7628BD5DD30019066A /* STC Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14C85D7528BD5DD30019066A /* STC Bold.ttf */; };
@@ -153,6 +160,13 @@
 		149033CF28C4FE2C00FC0264 /* InvoiceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTextField.swift; sourceTree = "<group>"; };
 		149033D428C50DB300FC0264 /* TechMoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechMoreScreen.swift; sourceTree = "<group>"; };
 		149033D628C53D5C00FC0264 /* IncomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeScreen.swift; sourceTree = "<group>"; };
+		14AEB9B828C64E6D006688BD /* HowToUseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseScreen.swift; sourceTree = "<group>"; };
+		14AEB9BC28C651F1006688BD /* TechProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechProfileScreen.swift; sourceTree = "<group>"; };
+		14AEB9BE28C65756006688BD /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
+		14AEB9C028C6839D006688BD /* IncentivePenaltyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncentivePenaltyScreen.swift; sourceTree = "<group>"; };
+		14AEB9C228C68B23006688BD /* RatingFactorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingFactorScreen.swift; sourceTree = "<group>"; };
+		14AEB9C428C72007006688BD /* InvoiceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceScreen.swift; sourceTree = "<group>"; };
+		14AEB9C628C8A4FF006688BD /* NewInvoiceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceScreen.swift; sourceTree = "<group>"; };
 		14C85D7028BD4E8A0019066A /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		14C85D7228BD56200019066A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		14C85D7328BD5DC20019066A /* STCRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STCRegular.ttf; sourceTree = "<group>"; };
@@ -250,6 +264,7 @@
 				149033C928C4F40C00FC0264 /* DeferredOrderScreen.swift */,
 				149033CB28C4F64400FC0264 /* CompletedOrderScreen.swift */,
 				149033CD28C4FD0200FC0264 /* InvoiceDetailScreen.swift */,
+				14AEB9C628C8A4FF006688BD /* NewInvoiceScreen.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -362,6 +377,12 @@
 			children = (
 				149033D428C50DB300FC0264 /* TechMoreScreen.swift */,
 				149033D628C53D5C00FC0264 /* IncomeScreen.swift */,
+				14AEB9B828C64E6D006688BD /* HowToUseScreen.swift */,
+				14AEB9BC28C651F1006688BD /* TechProfileScreen.swift */,
+				14AEB9BE28C65756006688BD /* SettingScreen.swift */,
+				14AEB9C028C6839D006688BD /* IncentivePenaltyScreen.swift */,
+				14AEB9C228C68B23006688BD /* RatingFactorScreen.swift */,
+				14AEB9C428C72007006688BD /* InvoiceScreen.swift */,
 			);
 			path = ProfileScreens;
 			sourceTree = "<group>";
@@ -616,10 +637,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AEB9BF28C65756006688BD /* SettingScreen.swift in Sources */,
 				14C85D9728BE89010019066A /* DashboardCard.swift in Sources */,
 				144635D428C3AE7E00311865 /* ChooseOnMapScreen.swift in Sources */,
 				14CEBC4E28BFCBED004A6FF2 /* CustomerReviewCard.swift in Sources */,
 				144635CE28C32C7B00311865 /* EngiDesignScreen.swift in Sources */,
+				14AEB9C528C72007006688BD /* InvoiceScreen.swift in Sources */,
 				144635E028C4795100311865 /* NotificationCrd.swift in Sources */,
 				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
 				144635E928C4957600311865 /* NewOrderDetailScreen.swift in Sources */,
@@ -643,6 +666,7 @@
 				144635DC28C3D36500311865 /* TechOrderCard.swift in Sources */,
 				145C29AF28B4241C00A317DC /* ViewRouter.swift in Sources */,
 				149033CE28C4FD0200FC0264 /* InvoiceDetailScreen.swift in Sources */,
+				14AEB9B928C64E6D006688BD /* HowToUseScreen.swift in Sources */,
 				141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */,
 				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
 				14C85D8628BDF50F0019066A /* TopNavigation.swift in Sources */,
@@ -650,6 +674,7 @@
 				14C85D9C28BE9E240019066A /* MyOrderCard.swift in Sources */,
 				14C85D8328BDF1780019066A /* VerificationScreen.swift in Sources */,
 				141B6D1428C08FFD00EA7479 /* Profile.swift in Sources */,
+				14AEB9BD28C651F1006688BD /* TechProfileScreen.swift in Sources */,
 				149033C828C4E31F00FC0264 /* IncomingOrderScreen.swift in Sources */,
 				141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */,
 				14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */,
@@ -660,12 +685,14 @@
 				144635EB28C4965D00311865 /* OrderNumCard.swift in Sources */,
 				14C85D8128BDF01D0019066A /* SignUpScreen.swift in Sources */,
 				14C85D7C28BD622F0019066A /* LoginTextField.swift in Sources */,
+				14AEB9C728C8A4FF006688BD /* NewInvoiceScreen.swift in Sources */,
 				14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */,
 				144635C528C25D8400311865 /* OffersCard.swift in Sources */,
 				141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */,
 				145C746428BFFC28003E7164 /* ShareApp.swift in Sources */,
 				144635C728C266C800311865 /* FavTechnicianCard.swift in Sources */,
 				14C85D9428BE5DC60019066A /* BottomNavigation.swift in Sources */,
+				14AEB9C128C6839D006688BD /* IncentivePenaltyScreen.swift in Sources */,
 				144635C928C2692000311865 /* FavTechnicianScreen.swift in Sources */,
 				149033CC28C4F64400FC0264 /* CompletedOrderScreen.swift in Sources */,
 				145C746628C0005A003E7164 /* ConnectScreen.swift in Sources */,
@@ -673,6 +700,7 @@
 				141B6D1D28C1240E00EA7479 /* Rating.swift in Sources */,
 				14C85D9E28BF22250019066A /* TrackingOrderScreen.swift in Sources */,
 				149033D728C53D5C00FC0264 /* IncomeScreen.swift in Sources */,
+				14AEB9C328C68B24006688BD /* RatingFactorScreen.swift in Sources */,
 				14C85D8B28BE42710019066A /* AccountCompletion.swift in Sources */,
 				14C85D9A28BE98050019066A /* OrderScreen.swift in Sources */,
 				144635C328C25CDD00311865 /* OfferScreen.swift in Sources */,

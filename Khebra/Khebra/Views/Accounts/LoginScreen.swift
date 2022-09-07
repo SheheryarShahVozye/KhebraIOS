@@ -43,7 +43,7 @@ struct LoginScreen: View {
                             .padding(.vertical,5)
                         
                         CustomButton(title: "Login", callback: {
-                            viewRouter.currentPage = "VerificationScreen"
+                            viewRouter.currentPage = "RegisterPasswordScreen"
                         }).padding(.top)
                     }
                    

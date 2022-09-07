@@ -10,17 +10,17 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-//        if viewRouter.currentPage == "splashscreen" {
-//            SplashScreen()
-//                .onAppear(perform: {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                        viewRouter.currentPage = "LoginScreen"
-//                    }
-//                })
-//        } else {
-//            RouteManager()
-//        }
-        TechMoreScreen()
+        if viewRouter.currentPage == "splashscreen" {
+            SplashScreen()
+                .onAppear(perform: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        viewRouter.currentPage = "LoginScreen"
+                    }
+                })
+        } else {
+            RouteManager()
+        }
+      //  TechMoreScreen()
      
     }
 }
@@ -72,6 +72,40 @@ struct RouteManager: View {
             FavTechnicianScreen()
         } else if viewRouter.currentPage == "BusinessSectorScreen" {
             BusinessSectorScreen()
+        } else if viewRouter.currentPage == "TechnicianDashboard" {
+            TechnicianDashboard()
+        } else if viewRouter.currentPage == "NotificationScreen" {
+            NotificationScreen()
+        } else if viewRouter.currentPage == "OrderDashboardScreen" {
+            OrderDashboardScreen()
+        } else if viewRouter.currentPage == "NewOrderDetailScreen" {
+            NewOrderDetailScreen()
+        } else if viewRouter.currentPage == "IncomingOrderScreen" {
+            IncomingOrderScreen()
+        } else if viewRouter.currentPage == "DeferredOrderScreen" {
+            DeferredOrderScreen()
+        } else if viewRouter.currentPage == "CompletedOrderScreen" {
+            CompletedOrderScreen()
+        } else if viewRouter.currentPage == "InvoiceDetailScreen" {
+            InvoiceDetailScreen()
+        } else if viewRouter.currentPage == "TechMoreScreen" {
+            TechMoreScreen()
+        } else if viewRouter.currentPage == "IncomeScreen" {
+            IncomeScreen()
+        } else if viewRouter.currentPage == "HowToUseScreen" {
+            HowToUseScreen()
+        } else if viewRouter.currentPage == "TechProfileScreen" {
+            TechProfileScreen()
+        } else if viewRouter.currentPage == "SettingScreen" {
+            SettingScreen()
+        } else if viewRouter.currentPage == "RegisterPasswordScreen" {
+            RegisterPasswordScreen()
+        } else if viewRouter.currentPage == "IncentivePenaltyScreen" {
+            IncentivePenaltyScreen()
+        } else if viewRouter.currentPage == "NewInvoiceScreen" {
+            NewInvoiceScreen()
+        } else if viewRouter.currentPage == "RatingFactorScreen" {
+            RatingFactorScreen()
         }
         
     }

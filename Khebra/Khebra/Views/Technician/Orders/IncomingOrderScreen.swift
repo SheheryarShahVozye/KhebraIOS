@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IncomingOrderScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{

@@ -50,7 +50,7 @@ struct RegisterPasswordScreen: View {
                         .padding(.horizontal)
                     
                     CustomButton(title: "Login", callback: {
-                        viewRouter.currentPage = "VerificationScreen"
+                        viewRouter.currentPage =  "TechnicianDashboard"
                     }).padding(.top)
                 }.padding(.vertical,30)
                 Spacer()

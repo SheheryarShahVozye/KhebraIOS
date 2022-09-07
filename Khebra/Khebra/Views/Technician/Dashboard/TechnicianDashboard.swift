@@ -66,6 +66,9 @@ struct TechnicianDashboard: View {
                         VStack{
                             ForEach(0 ..< 5,id:\.self) { _ in
                                 TechOrderCard()
+                                    .onTapGesture {
+                                        viewRouter.currentPage = "IncomingOrderScreen"
+                                    }
                             }
                         }.padding(.vertical)
                        

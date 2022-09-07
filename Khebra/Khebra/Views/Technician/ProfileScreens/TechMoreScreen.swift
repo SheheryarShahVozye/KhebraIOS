@@ -80,15 +80,25 @@ struct TechMoreScreen: View {
                             } else {
                                 MoreCard(name: moreItems[item],Imagename: itemImages[item])
                                     .onTapGesture {
-                                        if moreItems[item] == "User Agreements" {
-                                            viewRouter.currentPage = "UserAgreementScreen"
-                                        }
+                                     
                                         
                                         if moreItems[item] == "Profile" {
-                                            viewRouter.currentPage = "ProfileScreen"
+                                            viewRouter.currentPage = "TechProfileScreen"
                                         }
                                         
-                                        if moreItems[item] == "Share App and win with us" {
+                                        if moreItems[item] == "How to use" {
+                                            viewRouter.currentPage = "HowToUseScreen"
+                                        }
+                                        
+                                        if moreItems[item] == "Setting" {
+                                            viewRouter.currentPage = "SettingScreen"
+                                        }
+                                        
+                                        if moreItems[item] == "Income" {
+                                            viewRouter.currentPage = "IncomeScreen"
+                                        }
+                                        
+                                        if moreItems[item] == "Share" {
                                             viewRouter.currentPage = "ShareApp"
                                         }
                                         if moreItems[item] == "Connect Us" {
@@ -99,13 +109,11 @@ struct TechMoreScreen: View {
                                             viewRouter.currentPage = "LoginScreen"
                                         }
                                         
-                                        if  moreItems[item] == "Orders" {
-                                            viewRouter.currentPage = "OrderScreen"
+                                        if  moreItems[item] == "Notification" {
+                                            viewRouter.currentPage = "NotificationScreen"
                                         }
                                         
-                                        if moreItems[item] == "Favorite Technicians" {
-                                            viewRouter.currentPage = "FavTechnicianScreen"
-                                        }
+                                       
                                     }
                             }
                            

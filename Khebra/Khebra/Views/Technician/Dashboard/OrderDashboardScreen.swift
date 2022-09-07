@@ -145,17 +145,17 @@ struct OrderDashboardScreen: View {
                             if selected == "New Order" {
                                 TechOrderDetailCard()
                                     .onTapGesture{
-                                     //   viewRouter.currentPage = "TrackingOrderScreen"
+                                       viewRouter.currentPage = "NewOrderDetailScreen"
                                     }
                             } else if selected == "Deferred" {
                                 TechOrderDetailCard()
                                     .onTapGesture{
-                                       // viewRouter.currentPage = "TrackingOrderScreen"
+                                        viewRouter.currentPage = "DeferredOrderScreen"
                                     }
                             } else {
-                                TechOrderDetailCard()
+                                TechOrderCompletedCard()
                                     .onTapGesture{
-                                    //    viewRouter.currentPage = "TrackingOrderScreen"
+                                     viewRouter.currentPage = "CompletedOrderScreen"
                                     }
                             }
                            

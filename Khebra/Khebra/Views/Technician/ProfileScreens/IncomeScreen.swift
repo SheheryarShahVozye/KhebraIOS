@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IncomeScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
