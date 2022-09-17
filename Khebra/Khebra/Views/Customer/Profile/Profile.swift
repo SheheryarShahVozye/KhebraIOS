@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    @State var name: String = ""
+    @State var email: String = ""
+    @State var mobileNo: String = ""
+    @State var address: String = ""
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
@@ -26,7 +31,7 @@ struct ProfileScreen: View {
                                 Spacer()
                             }.padding(.horizontal,30)
                             
-                            CustomTextField(value: .constant(""), placeHolder: "Name")
+                            CustomTextField(value: $name, placeHolder: "Name")
                         }.padding(.top,5)
                         
                         VStack{
@@ -41,7 +46,7 @@ struct ProfileScreen: View {
                                 Spacer()
                             }.padding(.horizontal,30)
                             
-                            CustomTextField(value: .constant(""), placeHolder: "Email")
+                            CustomTextField(value: $email, placeHolder: "Email")
                         }.padding(.top,5)
                         
                         VStack{
@@ -56,7 +61,7 @@ struct ProfileScreen: View {
                                 Spacer()
                             }.padding(.horizontal,30)
                             
-                            CustomTextField(value: .constant(""), placeHolder: "Mobile No")
+                            CustomTextField(value: $mobileNo, placeHolder: "Mobile No")
                         }.padding(.top,5)
                         
                         VStack{
@@ -71,7 +76,7 @@ struct ProfileScreen: View {
                                 Spacer()
                             }.padding(.horizontal,30)
                             
-                            CustomTextField(value: .constant(""), placeHolder: "Enter your Address")
+                            CustomTextField(value: $address, placeHolder: "Enter your Address")
                         }.padding(.top,5)
                         
                         
@@ -113,7 +118,18 @@ struct ProfileScreen: View {
                             .padding(.top)
                         
                         CustomButton(title: "Save", callback: {
+                            let customerprofile = ProfilePostBody()
+                            customerprofile.address = address
+                            customerprofile.name = name
+                            customerprofile.email = email
+                            customerprofile.phone = mobileNo
                             
+                            customerApi.updateCustomerprofle(customerprofile, success: { res in
+                                AppUtil.user = res
+                                viewRouter.goBack()
+                            }, failure: { _ in
+                                
+                            })
                         }).padding(.vertical)
                         
                     }
@@ -123,6 +139,18 @@ struct ProfileScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .onAppear(perform: {
+                customerApi.getCustomerprofile(success: { res in
+                    AppUtil.user = res
+                    name = AppUtil.user?.name ?? ""
+                    email = AppUtil.user?.email ?? ""
+                    mobileNo = AppUtil.user?.phone ?? ""
+                    address = AppUtil.user?.address ?? ""
+                    
+                }, failure: { _ in
+                    
+                })
+            })
     }
 }
 

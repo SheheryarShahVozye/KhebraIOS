@@ -27,6 +27,21 @@ class AppUtil {
         return hasNotch
     }
     
+    static func isNetworkReachable(with flags: SCNetworkReachabilityFlags) -> Bool {
+        let isReachable = flags.contains(.reachable)
+        let needConnection = flags.contains(.connectionRequired)
+        let canConnectAutomatically = flags.contains(.connectionOnDemand) || flags.contains(.connectionOnTraffic)
+        let canConnectWithoutInteraction = canConnectAutomatically && !flags.contains(.interventionRequired)
+        return isReachable && (!needConnection || canConnectWithoutInteraction)
+    }
+    
+    public static var registerResponse: RegisterResponseBody?
+    public static var user: User?
+    public static var otp: Int?
+    public static var idToken: String = ""
+    public static let reachability = SCNetworkReachabilityCreateWithName(nil, "www.apple.com")
+ 
+    
     public static var serviceTypes: [String] = ["Electricity","Plumbing","Carpentry","Blacksmith","Conditioning","Paints","Cleanliness"
     ,"Household Appliance","Mobiles","Computer","Surveillance Cameras","Flooring","Pest Control","Baggage Transfer"]
     public static var serviceImages: [String] = ["electricity","plumbing","carpentry","blacksmith","conditioning","Paint","cleaness"

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @State var textNumber: String = ""
     var body: some View {
         ZStack{
             VStack{
@@ -39,11 +40,22 @@ struct LoginScreen: View {
                             Spacer()
                             
                         }.padding(.top)
-                        LoginTextField(value: .constant(""))
+                        LoginTextField(value: $textNumber)
                             .padding(.vertical,5)
                         
                         CustomButton(title: "Login", callback: {
-                            viewRouter.currentPage = "RegisterPasswordScreen"
+                            let object = RegisterBody()
+                            object.phone = textNumber
+                            
+                            customerApi.loginCustomer(object, success: { res in
+                                AppUtil.otp = res.otp
+                                viewRouter.currentPage = "VerificationScreen"
+                            
+                            }, failure: { _ in
+                                
+                            })
+                            
+                           
                         }).padding(.top)
                     }
                    

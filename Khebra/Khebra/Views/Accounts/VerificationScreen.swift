@@ -74,7 +74,16 @@ struct VerificationScreen: View {
                         }.padding(.vertical,10)
                         
                         CustomButton(title: "Next", callback: {
-                            viewRouter.currentPage = "AccountCompletion"
+                            let object = VerifyOtp()
+                            object.otp = AppUtil.otp
+                            customerApi.verifyOtp(object, success: { res in
+                                AppUtil.user = res.user
+                                AppUtil.idToken = res.token ?? ""
+                                viewRouter.currentPage = "AccountCompletion"
+                            }, failure: { _ in
+                                
+                            })
+                           
                         }).padding()
                         
                         HStack{
@@ -102,6 +111,11 @@ struct VerificationScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .onAppear(perform: {
+                let otpValue = String(AppUtil.otp ?? 0)
+                viewModel.otpField = otpValue
+            
+            })
     }
     
     private func otpText(text: String) -> some View {

@@ -19,6 +19,7 @@
 		141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1828C0A41700EA7479 /* PointCard.swift */; };
 		141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */; };
 		141B6D1D28C1240E00EA7479 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6D1C28C1240E00EA7479 /* Rating.swift */; };
+		143D351A28D5BBA400946FDD /* profileBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143D351928D5BBA400946FDD /* profileBody.swift */; };
 		144635C328C25CDD00311865 /* OfferScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C228C25CDD00311865 /* OfferScreen.swift */; };
 		144635C528C25D8400311865 /* OffersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C428C25D8400311865 /* OffersCard.swift */; };
 		144635C728C266C800311865 /* FavTechnicianCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144635C628C266C800311865 /* FavTechnicianCard.swift */; };
@@ -86,6 +87,13 @@
 		14CEBC5028BFD59A004A6FF2 /* OrderCancelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */; };
 		14CEBC5328BFE429004A6FF2 /* MoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */; };
 		14CEBC5528BFE5A7004A6FF2 /* MoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEBC5428BFE5A7004A6FF2 /* MoreCard.swift */; };
+		14D339BA28D0721C006360D9 /* technicianApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D339B928D0721C006360D9 /* technicianApi.swift */; };
+		14D339BC28D07227006360D9 /* customerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D339BB28D07227006360D9 /* customerApi.swift */; };
+		14D339BE28D0A108006360D9 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D339BD28D0A108006360D9 /* Strings.swift */; };
+		14D339C128D0F3E9006360D9 /* CustomerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D339C028D0F3E9006360D9 /* CustomerSignUp.swift */; };
+		D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */; };
+		EDB21BABB550BC82D988B938 /* Pods_KhebraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */; };
+		FDBC31E5FC3AA342979CC4BA /* Pods_Khebra_KhebraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DAFC800E16A91B025D79E /* Pods_Khebra_KhebraUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +114,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05F958B15321DE55AD4EAFBD /* Pods-KhebraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhebraTests.debug.xcconfig"; path = "Target Support Files/Pods-KhebraTests/Pods-KhebraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		119DAFC800E16A91B025D79E /* Pods_Khebra_KhebraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Khebra_KhebraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A43F928BF324600FA094A /* OrderDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailScreen.swift; sourceTree = "<group>"; };
 		141A43FB28BF475200FA094A /* CompleteOrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderScreen.swift; sourceTree = "<group>"; };
 		141A43FD28BF5CE100FA094A /* TechnicianCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianCard.swift; sourceTree = "<group>"; };
@@ -118,6 +128,7 @@
 		141B6D1828C0A41700EA7479 /* PointCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCard.swift; sourceTree = "<group>"; };
 		141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrder.swift; sourceTree = "<group>"; };
 		141B6D1C28C1240E00EA7479 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		143D351928D5BBA400946FDD /* profileBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileBody.swift; sourceTree = "<group>"; };
 		144635C228C25CDD00311865 /* OfferScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferScreen.swift; sourceTree = "<group>"; };
 		144635C428C25D8400311865 /* OffersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCard.swift; sourceTree = "<group>"; };
 		144635C628C266C800311865 /* FavTechnicianCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTechnicianCard.swift; sourceTree = "<group>"; };
@@ -189,6 +200,17 @@
 		14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelScreen.swift; sourceTree = "<group>"; };
 		14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreScreen.swift; sourceTree = "<group>"; };
 		14CEBC5428BFE5A7004A6FF2 /* MoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCard.swift; sourceTree = "<group>"; };
+		14D339B928D0721C006360D9 /* technicianApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = technicianApi.swift; sourceTree = "<group>"; };
+		14D339BB28D07227006360D9 /* customerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customerApi.swift; sourceTree = "<group>"; };
+		14D339BD28D0A108006360D9 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		14D339C028D0F3E9006360D9 /* CustomerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSignUp.swift; sourceTree = "<group>"; };
+		1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.release.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.release.xcconfig"; sourceTree = "<group>"; };
+		388A53BE8FC746D8F2D76969 /* Pods-Khebra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra.release.xcconfig"; path = "Target Support Files/Pods-Khebra/Pods-Khebra.release.xcconfig"; sourceTree = "<group>"; };
+		4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KhebraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A7FE865C41861B1C2C06F7B /* Pods-Khebra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra.debug.xcconfig"; path = "Target Support Files/Pods-Khebra/Pods-Khebra.debug.xcconfig"; sourceTree = "<group>"; };
+		6A930394084559121AD4E299 /* Pods-KhebraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhebraTests.release.xcconfig"; path = "Target Support Files/Pods-KhebraTests/Pods-KhebraTests.release.xcconfig"; sourceTree = "<group>"; };
+		FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Khebra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB21BABB550BC82D988B938 /* Pods_KhebraTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDBC31E5FC3AA342979CC4BA /* Pods_Khebra_KhebraUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +301,8 @@
 				145C299028B41FB600A317DC /* KhebraTests */,
 				145C299A28B41FB600A317DC /* KhebraUITests */,
 				145C297E28B41FB200A317DC /* Products */,
+				1DDF6CE6A303A3056E46E0E1 /* Pods */,
+				333D97C162710656A309C073 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,7 +319,7 @@
 		145C297F28B41FB200A317DC /* Khebra */ = {
 			isa = PBXGroup;
 			children = (
-				14C85D8728BDF52C0019066A /* New Group */,
+				14D339BF28D0F365006360D9 /* Models */,
 				14C85D7528BD5DD30019066A /* STC Bold.ttf */,
 				14C85D7328BD5DC20019066A /* STCRegular.ttf */,
 				14C85D7228BD56200019066A /* Info.plist */,
@@ -347,6 +374,9 @@
 			isa = PBXGroup;
 			children = (
 				14C85D8828BDF54F0019066A /* AppUtil.swift */,
+				14D339B928D0721C006360D9 /* technicianApi.swift */,
+				14D339BB28D07227006360D9 /* customerApi.swift */,
+				14D339BD28D0A108006360D9 /* Strings.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -427,13 +457,6 @@
 			path = General;
 			sourceTree = "<group>";
 		};
-		14C85D8728BDF52C0019066A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		14C85D8E28BE46410019066A /* Customer */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +528,38 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		14D339BF28D0F365006360D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14D339C028D0F3E9006360D9 /* CustomerSignUp.swift */,
+				143D351928D5BBA400946FDD /* profileBody.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1DDF6CE6A303A3056E46E0E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A7FE865C41861B1C2C06F7B /* Pods-Khebra.debug.xcconfig */,
+				388A53BE8FC746D8F2D76969 /* Pods-Khebra.release.xcconfig */,
+				1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */,
+				373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */,
+				05F958B15321DE55AD4EAFBD /* Pods-KhebraTests.debug.xcconfig */,
+				6A930394084559121AD4E299 /* Pods-KhebraTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		333D97C162710656A309C073 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */,
+				119DAFC800E16A91B025D79E /* Pods_Khebra_KhebraUITests.framework */,
+				4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,9 +567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 145C29A128B41FB600A317DC /* Build configuration list for PBXNativeTarget "Khebra" */;
 			buildPhases = (
+				A2DEEA22DBEC0CDF3DD1428E /* [CP] Check Pods Manifest.lock */,
 				145C297928B41FB200A317DC /* Sources */,
 				145C297A28B41FB200A317DC /* Frameworks */,
 				145C297B28B41FB200A317DC /* Resources */,
+				562915488F591F83B3D147EC /* [CP] Embed Pods Frameworks */,
+				C5A59034C938E1F2F46BA288 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -529,6 +587,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 145C29A428B41FB600A317DC /* Build configuration list for PBXNativeTarget "KhebraTests" */;
 			buildPhases = (
+				9DCD35BCF37C9748BB4FDA7C /* [CP] Check Pods Manifest.lock */,
 				145C298928B41FB600A317DC /* Sources */,
 				145C298A28B41FB600A317DC /* Frameworks */,
 				145C298B28B41FB600A317DC /* Resources */,
@@ -547,9 +606,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 145C29A728B41FB600A317DC /* Build configuration list for PBXNativeTarget "KhebraUITests" */;
 			buildPhases = (
+				BC1D61AE0A5FEB4E7F8A89CE /* [CP] Check Pods Manifest.lock */,
 				145C299328B41FB600A317DC /* Sources */,
 				145C299428B41FB600A317DC /* Frameworks */,
 				145C299528B41FB600A317DC /* Resources */,
+				A0EF854BE516594A6E5E7777 /* [CP] Embed Pods Frameworks */,
+				88117FA83FF5528A32125A6A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -632,11 +694,149 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		562915488F591F83B3D147EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra/Pods-Khebra-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra/Pods-Khebra-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Khebra/Pods-Khebra-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88117FA83FF5528A32125A6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DCD35BCF37C9748BB4FDA7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KhebraTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0EF854BE516594A6E5E7777 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2DEEA22DBEC0CDF3DD1428E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Khebra-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC1D61AE0A5FEB4E7F8A89CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Khebra-KhebraUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5A59034C938E1F2F46BA288 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra/Pods-Khebra-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Khebra/Pods-Khebra-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Khebra/Pods-Khebra-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		145C297928B41FB200A317DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				143D351A28D5BBA400946FDD /* profileBody.swift in Sources */,
 				14AEB9BF28C65756006688BD /* SettingScreen.swift in Sources */,
 				14C85D9728BE89010019066A /* DashboardCard.swift in Sources */,
 				144635D428C3AE7E00311865 /* ChooseOnMapScreen.swift in Sources */,
@@ -644,7 +844,9 @@
 				144635CE28C32C7B00311865 /* EngiDesignScreen.swift in Sources */,
 				14AEB9C528C72007006688BD /* InvoiceScreen.swift in Sources */,
 				144635E028C4795100311865 /* NotificationCrd.swift in Sources */,
+				14D339BE28D0A108006360D9 /* Strings.swift in Sources */,
 				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
+				14D339BC28D07227006360D9 /* customerApi.swift in Sources */,
 				144635E928C4957600311865 /* NewOrderDetailScreen.swift in Sources */,
 				141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */,
 				144635D228C32D0C00311865 /* MaintainanceScreen.swift in Sources */,
@@ -666,8 +868,10 @@
 				144635DC28C3D36500311865 /* TechOrderCard.swift in Sources */,
 				145C29AF28B4241C00A317DC /* ViewRouter.swift in Sources */,
 				149033CE28C4FD0200FC0264 /* InvoiceDetailScreen.swift in Sources */,
+				14D339C128D0F3E9006360D9 /* CustomerSignUp.swift in Sources */,
 				14AEB9B928C64E6D006688BD /* HowToUseScreen.swift in Sources */,
 				141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */,
+				14D339BA28D0721C006360D9 /* technicianApi.swift in Sources */,
 				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
 				14C85D8628BDF50F0019066A /* TopNavigation.swift in Sources */,
 				141B6D1228C08DBF00EA7479 /* AgreementCard.swift in Sources */,
@@ -863,6 +1067,7 @@
 		};
 		145C29A228B41FB600A317DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A7FE865C41861B1C2C06F7B /* Pods-Khebra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -893,6 +1098,7 @@
 		};
 		145C29A328B41FB600A317DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 388A53BE8FC746D8F2D76969 /* Pods-Khebra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -923,6 +1129,7 @@
 		};
 		145C29A528B41FB600A317DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F958B15321DE55AD4EAFBD /* Pods-KhebraTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -943,6 +1150,7 @@
 		};
 		145C29A628B41FB600A317DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A930394084559121AD4E299 /* Pods-KhebraTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -963,6 +1171,7 @@
 		};
 		145C29A828B41FB600A317DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -981,6 +1190,7 @@
 		};
 		145C29A928B41FB600A317DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

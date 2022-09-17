@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountCompletion: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @State var name: String = ""
     var body: some View {
         ZStack{
             VStack{
@@ -25,7 +26,7 @@ struct AccountCompletion: View {
                             Spacer()
                         }
                         
-                        CustomTextField(value: .constant(""))
+                        CustomTextField(value: $name)
                         
                        
                     }.padding(.horizontal,30)
@@ -33,7 +34,15 @@ struct AccountCompletion: View {
                     
                     Spacer()
                     CustomButton(title: "Next", callback: {
-                        viewRouter.currentPage = "DashboardScreen"
+                        let obj = registerName()
+                        obj.name = name
+                        customerApi.customerName(obj, success: { _ in
+                            viewRouter.currentPage = "DashboardScreen"
+                        }, failure: { _ in
+                            
+                        })
+                      
+                        
                     })
                     Spacer()
                 }
