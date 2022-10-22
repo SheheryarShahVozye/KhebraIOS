@@ -113,7 +113,7 @@ struct BottomNavigation: View {
                 Spacer()
                 VStack{
                     Spacer()
-                    if viewRouter.currentPage == "BusinessSector" {
+                    if viewRouter.currentPage == "BusinessSectorScreen" {
                         Image("business-yellow")
                             .padding(.horizontal,10)
                             .padding(.bottom,5)
@@ -136,7 +136,7 @@ struct BottomNavigation: View {
                    
                     Spacer()
                 }.onTapGesture {
-                    viewRouter.currentPage = "BusinessSector"
+                    viewRouter.currentPage = "BusinessSectorScreen"
                 }
                 Spacer()
              

@@ -25,6 +25,24 @@ struct CustomButton: View {
     }
 }
 
+struct CustomButtonSignup: View {
+    var title: String = "Login"
+    var callback: () -> Void = {}
+    var body: some View {
+       RoundedRectangle(cornerRadius: 2)
+            .foregroundColor(Color("buttonbg"))
+            .frame(width: 225, height: 50, alignment: .center)
+            .overlay(
+                        Text(title)
+                            .font(.system(size: 16))
+                            .foregroundColor(Color("White"))
+                            .fontWeight(.semibold)
+            ).onTapGesture {
+                callback()
+            }
+    }
+}
+
 struct OrderButton: View {
     var title: String = "Login"
     var callback: () -> Void = {}

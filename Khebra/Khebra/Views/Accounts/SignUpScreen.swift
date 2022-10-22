@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State var textNumber: String = ""
+    @State var togglepopup: Bool = false
     var body: some View {
         ZStack{
             VStack{
@@ -43,7 +44,7 @@ struct SignUpScreen: View {
                         LoginTextField(value: $textNumber)
                             .padding(.vertical,5)
                         
-                        CustomButton(title: "Sign Up", callback: {
+                        CustomButtonSignup(title: "Sign Up as User", callback: {
                             let object = RegisterBody()
                             object.phone = textNumber
                            
@@ -54,6 +55,18 @@ struct SignUpScreen: View {
                             }, failure: { _ in
                                 
                             })
+                            
+                        }).padding(.top)
+                        
+                        CustomButtonSignup(title: "Sign Up as Technician", callback: {
+                            AppUtil.technicianNumber = textNumber
+                            if AppUtil.technicianNumber != "" {
+                                viewRouter.currentPage = "RegisterPasswordScreen"
+                            } else {
+                                togglepopup.toggle()
+                            }
+                         
+                           
                             
                         }).padding(.top)
                     }
@@ -80,6 +93,70 @@ struct SignUpScreen: View {
                     }.padding(.vertical,30)
                     
                 }.padding(.horizontal,30)
+            }
+            
+            if togglepopup {
+                ZStack{
+                    
+                    VStack {}
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color("White"))
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.6)
+                    
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: UIScreen.main.bounds.width - 50, height: 330, alignment: .center)
+                        .foregroundColor(Color("B6BAC3"))
+                        .shadow(color: Color("000000").opacity(0.2), radius: 2, x: 0, y: 1)
+                        .overlay(
+                            VStack{
+                                VStack{
+                                    Image("ic_covid_border_waypoint_alert_32pt")
+                                        .scaledToFit()
+                                }
+                                .frame(width: 108, height: 110, alignment: .center)
+                                .padding(.top)
+                                
+                                Text("Error?")
+                                    .foregroundColor(Color("White"))
+                                    .font(Font.custom("poppins", size: 20))
+                                    .fontWeight(.bold)
+                                
+                                Text("Please input all fields")
+                                    .foregroundColor(Color("White").opacity(0.7))
+                                    .font(Font.custom("poppins", size: 12))
+                                    .fontWeight(.regular)
+                                    .padding(.top,1)
+                                
+                                HStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 70)
+                                            .foregroundColor(Color("White"))
+                                        
+                                        RoundedRectangle(cornerRadius: 70)
+                                            .stroke(Color("buttonbg"),lineWidth: 1)
+                                            .overlay(
+                                                    Text("OK")
+                                                        .foregroundColor(Color("5A5A5A").opacity(0.4))
+                                                        .font(Font.custom("poppins", size: 18))
+                                                        .fontWeight(.regular)
+                                            )
+                                        
+                                    }.frame(width: 120, height: 35, alignment: .center)
+                                        .onTapGesture{
+                                            togglepopup.toggle()
+                                        }
+                                    
+                                   
+                                }
+                                .frame(width: UIScreen.main.bounds.width - 70)
+                                .padding(.vertical)
+                                    
+                                
+                            }
+                        )
+
+                }
             }
             
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)

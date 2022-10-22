@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RegisterPasswordScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @State var password: String = ""
+    @State var confirmPassword: String = ""
     var body: some View {
         ZStack{
             VStack{
@@ -36,9 +38,15 @@ struct RegisterPasswordScreen: View {
                         Spacer()
                         
                     }.padding(.horizontal,25)
-                    CustomTextField(value: .constant(""))
+                   
+                    passwordTextField(value: $password,placeHolder: "Enter Password")
                         .padding(.vertical,5)
                   
+                    if viewRouter.previousPage == "SignUpScreen" {
+                        passwordTextField(value: $confirmPassword,placeHolder: "Confirm Password")
+                            .padding(.vertical,5)
+                    }
+                    
                     HStack{
                         Spacer()
                         Text("Forgot Your Password?")
@@ -50,7 +58,26 @@ struct RegisterPasswordScreen: View {
                         .padding(.horizontal)
                     
                     CustomButton(title: "Login", callback: {
-                        viewRouter.currentPage =  "TechnicianDashboard"
+                        if viewRouter.previousPage == "SignUpScreen" && confirmPassword ==  password {
+                            let registerBody = RegisterTechnicianBody();
+                            registerBody.phone = AppUtil.technicianNumber
+                            registerBody.password = password
+                            
+                            technicianApi.registerTechnician(registerBody, success: { res in
+                                viewRouter.currentPage =  "TechnicianDashboard"
+                                AppUtil.user = res
+                            }, failure: { _ in
+                                
+                            })
+                            
+                          
+                        } else {
+                            let registerBody = RegisterTechnicianBody();
+                            registerBody.phone = AppUtil.technicianNumber
+                            registerBody.password = password
+                            viewRouter.currentPage =  "TechnicianDashboard"
+                        }
+                       
                     }).padding(.top)
                 }.padding(.vertical,30)
                 Spacer()

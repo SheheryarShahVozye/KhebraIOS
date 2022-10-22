@@ -6,13 +6,23 @@
 //
 
 import SwiftUI
+import GoogleMaps
 
 struct ChooseOnMapScreen: View {
+    @State var markers: [GMSMarker] = []
+    @State var selectedMarker: GMSMarker?
+    @ObservedObject var locationSearchService = LocationSearchService()
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var serviceManager: ServiceManager
+    @State var address: String = ""
     var body: some View {
         ZStack{
-            Image("map")
-                .resizable()
-                .scaledToFit()
+            MapViewControllerBridge(markers: $markers, selectedMarker: $selectedMarker, cityname: .constant(""), locationSearchService: LocationSearchService(),hotelsCheck: .constant(false), onAnimationEnded: {
+                
+                }, mapViewWillMove: { (isGesture) in
+                  guard isGesture else { return }
+                
+                })
             VStack{
                 HStack{
                     Image("chevron_right")
@@ -25,7 +35,7 @@ struct ChooseOnMapScreen: View {
                          .shadow(radius: 1)
                          .overlay(
                             HStack{
-                                TextField("", text: .constant(""))
+                                TextField(serviceManager.selectedLocation ?? "", text: .constant(""))
                             }.padding(.leading)
                          )
                     Image("Group 1178")
@@ -35,12 +45,27 @@ struct ChooseOnMapScreen: View {
                 Spacer()
                 
                 OrderButton(title: "Choose the current location", callback: {
-                    
-                }).padding(.vertical)
+                    viewRouter.currentPage = "CreateOrder"
+                }).padding(.vertical,30)
                 
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
+            .onAppear(perform: {
+                locationSearchService.getAddressFromLatLon(AppUtil.CurrentLocationLatitude ?? 0.0,
+                                                           AppUtil.CurrentLocationLongitude ?? 0.0, success: { result in
+                  
+                    
+                    let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: AppUtil.CurrentLocationLatitude ?? 0.0,
+                                                                            longitude: AppUtil.CurrentLocationLongitude ?? 0.0))
+                    marker.title = result.administrativeArea ?? ""
+                    marker.icon = UIImage(named: "locationIcons")
+                    selectedMarker = marker
+                    
+                }, failure: { _ in
+                    
+                })
+            })
     }
 }
 
@@ -49,3 +74,5 @@ struct ChooseOnMapScreen_Previews: PreviewProvider {
         ChooseOnMapScreen()
     }
 }
+
+

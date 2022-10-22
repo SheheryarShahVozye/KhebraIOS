@@ -12,6 +12,11 @@ class RegisterBody: Codable {
     public var phone: String?
 }
 
+class RegisterTechnicianBody: Codable {
+    public var phone: String?
+    public var password: String?
+}
+
 class VerifyOtp: Codable {
     public var otp: Int?
 }

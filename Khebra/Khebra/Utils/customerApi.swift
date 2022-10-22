@@ -417,5 +417,214 @@ class customerApi: NSObject, URLSessionDelegate {
     }
     
     
+    public static func createOrder(_ id: String,body: CreateOrderObject,success: @escaping (CreateOrderResponse) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/order/send/" + id
+        do{
+          
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
+            
+            post(url: url,data:jsonData, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: CreateOrderResponse = try JSONDecoder()
+                        .decode(CreateOrderResponse.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+       
+    }
+    
+    public static func getServices(success: @escaping ([Service]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "admin/service"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [Service] = try JSONDecoder()
+                        .decode([Service].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func uploadImageForService(paramName: String, fileName: String, image: [UIImage],success: @escaping ([String]) -> Void, failure: @escaping (String) -> Void) {
+        do{
+            uploadMultiple(paramName: paramName, fileName: fileName, image: image,  completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [String] = try JSONDecoder()
+                            .decode([String].self, from: result!)
+                        
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    
+    public static func uploadMultiple(paramName: String, fileName: String, image: [UIImage],completion: @escaping (Data?) -> Void, incomplete: @escaping (String) -> Void) {
+         let url = URL(string: "http://52.71.104.161:8080/api/v1/customer/upload-multiple")
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+           
+        ]
+        
 
+      
+
+         // generate boundary string using a unique per-app string
+         let boundary = UUID().uuidString
+
+         let session = URLSession.shared
+
+         // Set the URLRequest to POST and to the specified URL
+         var urlRequest = URLRequest(url: url!)
+         urlRequest.httpMethod = "POST"
+
+         // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
+         // And the boundary is also set here
+         urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+         var data = Data()
+        for i in 0 ..< image.count
+               {
+           
+         // Add the image data to the raw http request data
+         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+         data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+         data.append("Content-Type: images/png\r\n\r\n".data(using: .utf8)!)
+         if image[i].pngData() != nil {
+             data.append(image[i].pngData()!)
+         }
+         
+         
+        
+         data.append("\r\n".data(using: .utf8)!)
+             }
+         
+
+         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+
+         // Send a POST request to the URL, with the data we created earlier
+         session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+             if error == nil {
+                 let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+                 if let json = jsonData as? [String] {
+                     print(json)
+                     completion(responseData)
+                    
+                     
+                 }
+             } else {
+                 incomplete(error.debugDescription)
+             }
+         }).resume()
+        
+        
+     }
+    
+    public static func uploadFile(paramName: String, fileName: String, fileData: Data,completion: @escaping (Data?) -> Void, incomplete: @escaping (String) -> Void) {
+         let url = URL(string: "http://52.71.104.161:8080/api/v1/user/upload-multiple")
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+           
+        ]
+        
+
+      
+
+         // generate boundary string using a unique per-app string
+         let boundary = UUID().uuidString
+
+         let session = URLSession.shared
+
+         // Set the URLRequest to POST and to the specified URL
+         var urlRequest = URLRequest(url: url!)
+         urlRequest.httpMethod = "POST"
+
+         // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
+         // And the boundary is also set here
+         urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+         var data = Data()
+    
+           
+         // Add the image data to the raw http request data
+         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+         data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+         data.append("Content-Type: images/png\r\n\r\n".data(using: .utf8)!)
+         //if image[i].pngData() != nil {
+             data.append(fileData)
+         //}
+         
+         
+        
+         data.append("\r\n".data(using: .utf8)!)
+      
+         
+
+         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+
+         // Send a POST request to the URL, with the data we created earlier
+         session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+             if error == nil {
+                 let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+                 if let json = jsonData as? [String] {
+                     print(json)
+                     completion(responseData)
+                    
+                     
+                 }
+             } else {
+                 incomplete(error.debugDescription)
+             }
+         }).resume()
+        
+        
+     }
 }

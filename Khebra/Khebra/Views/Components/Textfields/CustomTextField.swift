@@ -23,6 +23,22 @@ struct CustomTextField: View {
     }
 }
 
+struct passwordTextField: View {
+    @Binding var value:String
+    var placeHolder: String = "Enter your name"
+    var body: some View {
+        RoundedRectangle(cornerRadius: 5)
+             .frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)
+             .foregroundColor(Color("White"))
+        
+             .overlay(
+                HStack{
+                   SecureField(placeHolder, text: $value)
+                }.padding(.leading)
+             )
+    }
+}
+
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
         CustomTextField(value: .constant(""))

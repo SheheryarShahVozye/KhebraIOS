@@ -11,6 +11,7 @@ struct OrderDetailScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State var orderAccepted: Bool = false
     @State var waitingForTech: Bool = true
+    @EnvironmentObject var serviceManager: ServiceManager
     var body: some View {
         ZStack{
             VStack{
@@ -39,7 +40,7 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading)
                                                 
                                                 Spacer()
-                                                Text("#58256")
+                                                Text("#" + String(serviceManager.createdOrderData?.orderNumber ?? 0))
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))
@@ -89,7 +90,7 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading)
                                                 
                                                 Spacer()
-                                                Text("Plumbing")
+                                                Text(serviceManager.createdOrderData?.serviceName ?? "")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))
@@ -114,7 +115,8 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading,10)
                                                 
                                                 Spacer()
-                                                Text("6/6/2022, 05:30 PM")
+                                                Text(serviceManager.createdOrderData?.orderTime?.time ?? "" + " " +
+                                                     AppUtil.getDateOnly(format: "", dateValue: serviceManager.createdOrderData?.orderTime?.date ?? ""))
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))
@@ -139,7 +141,7 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading,10)
                                                 
                                                 Spacer()
-                                                Text("As Sahafah, Olaya St. 6531, 3059 ...")
+                                                Text(serviceManager.createdOrderData?.address ?? "")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))

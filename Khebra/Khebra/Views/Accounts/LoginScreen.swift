@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @State var textNumber: String = ""
+    @State var textNumber: String = "3412841032"
     var body: some View {
         ZStack{
             VStack{

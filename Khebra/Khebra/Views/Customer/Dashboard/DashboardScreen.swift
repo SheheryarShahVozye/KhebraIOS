@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var serviceManager: ServiceManager
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -103,10 +104,12 @@ struct DashboardScreen: View {
                         
                         VStack{
                             LazyVGrid(columns: columns, spacing: 15) {
-                                ForEach(0 ..< AppUtil.serviceTypes.count,id:\.self) { val in
-                                    DashboardCard(imageName: AppUtil.serviceImages[val],serviceName: AppUtil.serviceTypes[val])
+                                ForEach(0 ..< serviceManager.services.count,id:\.self) { val in
+                                    DashboardCard(imageName: serviceManager.services[val].url ?? "",
+                                                  serviceName: serviceManager.services[val].service ?? "")
                                         .onTapGesture {
-                                            viewRouter.currentPage = "CreateOrder"
+                                            serviceManager.selectedServiceId = serviceManager.services[val]
+                                            viewRouter.currentPage = "ChooseOnMapScreen"
                                         }
                                 }
                             }.frame(width: UIScreen.main.bounds.width - 50)
@@ -121,6 +124,17 @@ struct DashboardScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .onAppear(perform: {
+                customerApi.getServices(success: { res in
+                    DispatchQueue.main.async {
+                        serviceManager.services = res
+                    }
+                   
+                    AppUtil.services = res
+                }, failure: { _ in
+                    
+                })
+            })
     }
 }
 

@@ -20,7 +20,7 @@ struct ContentView: View {
         } else {
             RouteManager()
         }
-      //  TechMoreScreen()
+        
      
     }
 }
@@ -106,6 +106,8 @@ struct RouteManager: View {
             NewInvoiceScreen()
         } else if viewRouter.currentPage == "RatingFactorScreen" {
             RatingFactorScreen()
+        } else if viewRouter.currentPage == "ChooseOnMapScreen" {
+            ChooseOnMapScreen()
         }
         
     }

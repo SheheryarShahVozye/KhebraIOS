@@ -20,16 +20,28 @@ struct DashboardCard: View {
                 .stroke(Color("fontBlue"),lineWidth: 0.1)
                 .overlay(
                     VStack{
-                        Image(imageName)
                         
-                            .scaledToFit()
+                        AsyncImage(url: URL(string: imageName)) { image in
+                            image.resizable()
+                             
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 50, height: 50, alignment: .center)
+                       // .scaledToFit()
+                        
+                   //     .frame(width: 400, height: 400, alignment: .center)
+                        
+//                        Image(imageName)
+//
+//                            .scaledToFit()
                         
                         
                         Text(serviceName)
                             .font(.system(size: 14))
                             .fontWeight(.regular)
                             .foregroundColor(Color("fontBlue"))
-                            .padding(.top,5)
+                           // .padding(.top,5)
 
                         
                     }
