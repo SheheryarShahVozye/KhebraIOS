@@ -7,14 +7,12 @@
 
 import Foundation
 
-
-
-
 class CreateOrderObject: Codable {
     public var moreDetails, address, couponCode: String?
-    public var onDemant, cash: Bool?
+    public var onDemand, cash: Bool?
     public var url: String?
-    public var orderTime: OrderTime?
+    public var scheduled: OrderTime?
+    public var immediately: Bool?
     public var paymentMethod: PaymentMethod?
     public var location: Location?
 

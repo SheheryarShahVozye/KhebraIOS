@@ -480,6 +480,33 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func getCurrentOrders(success: @escaping ([Service]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/order/current"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [Service] = try JSONDecoder()
+                        .decode([Service].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
     public static func uploadImageForService(paramName: String, fileName: String, image: [UIImage],success: @escaping ([String]) -> Void, failure: @escaping (String) -> Void) {
         do{
             uploadMultiple(paramName: paramName, fileName: fileName, image: image,  completion: { result in

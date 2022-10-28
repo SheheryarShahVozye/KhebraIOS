@@ -542,18 +542,21 @@ struct CreateOrder: View {
         orderTimeObj.time = AppUtil.getAmPmTime(orderTime)
      
         
-        coordiantes.append(AppUtil.addServiceLocationLatitude ?? 0)
-        coordiantes.append(AppUtil.addServiceLocationLongitude ?? 0)
+//        coordiantes.append(AppUtil.addServiceLocationLatitude ?? 0)
+//        coordiantes.append(AppUtil.addServiceLocationLongitude ?? 0)
+        
+        coordiantes.append(33.72148)
+        coordiantes.append(73.04329)
         
         location.coordinates = coordiantes
         
         objBody.moreDetails = details
         objBody.cash = cash
         objBody.address = serviceManager.selectedLocation ?? ""
-        objBody.onDemant = onDemant
+       // objBody.onDemant = onDemant
         objBody.couponCode = couponCode
         objBody.location = location
-        objBody.orderTime = orderTimeObj
+        objBody.scheduled = orderTimeObj
         
         if pickerResult.count > 0 {
             customerApi.uploadImageForService(paramName: "files", fileName: "any", image: pickerResult, success: { res in
@@ -568,7 +571,15 @@ struct CreateOrder: View {
                 
             })
         } else {
-          
+            customerApi.createOrder(serviceManager.selectedServiceId?._id ?? "", body: objBody, success: { res in
+                DispatchQueue.main.async {
+                    serviceManager.createdOrderData = res
+                    viewRouter.currentPage = "OrderDetailScreen"
+                }
+                
+            }, failure: { _ in
+                
+            })
         }
     
        

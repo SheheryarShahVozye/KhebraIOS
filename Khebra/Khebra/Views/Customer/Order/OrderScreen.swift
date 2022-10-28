@@ -128,6 +128,13 @@ struct OrderScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .task {
+                customerApi.getCurrentOrders(success: { _ in
+                    
+                }, failure: { _ in
+                    
+                })
+            }
     }
 }
 
