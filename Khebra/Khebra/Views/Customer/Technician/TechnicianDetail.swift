@@ -19,6 +19,14 @@ struct TechnicianDetail: View {
                         TechnicianCard(techName: serviceManager.selectedTechnician?.name ?? "" ,
                                        rating: String(serviceManager.selectedTechnician?.rating ?? 0),
                                        fullfiledOrders: String(serviceManager.selectedTechnician?.fullFilledOrders ?? 0))
+                        .onTapGesture {
+                            customerApi.requetToTech(orderId: serviceManager.selectedOrder?._id ?? "", techId: serviceManager.selectedTechnician?._id ?? "", success: { _ in
+                                
+                            }, failure: { _ in
+                                
+                            })
+                        }
+                        
                         VStack{
                             HStack{
                                 VStack {
