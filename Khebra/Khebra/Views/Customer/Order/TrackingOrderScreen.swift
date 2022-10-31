@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TrackingOrderScreen: View {
+    @EnvironmentObject var serviceManager: ServiceManager
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State var technicians: [TechnicianProfile] = []
     var body: some View {
         ZStack{
             VStack{
@@ -60,7 +63,7 @@ struct TrackingOrderScreen: View {
                                                 }.padding(.leading)
                                                 
                                                 Spacer()
-                                                Text("Active")
+                                                Text(serviceManager.selectedOrder?.status ?? "")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("046006"))
@@ -85,7 +88,7 @@ struct TrackingOrderScreen: View {
                                                 }.padding(.leading)
                                                 
                                                 Spacer()
-                                                Text("Plumbing")
+                                                Text(serviceManager.selectedOrder?.serviceName ?? "")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))
@@ -110,7 +113,11 @@ struct TrackingOrderScreen: View {
                                                 }.padding(.leading,10)
                                                 
                                                 Spacer()
-                                                Text("6/6/2022, 05:30 PM")
+                                                
+                                                Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.scheduled?.date ?? "")
+                                                     +  ", " +
+                                                     (serviceManager.selectedOrder?.scheduled?.time ?? ""))
+                                               
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))
@@ -224,187 +231,214 @@ struct TrackingOrderScreen: View {
                                 )
                             
                         }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
-                        
-                        VStack{
-                            HStack{
-                                Text("Tracking Order")
-                                    .foregroundColor(Color("fontBlue"))
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 18))
-                                Spacer()
-                            }.padding(.horizontal,25)
+                        if serviceManager.selectedOrder?.status != "processing" {
                             VStack{
+                                HStack{
+                                    Text("Tracking Order")
+                                        .foregroundColor(Color("fontBlue"))
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 18))
+                                    Spacer()
+                                }.padding(.horizontal,25)
                                 VStack{
-                                    HStack {
-                                        VStack{
-                                            ZStack{
-                                                Circle()
-                                                    .foregroundColor(Color("White"))
+                                    VStack{
+                                        HStack {
+                                            VStack{
+                                                ZStack{
+                                                    Circle()
+                                                        .foregroundColor(Color("White"))
+                                                    
+                                                    Circle()
+                                                        .stroke(Color("buttonbg"),lineWidth: 2)
+                                                        .overlay(
+                                                            Image("recievedOrder")
+                                                                .scaledToFit())
+                                                }.frame(width: 29, height: 29, alignment: .center)
+                                                DottedLine()
+                                                    .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
+                                                    .frame(width: 1, height: 50)
+                                                    .foregroundColor(Color("buttonbg"))
+                                                    .offset(y:-5)
                                                 
-                                                Circle()
-                                                    .stroke(Color("buttonbg"),lineWidth: 2)
-                                                    .overlay(
-                                                        Image("recievedOrder")
-                                                            .scaledToFit())
-                                            }.frame(width: 29, height: 29, alignment: .center)
-                                            DottedLine()
-                                                .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
-                                                .frame(width: 1, height: 50)
-                                                .foregroundColor(Color("buttonbg"))
-                                                .offset(y:-5)
-                                            
-                                            Spacer()
-                                        }
-                                       
-                                        
-                                        VStack{
-                                            HStack{
-                                                Text("The technician received the order")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(Color("5A5A5A"))
                                                 Spacer()
                                             }
-                                            HStack{
-                                                Image("time")
-                                                    .scaledToFit()
-                                                Text("6/6/2022, 05:30 PM")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(Color("B2C1E3"))
-                                                Spacer()
-                                            }
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                    
-                                    
-                                   
-                                        
-                                }.padding(.leading)
-                                
-                                VStack{
-                                    HStack {
-                                        VStack{
-                                            ZStack{
-                                                Circle()
-                                                    .foregroundColor(Color("White"))
-                                                
-                                                Circle()
-                                                    .stroke(Color("B2C1E3"),lineWidth: 2)
-                                                    .overlay(
-                                                        Image("bluetruck")
-                                                            .scaledToFit())
-                                            }.frame(width: 29, height: 29, alignment: .center)
-                                            DottedLine()
-                                                .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
-                                                .frame(width: 1, height: 50)
-                                                .foregroundColor(Color("B2C1E3"))
-                                                .offset(y:-5)
-                                            
-                                            Spacer()
-                                        }
-                                       
-                                        
-                                        VStack{
-                                            HStack{
-                                                Text("In the way")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(Color("5A5A5A"))
-                                                Spacer()
-                                            }
-                                            HStack{
-                                                Image("time")
-                                                    .scaledToFit()
-                                                Text("6/6/2022, 05:30 PM")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(Color("B2C1E3"))
-                                                Spacer()
-                                            }
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                    
-                                    
-                                   
-                                        
-                                }.padding(.leading)
-                                    .offset(y:-10)
-                                VStack{
-                                    HStack {
-                                        VStack{
-                                            ZStack{
-                                                Circle()
-                                                    .foregroundColor(Color("White"))
-                                                
-                                                Circle()
-                                                    .stroke(Color("B2C1E3"),lineWidth: 2)
-                                                    .overlay(
-                                                        Image("arrivedblue")
-                                                            .scaledToFit())
-                                            }.frame(width: 29, height: 29, alignment: .center)
                                            
                                             
-                                            Spacer()
-                                        }
-                                       
-                                        
-                                        VStack{
-                                            HStack{
-                                                Text("Arrived")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(Color("5A5A5A"))
+                                            VStack{
+                                                HStack{
+                                                    Text("The technician received the order")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("5A5A5A"))
+                                                    Spacer()
+                                                }
+                                                HStack{
+                                                    Image("time")
+                                                        .scaledToFit()
+                                                    Text("6/6/2022, 05:30 PM")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("B2C1E3"))
+                                                    Spacer()
+                                                }
+                                                
                                                 Spacer()
                                             }
-                                            HStack{
-                                                Image("time")
-                                                    .scaledToFit()
-                                                    
-                                                    
-                                                Text("6/6/2022, 05:30 PM")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(Color("B2C1E3"))
-                                                Spacer()
-                                            }
+                                            
                                             Spacer()
                                         }
                                         
-                                        Spacer()
-                                    }
-                              
-                                }.padding(.leading).offset(y:-20)
-                                
-                            }
-                           
-                        }.padding(.top)
-                        
-                        ZStack{
-                            
-                            RoundedRectangle(cornerRadius: 5)
-                                 .foregroundColor(Color("White"))
-                            
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color("buttonbg"),lineWidth: 1)
-                                .overlay(
-                                    HStack{
-                                        Image("yellowphone")
-                                            .scaledToFit()
-                                        
-                                        Text("Contact the technician")
-                                            .font(.system(size: 16))
-                                            .foregroundColor(Color("buttonbg"))
-                                            .fontWeight(.regular)
                                         
                                        
                                             
-                                    }.padding(.horizontal)
-                                )
+                                    }.padding(.leading)
+                                    
+                                    VStack{
+                                        HStack {
+                                            VStack{
+                                                ZStack{
+                                                    Circle()
+                                                        .foregroundColor(Color("White"))
+                                                    
+                                                    Circle()
+                                                        .stroke(Color("B2C1E3"),lineWidth: 2)
+                                                        .overlay(
+                                                            Image("bluetruck")
+                                                                .scaledToFit())
+                                                }.frame(width: 29, height: 29, alignment: .center)
+                                                DottedLine()
+                                                    .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
+                                                    .frame(width: 1, height: 50)
+                                                    .foregroundColor(Color("B2C1E3"))
+                                                    .offset(y:-5)
+                                                
+                                                Spacer()
+                                            }
+                                           
+                                            
+                                            VStack{
+                                                HStack{
+                                                    Text("In the way")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("5A5A5A"))
+                                                    Spacer()
+                                                }
+                                                HStack{
+                                                    Image("time")
+                                                        .scaledToFit()
+                                                    Text("6/6/2022, 05:30 PM")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("B2C1E3"))
+                                                    Spacer()
+                                                }
+                                                
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        
+                                       
+                                            
+                                    }.padding(.leading)
+                                        .offset(y:-10)
+                                    VStack{
+                                        HStack {
+                                            VStack{
+                                                ZStack{
+                                                    Circle()
+                                                        .foregroundColor(Color("White"))
+                                                    
+                                                    Circle()
+                                                        .stroke(Color("B2C1E3"),lineWidth: 2)
+                                                        .overlay(
+                                                            Image("arrivedblue")
+                                                                .scaledToFit())
+                                                }.frame(width: 29, height: 29, alignment: .center)
+                                               
+                                                
+                                                Spacer()
+                                            }
+                                           
+                                            
+                                            VStack{
+                                                HStack{
+                                                    Text("Arrived")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("5A5A5A"))
+                                                    Spacer()
+                                                }
+                                                HStack{
+                                                    Image("time")
+                                                        .scaledToFit()
+                                                        
+                                                        
+                                                    Text("6/6/2022, 05:30 PM")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("B2C1E3"))
+                                                    Spacer()
+                                                }
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+                                  
+                                    }.padding(.leading).offset(y:-20)
+                                    
+                                }
+                               
+                            }.padding(.top)
                             
-                        }.frame(width: 240, height: 55, alignment: .center)
+                            ZStack{
+                                
+                                RoundedRectangle(cornerRadius: 5)
+                                     .foregroundColor(Color("White"))
+                                
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color("buttonbg"),lineWidth: 1)
+                                    .overlay(
+                                        HStack{
+                                            Image("yellowphone")
+                                                .scaledToFit()
+                                            
+                                            Text("Contact the technician")
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color("buttonbg"))
+                                                .fontWeight(.regular)
+                                            
+                                           
+                                                
+                                        }.padding(.horizontal)
+                                    )
+                                
+                            }.frame(width: 240, height: 55, alignment: .center)
+                        }
+                        
+                        if serviceManager.selectedOrder?.status == "processing" {
+                            VStack{
+                                HStack{
+                                    Text("Technicians")
+                                        .font(.system(size: 18))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color("fontBlue"))
+                                    
+                                    Spacer()
+                                    
+                                   
+                                }.padding(.horizontal)
+                                
+                                VStack{
+                                    ForEach(0 ..< technicians.count, id:\.self) { ind in
+                                        TechnicianCard(techName: technicians[ind].name ?? "" , rating: String(technicians[ind].rating ?? 0),
+                                                       fullfiledOrders: String(technicians[ind].fullFilledOrders ?? 0))                                            .onTapGesture{
+                                            serviceManager.selectedTechnician = technicians[ind]
+                                                viewRouter.currentPage = "TechnicianDetail"
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                        
                       
                     }.padding(.top)
                 }
@@ -415,6 +449,16 @@ struct TrackingOrderScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .task {
+                if serviceManager.selectedOrder?.status == "processing" {
+                    customerApi.getAvailableTechs(orderId: serviceManager.selectedOrder?._id ?? "", success: { res in
+                        technicians = res
+                    }, failure: { _ in
+                        
+                    })
+                }
+               
+            }
     }
 }
 

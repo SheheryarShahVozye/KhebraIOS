@@ -100,6 +100,8 @@
 		14D339BE28D0A108006360D9 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D339BD28D0A108006360D9 /* Strings.swift */; };
 		14D339C128D0F3E9006360D9 /* CustomerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D339C028D0F3E9006360D9 /* CustomerSignUp.swift */; };
 		14DE60F028F2B2BC00313F92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */; };
+		1851139E290D75FD00C7D011 /* OrderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139D290D75FD00C7D011 /* OrderClass.swift */; };
+		185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */; };
 		D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */; };
 		EDB21BABB550BC82D988B938 /* Pods_KhebraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */; };
 		FDBC31E5FC3AA342979CC4BA /* Pods_Khebra_KhebraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DAFC800E16A91B025D79E /* Pods_Khebra_KhebraUITests.framework */; };
@@ -222,6 +224,8 @@
 		14D339BD28D0A108006360D9 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		14D339C028D0F3E9006360D9 /* CustomerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSignUp.swift; sourceTree = "<group>"; };
 		14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1851139D290D75FD00C7D011 /* OrderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderClass.swift; sourceTree = "<group>"; };
+		1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianProfileClass.swift; sourceTree = "<group>"; };
 		1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.release.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.release.xcconfig"; sourceTree = "<group>"; };
 		388A53BE8FC746D8F2D76969 /* Pods-Khebra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra.release.xcconfig"; path = "Target Support Files/Pods-Khebra/Pods-Khebra.release.xcconfig"; sourceTree = "<group>"; };
@@ -568,6 +572,8 @@
 				143D351928D5BBA400946FDD /* profileBody.swift */,
 				143D351B28D841BA00946FDD /* Services.swift */,
 				143D351F28D8D56C00946FDD /* CreateOrderBody.swift */,
+				1851139D290D75FD00C7D011 /* OrderClass.swift */,
+				1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -937,7 +943,9 @@
 				144635EB28C4965D00311865 /* OrderNumCard.swift in Sources */,
 				14C85D8128BDF01D0019066A /* SignUpScreen.swift in Sources */,
 				14C85D7C28BD622F0019066A /* LoginTextField.swift in Sources */,
+				1851139E290D75FD00C7D011 /* OrderClass.swift in Sources */,
 				14AEB9C728C8A4FF006688BD /* NewInvoiceScreen.swift in Sources */,
+				185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */,
 				14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */,
 				144635C528C25D8400311865 /* OffersCard.swift in Sources */,
 				141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */,

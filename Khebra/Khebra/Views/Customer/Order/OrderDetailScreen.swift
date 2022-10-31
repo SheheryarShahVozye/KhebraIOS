@@ -65,7 +65,7 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading)
                                                 
                                                 Spacer()
-                                                Text("Active")
+                                                Text(serviceManager.selectedOrder?.status ?? "")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("046006"))

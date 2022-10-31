@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TechnicianDetail: View {
+    @EnvironmentObject var serviceManager: ServiceManager
     var body: some View {
         ZStack{
             VStack{
@@ -15,7 +16,9 @@ struct TechnicianDetail: View {
                 ScrollView{
                     VStack{
                       
-                        TechnicianCard()
+                        TechnicianCard(techName: serviceManager.selectedTechnician?.name ?? "" ,
+                                       rating: String(serviceManager.selectedTechnician?.rating ?? 0),
+                                       fullfiledOrders: String(serviceManager.selectedTechnician?.fullFilledOrders ?? 0))
                         VStack{
                             HStack{
                                 VStack {

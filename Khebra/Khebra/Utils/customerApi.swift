@@ -389,6 +389,39 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func requetToTech(orderId: String, techId: String,success: @escaping (User) -> Void, failure: @escaping (String) -> Void) {
+        
+        let url: String = "customer/" + orderId+"/request/" + techId
+        do{
+           
+           
+            put(url: url,data:nil, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: User = try JSONDecoder()
+                        .decode(User.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+    }
+    
     public static func getCustomerprofile(success: @escaping (User) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/profile"
         do{
@@ -480,8 +513,8 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
-    public static func getCurrentOrders(success: @escaping ([Service]) -> Void, failure: @escaping (String) -> Void) {
-        let url: String = "customer/order/current"
+    public static func getCurrentOrders(success: @escaping ([OrderObjectElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/order"
         do{
            
            
@@ -490,8 +523,35 @@ class customerApi: NSObject, URLSessionDelegate {
                     let jsonString = String(data: result!, encoding: .utf8)
                     print("\n\n\(jsonString ?? "-")\n\n")
                     
-                    let userObj: [Service] = try JSONDecoder()
-                        .decode([Service].self, from: result!)
+                    let userObj: [OrderObjectElement] = try JSONDecoder()
+                        .decode([OrderObjectElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getAvailableTechs(orderId: String,success: @escaping ([TechnicianProfile]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/applied-technicians/" + orderId
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [TechnicianProfile] = try JSONDecoder()
+                        .decode([TechnicianProfile].self, from: result!)
                     
                     success(userObj)
                     

@@ -27,6 +27,9 @@ struct ChooseOnMapScreen: View {
                 HStack{
                     Image("chevron_right")
                        .scaledToFit()
+                       .onTapGesture {
+                           viewRouter.goBack()
+                       }
                     
                     RoundedRectangle(cornerRadius: 5)
                          .frame(width: UIScreen.main.bounds.width - 120, height: 45, alignment: .center)

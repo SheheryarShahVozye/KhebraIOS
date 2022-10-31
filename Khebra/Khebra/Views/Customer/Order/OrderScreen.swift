@@ -10,7 +10,9 @@ import SwiftUI
 struct OrderScreen: View {
     @State var selected: String = "Current"
     @State var textcolorNon: String = "B2C1E3"
+    @State var ordersList: [OrderObjectElement] = []
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var serviceManager: ServiceManager
     var body: some View {
         ZStack{
             VStack{
@@ -101,10 +103,11 @@ struct OrderScreen: View {
                             }.padding(.horizontal)
                         ).padding(.vertical,10)
                     ScrollView{
-                        ForEach(0 ..< 6,id:\.self) { _ in
+                        ForEach(0 ..< ordersList.count,id:\.self) { ind in
                             if selected == "Current" {
                                 MyOrderCard()
                                     .onTapGesture{
+                                        serviceManager.selectedOrder = ordersList[ind]
                                         viewRouter.currentPage = "TrackingOrderScreen"
                                     }
                             } else if selected == "Completed" {
@@ -129,8 +132,8 @@ struct OrderScreen: View {
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
             .task {
-                customerApi.getCurrentOrders(success: { _ in
-                    
+                customerApi.getCurrentOrders(success: { res in
+                    ordersList = res
                 }, failure: { _ in
                     
                 })

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TechnicianCard: View {
+    var techName: String = "Mohaned Mostifa"
+    var rating: String = "0"
+    var fullfiledOrders: String = "0"
     var body: some View {
         RoundedRectangle(cornerRadius: 0)
             .frame(width: UIScreen.main.bounds.width - 30, height: 120, alignment: .center)
@@ -38,7 +41,7 @@ struct TechnicianCard: View {
                             }.frame(width: 20, height: 20, alignment: .center)
                             
                             
-                            Text("Mohaned Mostifa")
+                            Text(techName)
                                 .font(.system(size: 14))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("black"))
@@ -70,7 +73,7 @@ struct TechnicianCard: View {
                                 .font(.system(size: 14))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("B2C1E3"))
-                            Text("4.8")
+                            Text(rating)
                                 .font(.system(size: 14))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("buttonbg"))
@@ -86,7 +89,7 @@ struct TechnicianCard: View {
                                 .font(.system(size: 14))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("B2C1E3"))
-                            Text("250")
+                            Text(fullfiledOrders)
                                 .font(.system(size: 14))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color("5A5A5A"))

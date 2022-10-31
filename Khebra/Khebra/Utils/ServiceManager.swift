@@ -11,7 +11,10 @@ class ServiceManager: ObservableObject {
 
     @Published var services: [Service] = []
     @Published var selectedServiceId: Service?
+    @Published var selectedTechnician: TechnicianProfile?
     @Published var createdOrderData: CreateOrderResponse?
     @Published var selectedLocation: String?
+    @Published var selectedOrder: OrderObjectElement?
+    
 
 }
