@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TechnicianDetail: View {
     @EnvironmentObject var serviceManager: ServiceManager
+    @State var sentRequestToggle: Bool = false
     var body: some View {
         ZStack{
             VStack{

@@ -105,7 +105,10 @@ struct OrderScreen: View {
                     ScrollView{
                         ForEach(0 ..< ordersList.count,id:\.self) { ind in
                             if selected == "Current" {
-                                MyOrderCard()
+                                MyOrderCard(orderNumber: String(ordersList[ind].orderNumber ?? 0),
+                                            status: ordersList[ind].status ?? "",
+                                            address: ordersList[ind].address ?? "",
+                                            serviceType: ordersList[ind].serviceName ?? "")
                                     .onTapGesture{
                                         serviceManager.selectedOrder = ordersList[ind]
                                         viewRouter.currentPage = "TrackingOrderScreen"

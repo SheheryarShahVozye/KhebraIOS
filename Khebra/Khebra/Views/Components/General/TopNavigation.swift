@@ -21,7 +21,7 @@ struct TopNavigation: View {
                     
                     Image("chevron_right")
                         .resizable()
-                        .frame(width: 24, height: 24, alignment: .leading)
+                        .frame(width: 32, height: 30, alignment: .leading)
                         .onTapGesture {
                             viewRouter.goBack()
                         }

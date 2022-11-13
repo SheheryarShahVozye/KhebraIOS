@@ -19,6 +19,7 @@ struct CreateOrder: View {
     @State var pickerResult: [UIImage] = []
     @State var showImagePicker: Bool = false
     @State var couponCode: String = ""
+    @State var showPreloader: Bool = false
     @State var orderDate: Date = Date()
     @State var orderTime: Date = Date()
     @State var coordiantes: [Double] = []
@@ -526,14 +527,30 @@ struct CreateOrder: View {
                     .background(Color("White"))
             }
             
+            if showPreloader {
+                VStack {}
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("B6BAC3"))
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.6)
+
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color("buttonbg")))
+                    .scaleEffect(x: 4, y: 4, anchor: .center)
+            }
+            
             
             
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .onTapGesture {
+                hideKeyboard()
+            }
     }
     
     func sendorder(){
+        showPreloader = true
         let objBody = CreateOrderObject()
         let location = Location()
         let orderTimeObj = OrderTime()
@@ -562,23 +579,29 @@ struct CreateOrder: View {
             customerApi.uploadImageForService(paramName: "files", fileName: "any", image: pickerResult, success: { res in
                 objBody.url = res[0]
                 customerApi.createOrder(serviceManager.selectedServiceId?._id ?? "", body: objBody, success: { res in
-                    serviceManager.createdOrderData = res
-                    viewRouter.currentPage = "OrderDetailScreen"
+                    DispatchQueue.main.async {
+                        
+                        serviceManager.createdOrderData = res
+                        showPreloader = false
+                        viewRouter.currentPage = "OrderDetailScreen"
+                    }
+                  
                 }, failure: { _ in
-                    
+                    showPreloader = false
                 })
             }, failure: { _ in
-                
+                showPreloader = false
             })
         } else {
             customerApi.createOrder(serviceManager.selectedServiceId?._id ?? "", body: objBody, success: { res in
                 DispatchQueue.main.async {
+                    showPreloader = false
                     serviceManager.createdOrderData = res
                     viewRouter.currentPage = "OrderDetailScreen"
                 }
                 
             }, failure: { _ in
-                
+                showPreloader = false
             })
         }
     
@@ -655,3 +678,11 @@ extension UIResponder {
         return view.superview?.convert(view.frame, to: nil)
     }
 }
+
+#if canImport(UIKit)
+    extension View {
+        func hideKeyboard() {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+    }
+#endif

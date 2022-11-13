@@ -93,4 +93,27 @@ class AppUtil {
     ,"Household Appliance","Mobiles","Computer","Surveillance Cameras","Flooring","Pest Control","Baggage Transfer"]
     public static var serviceImages: [String] = ["electricity","plumbing","carpentry","blacksmith","conditioning","Paint","cleaness"
     ,"household","mobile","computer","survelance","flooring","pestControl","baggageTransfer"]
+    
+    
+    func getSafeAreaTop()->CGFloat{
+
+            let keyWindow = UIApplication.shared.connectedScenes
+
+                .filter({$0.activationState == .foregroundActive})
+
+                .map({$0 as? UIWindowScene})
+
+                .compactMap({$0})
+
+                .first?.windows
+
+                .filter({$0.isKeyWindow}).first
+
+            
+
+            return (keyWindow?.safeAreaInsets.top ?? 0)
+
+        }
 }
+
+
