@@ -144,6 +144,8 @@ struct LocationScreen: View {
                                                    latitude = addressLatLong[arr].latitude
                                                     longitude = addressLatLong[arr].longitude
                                                     SearchText = addressArray[arr]
+                                                    AppUtil.addServiceLocationLatitude = latitude
+                                                    AppUtil.addServiceLocationLongitude = longitude
                                                     serviceManager.selectedLocation = SearchText
                                                     hideKeyboard()
                                                     stateChange.toggle()
