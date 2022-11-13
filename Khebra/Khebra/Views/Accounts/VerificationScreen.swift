@@ -79,6 +79,7 @@ struct VerificationScreen: View {
                             customerApi.verifyOtp(object, success: { res in
                                 AppUtil.user = res.user
                                 AppUtil.idToken = res.token ?? ""
+                                
                                 viewRouter.currentPage = "AccountCompletion"
                             }, failure: { _ in
                                 

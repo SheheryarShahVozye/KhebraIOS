@@ -109,7 +109,8 @@ struct DashboardScreen: View {
                                                   serviceName: serviceManager.services[val].service ?? "")
                                         .onTapGesture {
                                             serviceManager.selectedServiceId = serviceManager.services[val]
-                                            viewRouter.currentPage = "ChooseOnMapScreen"
+                                           // viewRouter.currentPage = "ChooseOnMapScreen"
+                                            viewRouter.currentPage = "LocationScreen"
                                         }
                                 }
                             }.frame(width: UIScreen.main.bounds.width - 50)

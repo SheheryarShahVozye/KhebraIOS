@@ -14,7 +14,17 @@ struct ContentView: View {
             SplashScreen()
                 .onAppear(perform: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        viewRouter.currentPage = "LoginScreen"
+                        if let token = UserDefaults.standard.value(forKey: Keys.token) as? String {
+                            if token != "" {
+                                AppUtil.idToken = token
+                                viewRouter.currentPage = "DashboardScreen"
+                            } else {
+                                viewRouter.currentPage = "LoginScreen"
+                            }
+                        } else {
+                            viewRouter.currentPage = "LoginScreen"
+                        }
+                       
                     }
                 })
         } else {
@@ -108,6 +118,8 @@ struct RouteManager: View {
             RatingFactorScreen()
         } else if viewRouter.currentPage == "ChooseOnMapScreen" {
             ChooseOnMapScreen()
+        } else if viewRouter.currentPage == "LocationScreen" {
+            LocationScreen()
         }
         
     }
@@ -119,5 +131,13 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+struct Keys {
+    static let selectedLongitude = "selectedLanguage"
+    static let selectedLat = "selectedLat"
+    static let token = "token"
+    static let userID = "userID"
+    
 }
 

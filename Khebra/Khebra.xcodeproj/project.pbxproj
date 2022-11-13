@@ -102,6 +102,7 @@
 		14DE60F028F2B2BC00313F92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */; };
 		1851139E290D75FD00C7D011 /* OrderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139D290D75FD00C7D011 /* OrderClass.swift */; };
 		185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */; };
+		18E587DB2920D0E3005F43C4 /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E587DA2920D0E3005F43C4 /* LocationScreen.swift */; };
 		D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */; };
 		EDB21BABB550BC82D988B938 /* Pods_KhebraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */; };
 		FDBC31E5FC3AA342979CC4BA /* Pods_Khebra_KhebraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119DAFC800E16A91B025D79E /* Pods_Khebra_KhebraUITests.framework */; };
@@ -226,6 +227,7 @@
 		14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1851139D290D75FD00C7D011 /* OrderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderClass.swift; sourceTree = "<group>"; };
 		1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianProfileClass.swift; sourceTree = "<group>"; };
+		18E587DA2920D0E3005F43C4 /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.release.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.release.xcconfig"; sourceTree = "<group>"; };
 		388A53BE8FC746D8F2D76969 /* Pods-Khebra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra.release.xcconfig"; path = "Target Support Files/Pods-Khebra/Pods-Khebra.release.xcconfig"; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				143D352428DE60E900946FDD /* MapView.swift */,
 				143D352628DE60E900946FDD /* MapViewController.swift */,
 				143D352528DE60E900946FDD /* MapViewControllerBridge.swift */,
+				18E587DA2920D0E3005F43C4 /* LocationScreen.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				14AEB9B928C64E6D006688BD /* HowToUseScreen.swift in Sources */,
 				141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */,
 				14D339BA28D0721C006360D9 /* technicianApi.swift in Sources */,
+				18E587DB2920D0E3005F43C4 /* LocationScreen.swift in Sources */,
 				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
 				14C85D8628BDF50F0019066A /* TopNavigation.swift in Sources */,
 				141B6D1228C08DBF00EA7479 /* AgreementCard.swift in Sources */,
