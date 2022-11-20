@@ -36,7 +36,7 @@ struct DashboardScreen: View {
                             }
                             HStack{
                                 
-                                Text("Mohammed Abed ElAzizi")
+                                Text(AppUtil.user?.name ?? "")
                                     .fontWeight(.bold)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color("fontBlue"))
@@ -126,15 +126,39 @@ struct DashboardScreen: View {
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
             .onAppear(perform: {
-                customerApi.getServices(success: { res in
-                    DispatchQueue.main.async {
-                        serviceManager.services = res
-                    }
-                   
-                    AppUtil.services = res
-                }, failure: { _ in
-                    
-                })
+                
+                if AppUtil.user != nil
+                {
+                    customerApi.getServices(success: { res in
+                        DispatchQueue.main.async {
+                            serviceManager.services = res
+                        }
+                       
+                        AppUtil.services = res
+                    }, failure: { _ in
+                        
+                    })
+                } else {
+                    customerApi.getServices(success: { res in
+                        DispatchQueue.main.async {
+                            serviceManager.services = res
+                            customerApi.getCustomerprofile(success: { res in
+                                AppUtil.user = res
+                               
+                                
+                            }, failure: { _ in
+                                
+                            })
+                        }
+                       
+                        AppUtil.services = res
+                    }, failure: { _ in
+                        
+                    })
+                  
+                }
+               
+               
             })
     }
 }

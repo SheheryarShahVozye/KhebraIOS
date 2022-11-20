@@ -103,33 +103,35 @@ struct OrderScreen: View {
                             }.padding(.horizontal)
                         ).padding(.vertical,10)
                     ScrollView{
-                        ForEach(0 ..< ordersList.count,id:\.self) { ind in
-                            if selected == "Current" {
+                        
+                        if selected == "Current" {
+                            ForEach(0 ..< ordersList.count,id:\.self) { ind in
                                 MyOrderCard(orderNumber: String(ordersList[ind].orderNumber ?? 0),
                                             status: ordersList[ind].status ?? "",
                                             address: ordersList[ind].address ?? "",
                                             serviceType: ordersList[ind].serviceName ?? "")
-                                    .onTapGesture{
-                                        serviceManager.selectedOrder = ordersList[ind]
-                                        viewRouter.currentPage = "TrackingOrderScreen"
-                                    }
-                            } else if selected == "Completed" {
-                                MyOrderCompletedCard()
-                                    .onTapGesture{
-                                        viewRouter.currentPage = "TrackingOrderScreen"
-                                    }
-                            } else {
-                                MyOrderCompletedCancelled()
-                                    .onTapGesture{
-                                        viewRouter.currentPage = "TrackingOrderScreen"
-                                    }
+                                .onTapGesture{
+                                    serviceManager.selectedOrder = ordersList[ind]
+                                    viewRouter.currentPage = "TrackingOrderScreen"
+                                }
                             }
-                           
+                        } else if selected == "Completed" {
+                            MyOrderCompletedCard()
+                                .onTapGesture{
+                                    viewRouter.currentPage = "TrackingOrderScreen"
+                                }
+                        } else {
+                            MyOrderCompletedCancelled()
+                                .onTapGesture{
+                                    viewRouter.currentPage = "TrackingOrderScreen"
+                                }
                         }
+                        
+                        
                     }.padding(.top)
                     BottomNavigation()
                 }
-               
+                
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)

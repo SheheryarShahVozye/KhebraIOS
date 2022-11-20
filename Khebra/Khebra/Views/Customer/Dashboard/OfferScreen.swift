@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct OfferScreen: View {
+    @State var offers: [OffersClass] = []
     var body: some View {
         ZStack{
             VStack{
                 TopNavigation(titleText: "Offers")
                 ScrollView{
                     VStack{
-                        ForEach(0 ..< 7,id:\.self) { _ in
-                            OffersCard()
+                        ForEach(0 ..< offers.count,id:\.self) { ind in
+                            OffersCard(text: offers[ind].description ?? "")
                                 .padding()
                         }
                     }
@@ -26,6 +27,13 @@ struct OfferScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .task {
+                customerApi.getoffers(success: { res in
+                    offers = res
+                }, failure: { _ in
+                    
+                })
+            }
     }
 }
 

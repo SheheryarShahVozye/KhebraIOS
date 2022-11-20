@@ -14,224 +14,228 @@ struct TrackingOrderScreen: View {
     var body: some View {
         ZStack{
             VStack{
-               TopNavigation(titleText: "Tracking Order")
+                TopNavigation(titleText: "Tracking Order")
                 ScrollView{
                     VStack{
-                        ZStack{
+                        //             ZStack{
+                        
+                        //                            RoundedRectangle(cornerRadius: 5)
+                        //                                .foregroundColor(Color("White"))
+                        //
+                        //                            RoundedRectangle(cornerRadius: 5)
+                        //                                .stroke(Color("B2C1E3"),lineWidth: 1)
+                        //                                .overlay(
+                        VStack{
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("orderNo")
+                                            .scaledToFit()
+                                        Text("Order No.")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading)
+                                    
+                                    Spacer()
+                                    Text("#58256")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
                             
-                            RoundedRectangle(cornerRadius: 5)
-                                .foregroundColor(Color("White"))
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("orderstatus")
+                                            .scaledToFit()
+                                        Text("Order Status")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading)
+                                    
+                                    Spacer()
+                                    Text(serviceManager.selectedOrder?.status ?? "")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("046006"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
                             
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color("B2C1E3"),lineWidth: 1)
-                                .overlay(
-                                    VStack{
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("orderNo")
-                                                        .scaledToFit()
-                                                    Text("Order No.")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading)
-                                                
-                                                Spacer()
-                                                Text("#58256")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                        
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("orderstatus")
-                                                        .scaledToFit()
-                                                    Text("Order Status")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading)
-                                                
-                                                Spacer()
-                                                Text(serviceManager.selectedOrder?.status ?? "")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("046006"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                       
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("service")
-                                                        .scaledToFit()
-                                                    Text("Service")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading)
-                                                
-                                                Spacer()
-                                                Text(serviceManager.selectedOrder?.serviceName ?? "")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                        
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("time")
-                                                        .scaledToFit()
-                                                    Text("Date & time")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                
-                                                Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.scheduled?.date ?? "")
-                                                     +  ", " +
-                                                     (serviceManager.selectedOrder?.scheduled?.time ?? ""))
-                                               
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                        
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("address")
-                                                        .scaledToFit()
-                                                    Text("Address")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                Text("As Sahafah, Olaya St. 6531, 3059 ...")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                        
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("security")
-                                                        .scaledToFit()
-                                                    Text("Guaranty")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                Text("7 Day")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                        
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("calendar_month")
-                                                        .scaledToFit()
-                                                    Text("Appointment")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                Text("6/6/2022, 05:30 PM")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                        
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("User")
-                                                        .scaledToFit()
-                                                    Text("Technician name")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                Text("Mohaned Mostifa")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                           
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
-                                    }
-                                )
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("service")
+                                            .scaledToFit()
+                                        Text("Service")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading)
+                                    
+                                    Spacer()
+                                    Text(serviceManager.selectedOrder?.serviceName ?? "")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
                             
-                        }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
-                        if serviceManager.selectedOrder?.status != "processing" {
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("time")
+                                            .scaledToFit()
+                                        Text("Date & time")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading,10)
+                                    
+                                    Spacer()
+                                    
+                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.scheduled?.date ?? "")
+                                         +  ", " +
+                                         (serviceManager.selectedOrder?.scheduled?.time ?? ""))
+                                    
+                                    .font(.system(size: 14))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color("fontBlue"))
+                                    .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
+                            
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("address")
+                                            .scaledToFit()
+                                        Text("Address")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading,10)
+                                    
+                                    Spacer()
+                                    Text("As Sahafah, Olaya St. 6531, 3059 ...")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
+                            
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("security")
+                                            .scaledToFit()
+                                        Text("Guaranty")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading,10)
+                                    
+                                    Spacer()
+                                    Text("7 Day")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
+                            
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("calendar_month")
+                                            .scaledToFit()
+                                        Text("Appointment")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading,10)
+                                    
+                                    Spacer()
+                                    Text("6/6/2022, 05:30 PM")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                    .frame(height: 1)
+                                    .foregroundColor(Color("B2C1E3"))
+                            }
+                            .padding(10)
+                            
+                            VStack{
+                                HStack{
+                                    HStack{
+                                        Image("User")
+                                            .scaledToFit()
+                                        Text("Technician name")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.leading,10)
+                                    
+                                    Spacer()
+                                    Text("Mohaned Mostifa")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                }
+                                
+                                
+                            }
+                            .padding(10)
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                        .background(Color("White"))
+                        .border(Color("B2C1E3"))
+                        
+                        // )
+                        
+                        //  }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
+                        if serviceManager.selectedOrder?.status != "processing" && serviceManager.selectedOrder?.status != "active"  {
                             VStack{
                                 HStack{
                                     Text("Tracking Order")
@@ -262,7 +266,7 @@ struct TrackingOrderScreen: View {
                                                 
                                                 Spacer()
                                             }
-                                           
+                                            
                                             
                                             VStack{
                                                 HStack{
@@ -287,8 +291,8 @@ struct TrackingOrderScreen: View {
                                         }
                                         
                                         
-                                       
-                                            
+                                        
+                                        
                                     }.padding(.leading)
                                     
                                     VStack{
@@ -312,7 +316,7 @@ struct TrackingOrderScreen: View {
                                                 
                                                 Spacer()
                                             }
-                                           
+                                            
                                             
                                             VStack{
                                                 HStack{
@@ -337,8 +341,8 @@ struct TrackingOrderScreen: View {
                                         }
                                         
                                         
-                                       
-                                            
+                                        
+                                        
                                     }.padding(.leading)
                                         .offset(y:-10)
                                     VStack{
@@ -354,11 +358,11 @@ struct TrackingOrderScreen: View {
                                                             Image("arrivedblue")
                                                                 .scaledToFit())
                                                 }.frame(width: 29, height: 29, alignment: .center)
-                                               
+                                                
                                                 
                                                 Spacer()
                                             }
-                                           
+                                            
                                             
                                             VStack{
                                                 HStack{
@@ -370,8 +374,8 @@ struct TrackingOrderScreen: View {
                                                 HStack{
                                                     Image("time")
                                                         .scaledToFit()
-                                                        
-                                                        
+                                                    
+                                                    
                                                     Text("6/6/2022, 05:30 PM")
                                                         .font(.system(size: 14))
                                                         .foregroundColor(Color("B2C1E3"))
@@ -382,17 +386,17 @@ struct TrackingOrderScreen: View {
                                             
                                             Spacer()
                                         }
-                                  
+                                        
                                     }.padding(.leading).offset(y:-20)
                                     
                                 }
-                               
+                                
                             }.padding(.top)
                             
                             ZStack{
                                 
                                 RoundedRectangle(cornerRadius: 5)
-                                     .foregroundColor(Color("White"))
+                                    .foregroundColor(Color("White"))
                                 
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color("buttonbg"),lineWidth: 1)
@@ -406,12 +410,270 @@ struct TrackingOrderScreen: View {
                                                 .foregroundColor(Color("buttonbg"))
                                                 .fontWeight(.regular)
                                             
-                                           
-                                                
+                                            
+                                            
                                         }.padding(.horizontal)
                                     )
                                 
                             }.frame(width: 240, height: 55, alignment: .center)
+                        }
+                        
+                        if serviceManager.selectedOrder?.status == "active" {
+                            
+                            
+                            VStack{
+                                Group{
+                                    VStack{
+                                        HStack{
+                                            Text("Tax No.")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text(String(serviceManager.selectedOrder?.invoice?.taxNumber ?? 0))
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                        
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    VStack{
+                                        HStack{
+                                            Text("Technician Fare")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text(String(serviceManager.selectedOrder?.invoice?.technicianFare ?? 0) +  " SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    
+                                }
+                                
+                                Group {
+                                    VStack{
+                                        HStack{
+                                            Text("Spare parts")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text(String(serviceManager.selectedOrder?.invoice?.spareParts ?? 0) + " SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    
+                                    
+                                    VStack{
+                                        HStack{
+                                            Text("Spare parts delivery")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text(String(serviceManager.selectedOrder?.invoice?.sparePartDelivery ?? 0) + " SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    VStack{
+                                        HStack{
+                                            Text("Total")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text(String(serviceManager.selectedOrder?.invoice?.totalPrice ?? 0) + " SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    VStack{
+                                        HStack{
+                                            Text("Discount")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text("120 SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    VStack{
+                                        HStack{
+                                            Text("Tax Value")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text("120 SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                    
+                                    VStack{
+                                        HStack{
+                                            Text("Balance")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("B2C1E3"))
+                                            
+                                            Spacer()
+                                            
+                                            Text("SAR")
+                                                .font(.system(size: 14))
+                                                .fontWeight(.regular)
+                                                .foregroundColor(Color("fontBlue"))
+                                            
+                                            
+                                        }
+                                        Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("B2C1E3"))
+                                    }.padding(.horizontal)
+                                        .padding(.top)
+                                }
+                                
+                                VStack{
+                                    HStack{
+                                        Text("Total required payment")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("fontBlue"))
+                                            .padding(.vertical)
+                                            .padding(.leading)
+                                        
+                                        Spacer()
+                                        
+                                        Text(String(serviceManager.selectedOrder?.invoice?.totalPrice ?? 0) + " SAR")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("fontBlue"))
+                                            .padding(.trailing)
+                                        
+                                        
+                                    }
+                                    
+                                }.background(Color("fontBlue")
+                                    .opacity(0.3))
+                                
+                                .padding(.top)
+                                
+                                HStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 0)
+                                            .foregroundColor(Color("White"))
+                                        RoundedRectangle(cornerRadius: 0)
+                                            .stroke(Color("buttonbg"),lineWidth: 1)
+                                            .overlay(
+                                                HStack{
+                                                    
+                                                    
+                                                    Text("Reject")
+                                                        .font(.system(size: 16))
+                                                        .foregroundColor(Color("buttonbg"))
+                                                }
+                                            )
+                                        
+                                    }.frame(width: 120, height: 50, alignment: .center)
+                                        .onTapGesture {
+                                            
+                                        }
+                                    
+                                    RoundedRectangle(cornerRadius: 2)
+                                        .foregroundColor(Color("buttonbg"))
+                                        .frame(width: 120, height: 50, alignment: .center)
+                                        .overlay(
+                                            Text("Accept")
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color("White"))
+                                                .fontWeight(.semibold)
+                                        ).onTapGesture {
+                                            
+                                        }
+                                }
+                                .padding(.vertical,30)
+                                
+                            }
+                            .frame(width: UIScreen.main.bounds.width - 50)
+                            .background(Color("White"))
+                            .border(Color("B2C1E3"))
+                            
+                            
                         }
                         
                         if serviceManager.selectedOrder?.status == "processing" {
@@ -424,7 +686,7 @@ struct TrackingOrderScreen: View {
                                     
                                     Spacer()
                                     
-                                   
+                                    
                                 }.padding(.horizontal)
                                 
                                 VStack{
@@ -432,17 +694,17 @@ struct TrackingOrderScreen: View {
                                         TechnicianCard(techName: technicians[ind].name ?? "" , rating: String(technicians[ind].rating ?? 0),
                                                        fullfiledOrders: String(technicians[ind].fullFilledOrders ?? 0))                                            .onTapGesture{
                                             serviceManager.selectedTechnician = technicians[ind]
-                                                viewRouter.currentPage = "TechnicianDetail"
-                                            }
+                                            viewRouter.currentPage = "TechnicianDetail"
+                                        }
                                     }
                                 }
                             }
                         }
                         
-                      
+                        
                     }.padding(.top)
                 }
-               
+                
                 BottomNavigation()
             }
             
@@ -457,7 +719,7 @@ struct TrackingOrderScreen: View {
                         
                     })
                 }
-               
+                
             }
     }
 }
@@ -478,7 +740,7 @@ struct Line: Shape {
 }
 
 struct DottedLine: Shape {
-        
+    
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: 0, y: 0))

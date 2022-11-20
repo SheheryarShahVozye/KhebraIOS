@@ -449,6 +449,60 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func getoffers(success: @escaping ([OffersClass]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/offers"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [OffersClass] = try JSONDecoder()
+                        .decode([OffersClass].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getAllfavTech(success: @escaping ([TechnicianProfile]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/fav/technician"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [TechnicianProfile] = try JSONDecoder()
+                        .decode([TechnicianProfile].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
     
     public static func createOrder(_ id: String,body: CreateOrderObject,success: @escaping (CreateOrderResponse) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/order/send/" + id

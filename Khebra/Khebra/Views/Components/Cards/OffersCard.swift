@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OffersCard: View {
+    var text: String = "Discounts up to 20% of the service price"
     var body: some View {
         RoundedRectangle(cornerRadius: 0)
             .frame(width: UIScreen.main.bounds.width - 50, height: 160, alignment: .center)
@@ -35,7 +36,7 @@ struct OffersCard: View {
                         
                         Spacer()
                         
-                        Text("Discounts up to 20% of the service price")
+                        Text(text)
                             .font(.system(size: 16))
                             .foregroundColor(Color("White"))
                             .fontWeight(.medium)
