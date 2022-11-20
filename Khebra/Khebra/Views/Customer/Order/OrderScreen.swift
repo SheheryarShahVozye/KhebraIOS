@@ -13,6 +13,7 @@ struct OrderScreen: View {
     @State var ordersList: [OrderObjectElement] = []
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var serviceManager: ServiceManager
+    @State var showPreloader: Bool = false
     var body: some View {
         ZStack{
             VStack{
@@ -133,14 +134,28 @@ struct OrderScreen: View {
                 }
                 
             }
+            
+            if showPreloader {
+                VStack {}
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("B6BAC3"))
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.6)
+
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color("buttonbg")))
+                    .scaleEffect(x: 4, y: 4, anchor: .center)
+            }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
             .task {
+                showPreloader = true
                 customerApi.getCurrentOrders(success: { res in
+                    showPreloader = false
                     ordersList = res
                 }, failure: { _ in
-                    
+                    showPreloader = false
                 })
             }
     }
