@@ -633,6 +633,20 @@ struct TrackingOrderScreen: View {
                                 
                                 .padding(.top)
                                 
+                               
+                                
+                            }
+                            .frame(width: UIScreen.main.bounds.width - 50)
+                            .background(Color("White"))
+                            .border(Color("B2C1E3"))
+                            
+                          
+                            
+                            if serviceManager.selectedOrder?.approve == true {
+                                CustomButton(title: "Pay", callback: {
+                                    
+                                })
+                            } else {
                                 HStack{
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 0)
@@ -651,7 +665,11 @@ struct TrackingOrderScreen: View {
                                         
                                     }.frame(width: 120, height: 50, alignment: .center)
                                         .onTapGesture {
-                                            
+                                            customerApi.approverejctInvoice(orderId: serviceManager.selectedOrder?._id ?? "",status: "reject", success: { _ in
+                                                viewRouter.goBack()
+                                            }, failure: { _ in
+                                                
+                                            })
                                         }
                                     
                                     RoundedRectangle(cornerRadius: 2)
@@ -663,16 +681,15 @@ struct TrackingOrderScreen: View {
                                                 .foregroundColor(Color("White"))
                                                 .fontWeight(.semibold)
                                         ).onTapGesture {
-                                            
+                                            customerApi.approverejctInvoice(orderId: serviceManager.selectedOrder?._id ?? "",status: "approve", success: { _ in
+                                                viewRouter.goBack()
+                                            }, failure: { _ in
+                                                
+                                            })
                                         }
                                 }
                                 .padding(.vertical,30)
-                                
                             }
-                            .frame(width: UIScreen.main.bounds.width - 50)
-                            .background(Color("White"))
-                            .border(Color("B2C1E3"))
-                            
                             
                         }
                         
