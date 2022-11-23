@@ -10,15 +10,16 @@ import MoyasarSdk
 
 struct PaymentScreen: View {
     @EnvironmentObject var serviceManager: ServiceManager
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
                 TopNavigation(titleText: "PaymentScreen")
                 let paymentRequest = PaymentRequest(
-                    amount: 100,
+                    amount: (serviceManager.selectedOrder?.invoice?.totalPrice ?? 0) * 100,
                     currency: "SAR",
-                    description:"Booked for serice", // + (serviceManager.bookingId ?? ""),
-                    metadata: ["Booking_id": "boking_id_001"]
+                    description:"Payment For Order" + (serviceManager.selectedOrder?._id ?? ""), // + (serviceManager.bookingId ?? ""),
+                    metadata: ["OrderId": serviceManager.selectedOrder?._id ?? ""]
                 )
                 CreditCardView(request: paymentRequest, callback: handlePaymentResult)
                     .onAppear(perform: {
@@ -51,6 +52,11 @@ struct PaymentScreen: View {
         switch payment.status {
            case "paid":
             print("done")
+            customerApi.successPayment(orderId: serviceManager.selectedOrder?._id ?? "", paymentid: payment.id, success: { _ in
+                viewRouter.currentPage = "CompleteOrderScreen"
+            }, failure: { _ in
+                
+            })
 //            UserApiUtil.payForBooking(id: serviceManager.bookingId ?? "", paymentId: payment.id, amount: String(payment.amount),  success: { _ in
 //                viewRouter.currentPage = "PaymentCompleteScreen"
 //            }, failure: { _ in

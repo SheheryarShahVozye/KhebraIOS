@@ -567,6 +567,33 @@ class customerApi: NSObject, URLSessionDelegate {
        
     }
     
+    public static func successPayment(orderId: String,paymentid: String,success: @escaping (PaymentResponse) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/order/success/" + orderId + "?id=" + paymentid + "&status=paid&message=successful"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: PaymentResponse = try JSONDecoder()
+                        .decode(PaymentResponse.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
     public static func getServices(success: @escaping ([Service]) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "admin/service"
         do{
