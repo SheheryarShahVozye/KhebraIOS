@@ -120,6 +120,8 @@ struct RouteManager: View {
             ChooseOnMapScreen()
         } else if viewRouter.currentPage == "LocationScreen" {
             LocationScreen()
+        } else if viewRouter.currentPage == "PaymentScreen" {
+            PaymentScreen()
         }
         
     }

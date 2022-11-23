@@ -235,6 +235,10 @@ struct TrackingOrderScreen: View {
                         // )
                         
                         //  }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
+                        
+                        
+                       
+                        
                         if serviceManager.selectedOrder?.status != "processing" && serviceManager.selectedOrder?.status != "active"  {
                             VStack{
                                 HStack{
@@ -418,7 +422,7 @@ struct TrackingOrderScreen: View {
                             }.frame(width: 240, height: 55, alignment: .center)
                         }
                         
-                        if serviceManager.selectedOrder?.status == "active" {
+                        if serviceManager.selectedOrder?.invoice != nil {
                             
                             
                             VStack{
@@ -644,8 +648,10 @@ struct TrackingOrderScreen: View {
                             
                             if serviceManager.selectedOrder?.approve == true {
                                 CustomButton(title: "Pay", callback: {
-                                    
+                                    viewRouter.currentPage = "PaymentScreen"
                                 })
+                                
+                                
                             } else {
                                 HStack{
                                     ZStack{

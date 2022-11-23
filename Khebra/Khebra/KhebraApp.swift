@@ -8,6 +8,8 @@
 import SwiftUI
 import GoogleMaps
 import GooglePlaces
+import MoyasarSdk
+
 @main
 struct KhebraApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appdelegate
@@ -29,6 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate{
 //        //
         GMSPlacesClient.provideAPIKey("AIzaSyAFcDO10tETCsKpHIGc9-FkXlygXtOGKt0")
         GMSServices.provideAPIKey("AIzaSyAFcDO10tETCsKpHIGc9-FkXlygXtOGKt0")
+        try! Moyasar.setApiKey("pk_test_y5vomjRnbaTVRLf2E2gBdvBb9hTxDieRwi3d3rcw")
         return true
     }
     

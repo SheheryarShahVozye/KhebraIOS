@@ -102,6 +102,7 @@
 		14DE60F028F2B2BC00313F92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */; };
 		1851139E290D75FD00C7D011 /* OrderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139D290D75FD00C7D011 /* OrderClass.swift */; };
 		185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */; };
+		18655766292D576B001DC163 /* PaymentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655765292D576B001DC163 /* PaymentScreen.swift */; };
 		18833E0B2928C2A100DF41DA /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833E0A2928C2A100DF41DA /* Offers.swift */; };
 		18E587DB2920D0E3005F43C4 /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E587DA2920D0E3005F43C4 /* LocationScreen.swift */; };
 		D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */; };
@@ -228,6 +229,7 @@
 		14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1851139D290D75FD00C7D011 /* OrderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderClass.swift; sourceTree = "<group>"; };
 		1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianProfileClass.swift; sourceTree = "<group>"; };
+		18655765292D576B001DC163 /* PaymentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScreen.swift; sourceTree = "<group>"; };
 		18833E0A2928C2A100DF41DA /* Offers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
 		18E587DA2920D0E3005F43C4 /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 				14CEBC4F28BFD59A004A6FF2 /* OrderCancelScreen.swift */,
 				141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */,
 				144635D328C3AE7E00311865 /* ChooseOnMapScreen.swift */,
+				18655765292D576B001DC163 /* PaymentScreen.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				14C85D8328BDF1780019066A /* VerificationScreen.swift in Sources */,
 				141B6D1428C08FFD00EA7479 /* Profile.swift in Sources */,
 				14AEB9BD28C651F1006688BD /* TechProfileScreen.swift in Sources */,
+				18655766292D576B001DC163 /* PaymentScreen.swift in Sources */,
 				149033C828C4E31F00FC0264 /* IncomingOrderScreen.swift in Sources */,
 				141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */,
 				14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */,

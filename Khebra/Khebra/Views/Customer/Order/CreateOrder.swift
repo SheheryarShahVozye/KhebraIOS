@@ -222,6 +222,7 @@ struct CreateOrder: View {
                                 Spacer()
                             }.padding(.horizontal,30)
                             
+                            /*
                             HStack{
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 0)
@@ -285,8 +286,33 @@ struct CreateOrder: View {
                                 
                             }.frame(width: UIScreen.main.bounds.width - 50,height: 45)
                                 .padding(.vertical)
+                            */
                             
-                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 0)
+                                    .foregroundColor(cash ? Color("fontBlue")  : Color("White"))
+                                RoundedRectangle(cornerRadius: 0)
+                                    .stroke(cash ? Color("White") : Color("B2C1E3"),lineWidth: 1)
+                                    .overlay(
+                                       
+                                        HStack{
+                                            Image("master")
+                                            Text("/")
+                                                .font(.system(size: 18))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(cash ? Color("White") : Color("fontBlue"))
+                                            Image("Visa_Inc._logo")
+                                            Text("Card Payment")
+                                                .font(.system(size: 18))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(cash ? Color("White") : Color("fontBlue"))
+                                        }
+                                        
+                                    )
+                            }.frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)
+                                .onTapGesture {
+                                    cash.toggle()
+                                }
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 0)
