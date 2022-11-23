@@ -142,7 +142,7 @@ struct TrackingOrderScreen: View {
                                     }.padding(.leading,10)
                                     
                                     Spacer()
-                                    Text("As Sahafah, Olaya St. 6531, 3059 ...")
+                                    Text(serviceManager.selectedOrder?.address ?? "")
                                         .font(.system(size: 14))
                                         .fontWeight(.regular)
                                         .foregroundColor(Color("fontBlue"))
@@ -237,9 +237,9 @@ struct TrackingOrderScreen: View {
                         //  }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
                         
                         
-                       
-                        
-                        if serviceManager.selectedOrder?.status != "processing" && serviceManager.selectedOrder?.status != "active"  {
+                    
+                    
+                        if serviceManager.selectedOrder?.assigned == true && serviceManager.selectedOrder?.invoice == nil  {
                             VStack{
                                 HStack{
                                     Text("Tracking Order")
@@ -282,9 +282,13 @@ struct TrackingOrderScreen: View {
                                                 HStack{
                                                     Image("time")
                                                         .scaledToFit()
-                                                    Text("6/6/2022, 05:30 PM")
+                                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.scheduled?.date ?? "") )
                                                         .font(.system(size: 14))
                                                         .foregroundColor(Color("B2C1E3"))
+                                                    Text(serviceManager.selectedOrder?.scheduled?.time ?? "")
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("B2C1E3"))
+                                                    
                                                     Spacer()
                                                 }
                                                 
@@ -298,7 +302,7 @@ struct TrackingOrderScreen: View {
                                         
                                         
                                     }.padding(.leading)
-                                    
+                                  
                                     VStack{
                                         HStack {
                                             VStack{
@@ -307,15 +311,16 @@ struct TrackingOrderScreen: View {
                                                         .foregroundColor(Color("White"))
                                                     
                                                     Circle()
-                                                        .stroke(Color("B2C1E3"),lineWidth: 2)
+                                                        .stroke(Color(serviceManager.selectedOrder?.technicianStatus?.order != "received" ? "buttonbg" : "B2C1E3"),lineWidth: 2)
                                                         .overlay(
-                                                            Image("bluetruck")
+                                                            
+                                                            Image(serviceManager.selectedOrder?.technicianStatus?.order != "received" ? "yellowtruck" : "bluetruck")
                                                                 .scaledToFit())
                                                 }.frame(width: 29, height: 29, alignment: .center)
                                                 DottedLine()
                                                     .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
                                                     .frame(width: 1, height: 50)
-                                                    .foregroundColor(Color("B2C1E3"))
+                                                    .foregroundColor(Color(serviceManager.selectedOrder?.technicianStatus?.order != "received" ? "buttonbg" : "B2C1E3"))
                                                     .offset(y:-5)
                                                 
                                                 Spacer()
@@ -332,7 +337,10 @@ struct TrackingOrderScreen: View {
                                                 HStack{
                                                     Image("time")
                                                         .scaledToFit()
-                                                    Text("6/6/2022, 05:30 PM")
+                                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.technicianStatus?.timing?.date ?? ""))
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("B2C1E3"))
+                                                    Text( serviceManager.selectedOrder?.technicianStatus?.timing?.time ?? "")
                                                         .font(.system(size: 14))
                                                         .foregroundColor(Color("B2C1E3"))
                                                     Spacer()
@@ -349,6 +357,8 @@ struct TrackingOrderScreen: View {
                                         
                                     }.padding(.leading)
                                         .offset(y:-10)
+                                   
+                                
                                     VStack{
                                         HStack {
                                             VStack{
@@ -357,9 +367,9 @@ struct TrackingOrderScreen: View {
                                                         .foregroundColor(Color("White"))
                                                     
                                                     Circle()
-                                                        .stroke(Color("B2C1E3"),lineWidth: 2)
+                                                        .stroke(Color(serviceManager.selectedOrder?.technicianStatus?.order == "arrived" ? "buttonbg" : "B2C1E3"),lineWidth: 2)
                                                         .overlay(
-                                                            Image("arrivedblue")
+                                                            Image(serviceManager.selectedOrder?.technicianStatus?.order == "arrived" ? "arrived" : "arrivedblue")
                                                                 .scaledToFit())
                                                 }.frame(width: 29, height: 29, alignment: .center)
                                                 
@@ -380,7 +390,10 @@ struct TrackingOrderScreen: View {
                                                         .scaledToFit()
                                                     
                                                     
-                                                    Text("6/6/2022, 05:30 PM")
+                                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.technicianStatus?.timing?.date ?? ""))
+                                                        .font(.system(size: 14))
+                                                        .foregroundColor(Color("B2C1E3"))
+                                                    Text( serviceManager.selectedOrder?.technicianStatus?.timing?.time ?? "")
                                                         .font(.system(size: 14))
                                                         .foregroundColor(Color("B2C1E3"))
                                                     Spacer()
@@ -392,7 +405,7 @@ struct TrackingOrderScreen: View {
                                         }
                                         
                                     }.padding(.leading).offset(y:-20)
-                                    
+                                  
                                 }
                                 
                             }.padding(.top)
@@ -421,7 +434,8 @@ struct TrackingOrderScreen: View {
                                 
                             }.frame(width: 240, height: 55, alignment: .center)
                         }
-                        
+                       
+                       
                         if serviceManager.selectedOrder?.invoice != nil {
                             
                             
@@ -645,61 +659,65 @@ struct TrackingOrderScreen: View {
                             .border(Color("B2C1E3"))
                             
                           
-                            
-                            if serviceManager.selectedOrder?.approve == true {
-                                CustomButton(title: "Pay", callback: {
-                                    viewRouter.currentPage = "PaymentScreen"
-                                })
-                                
-                                
-                            } else {
-                                HStack{
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 0)
-                                            .foregroundColor(Color("White"))
-                                        RoundedRectangle(cornerRadius: 0)
-                                            .stroke(Color("buttonbg"),lineWidth: 1)
-                                            .overlay(
-                                                HStack{
-                                                    
-                                                    
-                                                    Text("Reject")
-                                                        .font(.system(size: 16))
-                                                        .foregroundColor(Color("buttonbg"))
-                                                }
-                                            )
-                                        
-                                    }.frame(width: 120, height: 50, alignment: .center)
-                                        .onTapGesture {
-                                            customerApi.approverejctInvoice(orderId: serviceManager.selectedOrder?._id ?? "",status: "reject", success: { _ in
-                                                viewRouter.goBack()
-                                            }, failure: { _ in
-                                                
-                                            })
-                                        }
+                            if (serviceManager.selectedOrder?.isPaid ?? false) == false {
+                                if serviceManager.selectedOrder?.approve == true {
+                                    CustomButton(title: "Pay", callback: {
+                                        viewRouter.currentPage = "PaymentScreen"
+                                    })
                                     
-                                    RoundedRectangle(cornerRadius: 2)
-                                        .foregroundColor(Color("buttonbg"))
-                                        .frame(width: 120, height: 50, alignment: .center)
-                                        .overlay(
-                                            Text("Accept")
-                                                .font(.system(size: 16))
-                                                .foregroundColor(Color("White"))
-                                                .fontWeight(.semibold)
-                                        ).onTapGesture {
-                                            customerApi.approverejctInvoice(orderId: serviceManager.selectedOrder?._id ?? "",status: "approve", success: { _ in
-                                                viewRouter.goBack()
-                                            }, failure: { _ in
-                                                
-                                            })
-                                        }
+                                    
                                 }
-                                .padding(.vertical,30)
+                                else
+                                {
+                                    HStack{
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 0)
+                                                .foregroundColor(Color("White"))
+                                            RoundedRectangle(cornerRadius: 0)
+                                                .stroke(Color("buttonbg"),lineWidth: 1)
+                                                .overlay(
+                                                    HStack{
+                                                        
+                                                        
+                                                        Text("Reject")
+                                                            .font(.system(size: 16))
+                                                            .foregroundColor(Color("buttonbg"))
+                                                    }
+                                                )
+                                            
+                                        }.frame(width: 120, height: 50, alignment: .center)
+                                            .onTapGesture {
+                                                customerApi.approverejctInvoice(orderId: serviceManager.selectedOrder?._id ?? "",status: "reject", success: { _ in
+                                                    viewRouter.goBack()
+                                                }, failure: { _ in
+                                                    
+                                                })
+                                            }
+                                        
+                                        RoundedRectangle(cornerRadius: 2)
+                                            .foregroundColor(Color("buttonbg"))
+                                            .frame(width: 120, height: 50, alignment: .center)
+                                            .overlay(
+                                                Text("Accept")
+                                                    .font(.system(size: 16))
+                                                    .foregroundColor(Color("White"))
+                                                    .fontWeight(.semibold)
+                                            ).onTapGesture {
+                                                customerApi.approverejctInvoice(orderId: serviceManager.selectedOrder?._id ?? "",status: "approve", success: { _ in
+                                                    viewRouter.goBack()
+                                                }, failure: { _ in
+                                                    
+                                                })
+                                            }
+                                    }
+                                    .padding(.vertical,30)
+                                }
                             }
+                            
                             
                         }
                         
-                        if serviceManager.selectedOrder?.status == "processing" {
+                        if serviceManager.selectedOrder?.status == "processing" && serviceManager.selectedOrder?.assigned == false {
                             VStack{
                                 HStack{
                                     Text("Technicians")
