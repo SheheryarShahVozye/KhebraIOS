@@ -22,19 +22,18 @@ class CreateOrderObject: Codable {
 
 class CreateOrderResponse: Codable {
     var orderNumber: Int?
+    var postpone: Bool?
+    var appliedTechnician: [String]?
     var customer: String?
-    var orderTime: OrderTime?
-    var onDemant: Bool?
-    var status, moreDetails: String?
-    var url: String?
-    var cash, assigned, isPaid: Bool?
+    var scheduled: OrderTime?
+    var createdAtTime, status, moreDetails: String?
+    var approve, cash, assigned, isPaid: Bool?
     var address, service, serviceName: String?
     var totalPrice: Int?
     var couponCode: String?
-    var reviewed: Bool?
     var location: Location?
-    var id, createdAt, updatedAt: String?
-    var v: Int?
+    var _id, createdAt, updatedAt: String?
+    var __v: Int?
 }
 
 // MARK: - Location

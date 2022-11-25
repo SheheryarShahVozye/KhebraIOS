@@ -12,7 +12,8 @@ struct VerificationScreen: View {
     @State var showPreloader: Bool = false
     @StateObject var viewModel = ViewModel()
     @State var isFocused = false
-    
+    @State var togglepopup: Bool = false
+    @State var errorMessage: String = ""
     let textBoxWidth = UIScreen.main.bounds.width / 8
     let textBoxHeight = UIScreen.main.bounds.width / 8
     let spaceBetweenBoxes: CGFloat = 20
@@ -81,8 +82,9 @@ struct VerificationScreen: View {
                                 AppUtil.idToken = res.token ?? ""
                                 
                                 viewRouter.currentPage = "AccountCompletion"
-                            }, failure: { _ in
-                                
+                            }, failure: { f in
+                                errorMessage = f
+                                togglepopup.toggle()
                             })
                            
                         }).padding()
@@ -107,6 +109,70 @@ struct VerificationScreen: View {
                         
                     }
                     
+                }
+            }
+            
+            if togglepopup {
+                ZStack{
+                    
+                    VStack {}
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color("000000"))
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.6)
+                    
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: UIScreen.main.bounds.width - 50, height: 330, alignment: .center)
+                        .foregroundColor(Color("B2C1E3"))
+                        .shadow(color: Color("gray").opacity(0.2), radius: 2, x: 0, y: 1)
+                        .overlay(
+                            VStack{
+                                VStack{
+                                    Image("ordercancel")
+                                        .scaledToFit()
+                                }
+                                .frame(width: 108, height: 110, alignment: .center)
+                                .padding(.vertical)
+                                
+                                Text("Error?")
+                                    .foregroundColor(Color("black"))
+                                    .font(Font.custom("poppins", size: 20))
+                                    .fontWeight(.bold)
+                                
+                                Text(errorMessage)
+                                    .foregroundColor(Color("black").opacity(0.7))
+                                    .font(Font.custom("poppins", size: 12))
+                                    .fontWeight(.regular)
+                                    .padding(.top,1)
+                                
+                                HStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 70)
+                                            .foregroundColor(Color("White"))
+                                        
+                                        RoundedRectangle(cornerRadius: 70)
+                                            .stroke(Color("buttonbg"),lineWidth: 1)
+                                            .overlay(
+                                                    Text("OK")
+                                                        .foregroundColor(Color("black").opacity(0.4))
+                                                        .font(Font.custom("poppins", size: 18))
+                                                        .fontWeight(.regular)
+                                            )
+                                        
+                                    }.frame(width: 120, height: 35, alignment: .center)
+                                        .onTapGesture{
+                                            togglepopup.toggle()
+                                        }
+                                    
+                                   
+                                }
+                                .frame(width: UIScreen.main.bounds.width - 70)
+                                .padding(.vertical)
+                                    
+                                
+                            }
+                        )
+
                 }
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)

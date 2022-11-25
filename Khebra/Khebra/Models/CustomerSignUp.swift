@@ -25,6 +25,11 @@ class registerName: Codable {
     public var name: String?
 }
 
+class ErrorObject: Codable {
+    var error: String?
+
+   
+}
 
 class ProfileUpdate: Codable {
    public var name, email, phone, address: String?

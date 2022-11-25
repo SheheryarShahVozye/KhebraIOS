@@ -17,14 +17,7 @@ struct TrackingOrderScreen: View {
                 TopNavigation(titleText: "Tracking Order")
                 ScrollView{
                     VStack{
-                        //             ZStack{
-                        
-                        //                            RoundedRectangle(cornerRadius: 5)
-                        //                                .foregroundColor(Color("White"))
-                        //
-                        //                            RoundedRectangle(cornerRadius: 5)
-                        //                                .stroke(Color("B2C1E3"),lineWidth: 1)
-                        //                                .overlay(
+                     
                         VStack{
                             VStack{
                                 HStack{
@@ -232,13 +225,7 @@ struct TrackingOrderScreen: View {
                         .background(Color("White"))
                         .border(Color("B2C1E3"))
                         
-                        // )
-                        
-                        //  }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
-                        
-                        
-                    
-                    
+                       
                         if serviceManager.selectedOrder?.assigned == true && serviceManager.selectedOrder?.invoice == nil  {
                             VStack{
                                 HStack{

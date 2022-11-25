@@ -609,6 +609,7 @@ struct CreateOrder: View {
                         
                         serviceManager.createdOrderData = res
                         showPreloader = false
+                       
                         viewRouter.currentPage = "OrderDetailScreen"
                     }
                   

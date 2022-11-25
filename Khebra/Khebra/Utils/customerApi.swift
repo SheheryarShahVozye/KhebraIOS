@@ -60,12 +60,32 @@ class customerApi: NSObject, URLSessionDelegate {
                 
                 return incomplete(error!.localizedDescription)
             } else {
+                
                 let httpResponse = response as? HTTPURLResponse
                 print("\nStatus code Post: \(httpResponse!.statusCode) \n")
-                if httpResponse?.statusCode == 401 {
-                    return incomplete(Strings.unAuthorizedUserError)
+               
+                let jsonString = String(data: responseData!, encoding: .utf8)
+                print("\n\n\(jsonString ?? "-")\n\n")
+                
+                let decoder = JSONDecoder()
+                var errorObject = "";
+                do {
+                    let people = try decoder.decode(ErrorObject.self, from: responseData!)
+                    errorObject = people.error ?? ""
+                    print(people)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                   
+                
+                
+                if httpResponse?.statusCode == 400 {
+                    return incomplete(errorObject)
+                }
+                else if httpResponse?.statusCode == 401 {
+                    return incomplete(errorObject)
                 } else if httpResponse?.statusCode == 403 {
-                    return incomplete(Strings.accountInActiveError)
+                    return incomplete(errorObject)
                 }
                 return completion(responseData!)
             }
@@ -322,7 +342,7 @@ class customerApi: NSObject, URLSessionDelegate {
     }
     
     public static func customerName(_ body: registerName,success: @escaping (UserResponse) -> Void, failure: @escaping (String) -> Void) {
-        let url: String = "customer/verify/otp"
+        let url: String = "customer/name"
         do{
             let jsonData = try JSONEncoder().encode(body)
             let json = String(data: jsonData, encoding: String.Encoding.utf8)

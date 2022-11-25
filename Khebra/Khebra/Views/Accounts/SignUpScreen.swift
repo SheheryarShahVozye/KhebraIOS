@@ -11,6 +11,7 @@ struct SignUpScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State var textNumber: String = ""
     @State var togglepopup: Bool = false
+    @State var errorMessage: String = ""
     var body: some View {
         ZStack{
             VStack{
@@ -52,23 +53,14 @@ struct SignUpScreen: View {
                                 AppUtil.registerResponse = res
                                 AppUtil.otp = res.otp
                                 viewRouter.currentPage = "VerificationScreen"
-                            }, failure: { _ in
-                                
+                            }, failure: { f in
+                                errorMessage = f
+                                togglepopup.toggle()
                             })
                             
                         }).padding(.top)
                         
-                        CustomButtonSignup(title: "Sign Up as Technician", callback: {
-                            AppUtil.technicianNumber = textNumber
-                            if AppUtil.technicianNumber != "" {
-                                viewRouter.currentPage = "RegisterPasswordScreen"
-                            } else {
-                                togglepopup.toggle()
-                            }
-                         
-                           
-                            
-                        }).padding(.top)
+                       
                     }
                    
                     
@@ -100,30 +92,30 @@ struct SignUpScreen: View {
                     
                     VStack {}
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color("White"))
+                        .background(Color("000000"))
                         .edgesIgnoringSafeArea(.all)
                         .opacity(0.6)
                     
                     RoundedRectangle(cornerRadius: 25)
                         .frame(width: UIScreen.main.bounds.width - 50, height: 330, alignment: .center)
-                        .foregroundColor(Color("B6BAC3"))
-                        .shadow(color: Color("000000").opacity(0.2), radius: 2, x: 0, y: 1)
+                        .foregroundColor(Color("B2C1E3"))
+                        .shadow(color: Color("gray").opacity(0.2), radius: 2, x: 0, y: 1)
                         .overlay(
                             VStack{
                                 VStack{
-                                    Image("ic_covid_border_waypoint_alert_32pt")
+                                    Image("ordercancel")
                                         .scaledToFit()
                                 }
                                 .frame(width: 108, height: 110, alignment: .center)
-                                .padding(.top)
+                                .padding(.vertical)
                                 
                                 Text("Error?")
-                                    .foregroundColor(Color("White"))
+                                    .foregroundColor(Color("black"))
                                     .font(Font.custom("poppins", size: 20))
                                     .fontWeight(.bold)
                                 
-                                Text("Please input all fields")
-                                    .foregroundColor(Color("White").opacity(0.7))
+                                Text(errorMessage)
+                                    .foregroundColor(Color("black").opacity(0.7))
                                     .font(Font.custom("poppins", size: 12))
                                     .fontWeight(.regular)
                                     .padding(.top,1)
@@ -137,7 +129,7 @@ struct SignUpScreen: View {
                                             .stroke(Color("buttonbg"),lineWidth: 1)
                                             .overlay(
                                                     Text("OK")
-                                                        .foregroundColor(Color("5A5A5A").opacity(0.4))
+                                                        .foregroundColor(Color("black").opacity(0.4))
                                                         .font(Font.custom("poppins", size: 18))
                                                         .fontWeight(.regular)
                                             )

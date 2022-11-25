@@ -52,7 +52,7 @@ struct OrderDetailScreen: View {
                                                       .foregroundColor(Color("B2C1E3"))
                                         }.padding(.horizontal)
                                             .padding(.top,5)
-                                        
+                                       
                                         VStack{
                                             HStack{
                                                 HStack{
@@ -102,7 +102,7 @@ struct OrderDetailScreen: View {
                                                       .foregroundColor(Color("B2C1E3"))
                                         }.padding(.horizontal)
                                             .padding(.top,5)
-                                        
+                                       
                                         VStack{
                                             HStack{
                                                 HStack{
@@ -115,8 +115,8 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading,10)
                                                 
                                                 Spacer()
-                                                Text(serviceManager.createdOrderData?.orderTime?.time ?? "" + " " +
-                                                     AppUtil.getDateOnly(format: "", dateValue: serviceManager.createdOrderData?.orderTime?.date ?? ""))
+                                                Text(serviceManager.createdOrderData?.scheduled?.time ?? "" + " " +
+                                                     AppUtil.getDateOnly(format: "", dateValue: serviceManager.createdOrderData?.scheduled?.date ?? ""))
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("fontBlue"))
@@ -128,7 +128,7 @@ struct OrderDetailScreen: View {
                                                       .foregroundColor(Color("B2C1E3"))
                                         }.padding(.horizontal)
                                             .padding(.top,5)
-                                        
+                                      
                                         VStack{
                                             HStack{
                                                 HStack{
@@ -226,10 +226,12 @@ struct OrderDetailScreen: View {
                                            
                                         }.padding(.horizontal)
                                             .padding(.top,5)
+                                       
                                     }
                                 )
                             
                         }.frame(width: UIScreen.main.bounds.width - 50, height: 400, alignment: .center)
+                     
                         if !waitingForTech {
                             VStack{
                                 HStack{
@@ -256,7 +258,7 @@ struct OrderDetailScreen: View {
                         else{
                             VStack{
                                 HStack{
-                                    Text("Waiting for technicians to accept the Order")
+                                    Text("Waiting for technicians to accept the Order.")
                                         .foregroundColor(Color("fontBlue"))
                                         .font(.system(size: 20))
                                         .fontWeight(.regular)
@@ -268,6 +270,10 @@ struct OrderDetailScreen: View {
                                 
                                 Image("Group 984")
                                     .scaledToFit()
+                                
+                                CustomButton(title: "Order Screen", callback: {
+                                    viewRouter.currentPage = "OrderScreen"
+                                })
 
                                 
                             }.frame(width: UIScreen.main.bounds.width - 50)
@@ -508,18 +514,26 @@ struct OrderDetailScreen: View {
                         }
                         
                       
-                        VStack{
-                         
-                            OrderButton(title: "Pay (720 SAR)", callback: {
-                                viewRouter.currentPage = "CompleteOrderScreen"
-                            }).padding(.vertical)
-                        }
+//                        VStack{
+//
+//                            OrderButton(title: "Pay (720 SAR)", callback: {
+//                                viewRouter.currentPage = "CompleteOrderScreen"
+//                            }).padding(.vertical)
+//                        }
                     }
                 }
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .task {
+                customerApi.getAvailableTechs(orderId: serviceManager.selectedOrder?._id ?? "", success: { res in
+                   // technicians = res
+                }, failure: { _ in
+                    
+                })
+            }
+        
     }
 }
 
