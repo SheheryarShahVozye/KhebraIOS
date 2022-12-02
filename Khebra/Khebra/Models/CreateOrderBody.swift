@@ -36,6 +36,30 @@ class CreateOrderResponse: Codable {
     var __v: Int?
 }
 
+class IncomingOrder: Codable {
+    var location: Location?
+    var postpone: Bool?
+    var appliedTechnician: [String]?
+    var approve: Bool?
+    var _id: String?
+    var orderNumber: Int?
+    var customer: User?
+    var orderTime: OrderTime?
+    var onDemant: Bool?
+    var status, moreDetails: String?
+    var url: String?
+    var cash, assigned, isPaid: Bool?
+    var address, service, serviceName: String?
+    var totalPrice: Int?
+    var couponCode,assignedTo: String?
+    var reviewed: Bool?
+    var createdAt, updatedAt: String?
+    var v: Int?
+    var paymentMethod: PaymentMethod?
+    var scheduled: OrderTime?
+    var createdAtTime: String?
+}
+
 // MARK: - Location
 class Location: Codable {
     public var coordinates: [Double]?

@@ -14,6 +14,8 @@ class ServiceManager: ObservableObject {
     @Published var selectedTechnician: TechnicianProfile?
     @Published var createdOrderData: CreateOrderResponse?
     @Published var selectedLocation: String?
+    @Published var selectedService: String?
+    @Published var documentsData: [Data]?
     @Published var selectedOrder: OrderObjectElement?
     
 

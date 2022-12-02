@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EngiDesignScreen: View {
+    
     var body: some View {
         ZStack{
             VStack{
@@ -97,6 +98,7 @@ struct EngiDesignScreen: View {
                                             .fontWeight(.medium)
                                         Spacer()
                                     }.padding(.horizontal)
+                                        
                                 )
                         }.padding(.top)
                         

@@ -102,6 +102,7 @@
 		14DE60F028F2B2BC00313F92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */; };
 		1851139E290D75FD00C7D011 /* OrderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139D290D75FD00C7D011 /* OrderClass.swift */; };
 		185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */; };
+		185243432939DB5300B2E3B7 /* AddBusinessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185243422939DB5300B2E3B7 /* AddBusinessClass.swift */; };
 		18655766292D576B001DC163 /* PaymentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655765292D576B001DC163 /* PaymentScreen.swift */; };
 		18655768292E2728001DC163 /* PaymentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655767292E2728001DC163 /* PaymentClass.swift */; };
 		18833E0B2928C2A100DF41DA /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833E0A2928C2A100DF41DA /* Offers.swift */; };
@@ -230,6 +231,7 @@
 		14DE60EF28F2B2BC00313F92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1851139D290D75FD00C7D011 /* OrderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderClass.swift; sourceTree = "<group>"; };
 		1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianProfileClass.swift; sourceTree = "<group>"; };
+		185243422939DB5300B2E3B7 /* AddBusinessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBusinessClass.swift; sourceTree = "<group>"; };
 		18655765292D576B001DC163 /* PaymentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScreen.swift; sourceTree = "<group>"; };
 		18655767292E2728001DC163 /* PaymentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClass.swift; sourceTree = "<group>"; };
 		18833E0A2928C2A100DF41DA /* Offers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
@@ -316,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				144635D928C3D1B200311865 /* TechnicianDashboard.swift */,
-				144635E128C4806900311865 /* NotificationScreen.swift */,
 				144635E328C486C500311865 /* OrderDashboardScreen.swift */,
 			);
 			path = Dashboard;
@@ -557,6 +558,7 @@
 				141B6D1A28C0DE5600EA7479 /* CreateOrder.swift */,
 				144635D328C3AE7E00311865 /* ChooseOnMapScreen.swift */,
 				18655765292D576B001DC163 /* PaymentScreen.swift */,
+				144635E128C4806900311865 /* NotificationScreen.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -586,6 +588,7 @@
 				1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */,
 				18833E0A2928C2A100DF41DA /* Offers.swift */,
 				18655767292E2728001DC163 /* PaymentClass.swift */,
+				185243422939DB5300B2E3B7 /* AddBusinessClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 				149033C828C4E31F00FC0264 /* IncomingOrderScreen.swift in Sources */,
 				141B6D1928C0A41700EA7479 /* PointCard.swift in Sources */,
 				14C85D9228BE46600019066A /* DashboardScreen.swift in Sources */,
+				185243432939DB5300B2E3B7 /* AddBusinessClass.swift in Sources */,
 				14C85D8928BDF54F0019066A /* AppUtil.swift in Sources */,
 				149033D528C50DB300FC0264 /* TechMoreScreen.swift in Sources */,
 				145C746228BFF8FA003E7164 /* SocialCard.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 struct DashboardScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var serviceManager: ServiceManager
+    @State var showBusinessSector: Bool = false
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -45,6 +46,12 @@ struct DashboardScreen: View {
                             
                         }
                         Spacer()
+                        Image("darkBell")
+                            .scaledToFit()
+                            .padding(.trailing)
+                            .onTapGesture {
+                                viewRouter.currentPage = "NotificationScreen"
+                            }
                             
                     }
                 }.padding(.horizontal,30)
@@ -72,8 +79,112 @@ struct DashboardScreen: View {
                            
                             ).padding(.top)
                             .onTapGesture{
-                                viewRouter.currentPage = "BusinessSectorScreen"
+                                
+                                showBusinessSector = true
                             }
+                        
+                        if showBusinessSector {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 2)
+                                    .foregroundColor(Color("White"))
+                                    .frame(width: UIScreen.main.bounds.width - 50, height: 150, alignment: .center)
+                                    
+                                RoundedRectangle(cornerRadius: 2)
+                                    .stroke(Color("fontBlue"),lineWidth: 1)
+                                    .frame(width: UIScreen.main.bounds.width - 50, height: 150, alignment: .center)
+                                    .overlay(
+                                        
+                                        HStack{
+                                            Spacer()
+                                            VStack{
+                                                Circle()
+                                                    .foregroundColor(Color("fontBlue"))
+                                                    .frame(width: 80,height:79,alignment: .center)
+                                                    .overlay(
+                                                        Image("maitainance")
+                                                    )
+                                               
+                                                
+                                                Text("Maintainance")
+                                                    .foregroundColor(Color("fontBlue"))
+                                                    .font(.system(size: 16))
+                                                    .fontWeight(.regular)
+                                                
+                                                Spacer()
+                                                    
+                                            }.onTapGesture {
+                                                serviceManager.selectedService = "Maintenance"
+                                                viewRouter.currentPage = "BusinessSectorScreen"
+                                            }
+                                            Spacer()
+                                            VStack{
+                                                Circle()
+                                                    .foregroundColor(Color("fontBlue"))
+                                                    .frame(width: 80,height:79,alignment: .center)
+                                                    .overlay(
+                                                        Image("engineering")
+                                                    )
+                                                
+                                                Text("Engineering Designs")
+                                                    .foregroundColor(Color("fontBlue"))
+                                                    .font(.system(size: 16))
+                                                    .fontWeight(.regular)
+                                                    .multilineTextAlignment(.center)
+                                                
+                                                Spacer()
+                                                    
+                                            }.onTapGesture {
+                                                serviceManager.selectedService = "Engineering Designs"
+                                                viewRouter.currentPage = "BusinessSectorScreen"
+                                            }
+                                            Spacer()
+                                            VStack{
+                                                Circle()
+                                                    .foregroundColor(Color("fontBlue"))
+                                                    .frame(width: 80,height:79,alignment: .center)
+                                                    .overlay(
+                                                        Image("construction")
+                                                    )
+                                               
+                                                
+                                                Text("Engineering Construction")
+                                                    .foregroundColor(Color("fontBlue"))
+                                                    .font(.system(size: 16))
+                                                    .fontWeight(.regular)
+                                                
+                                                Spacer()
+                                                
+                                                    
+                                            }.onTapGesture {
+                                                serviceManager.selectedService = "Engineering Construction"
+                                                viewRouter.currentPage = "BusinessSectorScreen"
+                                            }
+                                            Spacer()
+                                          
+                                        }
+                                            .padding(.top,10)
+                                    )
+                                
+                                VStack{
+                                    HStack{
+                                        Circle()
+                                            .frame(width: 35,height: 35,alignment: .center)
+                                            .foregroundColor(Color("White"))
+                                            .overlay(
+                                                Image("xmarkBlue")
+                                            )
+                                        Spacer()
+                                    }.offset(x:-10,y:-10)
+                                        .onTapGesture {
+                                            showBusinessSector = false
+                                        }
+                                    Spacer()
+                                }
+                            }
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 150, alignment: .center)
+
+                        }
+                       
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 2)
@@ -157,6 +268,14 @@ struct DashboardScreen: View {
                     })
                   
                 }
+                
+                customerApi.getBusinessSectors(success: { res in
+                    AppUtil.businessCategories = res
+                }, failure: { _ in
+                    
+                })
+                
+            
                
                
             })

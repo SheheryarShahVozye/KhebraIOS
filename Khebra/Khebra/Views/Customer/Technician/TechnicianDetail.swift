@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TechnicianDetail: View {
     @EnvironmentObject var serviceManager: ServiceManager
-    @State var sentRequestToggle: Bool = false
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State var sentRequestToggle: Bool = true
     var body: some View {
         ZStack{
+            
             VStack{
                 TopNavigation(titleText:"Technician Details")
                 ScrollView{
@@ -21,8 +23,10 @@ struct TechnicianDetail: View {
                                        rating: String(serviceManager.selectedTechnician?.rating ?? 0),
                                        fullfiledOrders: String(serviceManager.selectedTechnician?.fullFilledOrders ?? 0))
                         .onTapGesture {
+                            sentRequestToggle = true
                             customerApi.requetToTech(orderId: serviceManager.selectedOrder?._id ?? "", techId: serviceManager.selectedTechnician?._id ?? "", success: { _ in
-                                
+                                sentRequestToggle = false
+                                viewRouter.goBack()
                             }, failure: { _ in
                                 
                             })
@@ -103,6 +107,32 @@ struct TechnicianDetail: View {
                     }
                 }
                 BottomNavigation()
+            }
+          
+            if sentRequestToggle {
+                VStack{
+                    
+                    VStack{
+                        Text("Request Sent")
+                            .foregroundColor(Color("fontBlue"))
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+                            .padding(.top)
+                      
+                        Text("The request has been sent to the technician. Please wait for the technician to accept the order.")
+                            .foregroundColor(Color("fontBlue"))
+                            .font(.system(size: 13))
+                            .fontWeight(.regular)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal,20)
+                            .padding(5)
+                            .padding(.bottom,10)
+                        
+                        
+                    }
+                    
+                }.background(Color("White"))
+                    .border(Color("fontBlue"))
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)

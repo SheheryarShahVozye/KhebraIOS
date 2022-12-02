@@ -65,7 +65,7 @@ struct OrderDetailScreen: View {
                                                 }.padding(.leading)
                                                 
                                                 Spacer()
-                                                Text(serviceManager.selectedOrder?.status ?? "")
+                                                Text(serviceManager.createdOrderData?.status ?? "")
                                                     .font(.system(size: 14))
                                                     .fontWeight(.regular)
                                                     .foregroundColor(Color("046006"))
@@ -179,53 +179,53 @@ struct OrderDetailScreen: View {
                                         }.padding(.horizontal)
                                             .padding(.top,5)
                                         
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("calendar_month")
-                                                        .scaledToFit()
-                                                    Text("Appointment")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                Text("6/6/2022, 05:30 PM")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
-                                                      .frame(height: 1)
-                                                      .foregroundColor(Color("B2C1E3"))
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
+//                                        VStack{
+//                                            HStack{
+//                                                HStack{
+//                                                    Image("calendar_month")
+//                                                        .scaledToFit()
+//                                                    Text("Appointment")
+//                                                        .font(.system(size: 14))
+//                                                        .fontWeight(.regular)
+//                                                        .foregroundColor(Color("B2C1E3"))
+//                                                }.padding(.leading,10)
+//
+//                                                Spacer()
+//                                                Text("6/6/2022, 05:30 PM")
+//                                                    .font(.system(size: 14))
+//                                                    .fontWeight(.regular)
+//                                                    .foregroundColor(Color("fontBlue"))
+//                                                    .padding(.trailing,20)
+//                                            }
+//
+//                                            Line().stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
+//                                                      .frame(height: 1)
+//                                                      .foregroundColor(Color("B2C1E3"))
+//                                        }.padding(.horizontal)
+//                                            .padding(.top,5)
                                         
-                                        VStack{
-                                            HStack{
-                                                HStack{
-                                                    Image("User")
-                                                        .scaledToFit()
-                                                    Text("Technician name")
-                                                        .font(.system(size: 14))
-                                                        .fontWeight(.regular)
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                }.padding(.leading,10)
-                                                
-                                                Spacer()
-                                                Text("Mohaned Mostifa")
-                                                    .font(.system(size: 14))
-                                                    .fontWeight(.regular)
-                                                    .foregroundColor(Color("fontBlue"))
-                                                    .padding(.trailing,20)
-                                            }
-                                            
-                                           
-                                        }.padding(.horizontal)
-                                            .padding(.top,5)
+//                                        VStack{
+//                                            HStack{
+//                                                HStack{
+//                                                    Image("User")
+//                                                        .scaledToFit()
+//                                                    Text("Technician name")
+//                                                        .font(.system(size: 14))
+//                                                        .fontWeight(.regular)
+//                                                        .foregroundColor(Color("B2C1E3"))
+//                                                }.padding(.leading,10)
+//
+//                                                Spacer()
+//                                                Text("Mohaned Mostifa")
+//                                                    .font(.system(size: 14))
+//                                                    .fontWeight(.regular)
+//                                                    .foregroundColor(Color("fontBlue"))
+//                                                    .padding(.trailing,20)
+//                                            }
+//
+//
+//                                        }.padding(.horizontal)
+//                                            .padding(.top,5)
                                        
                                     }
                                 )
@@ -528,6 +528,7 @@ struct OrderDetailScreen: View {
             .background(Color("appbg"))
             .task {
                 customerApi.getAvailableTechs(orderId: serviceManager.selectedOrder?._id ?? "", success: { res in
+                    waitingForTech = false
                    // technicians = res
                 }, failure: { _ in
                     

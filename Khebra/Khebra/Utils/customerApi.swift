@@ -550,6 +550,113 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func addMaitainance(body: AddBusinessObject,success: @escaping (AddBusinessObject) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/business/mantenance" 
+        do{
+          
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
+            
+            post(url: url,data:jsonData, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: AddBusinessObject = try JSONDecoder()
+                        .decode(AddBusinessObject.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+       
+    }
+    
+    public static func addbusinessEngDesign(body: AddBusinessObject,success: @escaping (AddBusinessObject) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/business/eng/design"
+        do{
+          
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
+            
+            post(url: url,data:jsonData, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: AddBusinessObject = try JSONDecoder()
+                        .decode(AddBusinessObject.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+       
+    }
+    
+    public static func addbusinessEngConstruction(body: AddBusinessObject,success: @escaping (AddBusinessObject) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/business/eng/construction"
+        do{
+          
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
+            
+            post(url: url,data:jsonData, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: AddBusinessObject = try JSONDecoder()
+                        .decode(AddBusinessObject.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+       
+    }
     
     public static func createOrder(_ id: String,body: CreateOrderObject,success: @escaping (CreateOrderResponse) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/order/send/" + id
@@ -599,6 +706,33 @@ class customerApi: NSObject, URLSessionDelegate {
                     
                     let userObj: PaymentResponse = try JSONDecoder()
                         .decode(PaymentResponse.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getBusinessSectors(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/category"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
                     
                     success(userObj)
                     
@@ -722,8 +856,33 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func getNotifications(orderId: String,success: @escaping ([NotificationObjectElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/notification"
+      
+        get(url: url,completion: { result in
+            do {
+                let jsonString = String(data: result!, encoding: .utf8)
+                print("\n\n\(jsonString ?? "-")\n\n")
+                
+                let userObj: [NotificationObjectElement] = try JSONDecoder()
+                    .decode([NotificationObjectElement].self, from: result!)
+                
+                success(userObj)
+                
+                
+            } catch {
+                print("\n\n\(error)\n at line \(#line)")
+                print("\n\nError in decoding \(error.localizedDescription)\n")
+                failure(Strings.requestApiError)
+                // failure("Error in decoding")
+            }
+        }, incomplete: { incomp  in
+            failure(incomp)
+        })
+    }
+    
     public static func getProcessingOrders(success: @escaping ([OrderObjectElement]) -> Void, failure: @escaping (String) -> Void) {
-        let url: String = "customer/order/processing"
+        let url: String = "customer/order/waiting"
         do{
            
            
@@ -826,21 +985,17 @@ class customerApi: NSObject, URLSessionDelegate {
          urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
          var data = Data()
-        for i in 0 ..< image.count
-               {
+        for i in 0 ..< image.count  {
            
          // Add the image data to the raw http request data
-         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-         data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-         data.append("Content-Type: images/png\r\n\r\n".data(using: .utf8)!)
-         if image[i].pngData() != nil {
-             data.append(image[i].pngData()!)
-         }
-         
-         
-        
-         data.append("\r\n".data(using: .utf8)!)
-             }
+            data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+            data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+            data.append("Content-Type: images/png\r\n\r\n".data(using: .utf8)!)
+            if image[i].pngData() != nil {
+                data.append(image[i].pngData()!)
+            }
+            data.append("\r\n".data(using: .utf8)!)
+        }
          
 
          data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
@@ -863,8 +1018,8 @@ class customerApi: NSObject, URLSessionDelegate {
         
      }
     
-    public static func uploadFile(paramName: String, fileName: String, fileData: Data,completion: @escaping (Data?) -> Void, incomplete: @escaping (String) -> Void) {
-         let url = URL(string: "http://52.71.104.161:8080/api/v1/user/upload-multiple")
+    public static func uploadFile(paramName: String, fileName: String, fileData: [Data],completion: @escaping ([String]) -> Void, incomplete: @escaping (String) -> Void) {
+         let url = URL(string: baseUrl + "customer/upload-multiple")
         
         let headers: HTTPHeaders = [
             "Content-Type": "multipart/form-data",
@@ -889,13 +1044,16 @@ class customerApi: NSObject, URLSessionDelegate {
 
          var data = Data()
     
-           
+        for i in 0 ..< fileData.count {
          // Add the image data to the raw http request data
          data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
          data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
          data.append("Content-Type: images/png\r\n\r\n".data(using: .utf8)!)
          //if image[i].pngData() != nil {
-             data.append(fileData)
+       
+            data.append(fileData[i])
+        }
+            
          //}
          
          
@@ -912,7 +1070,7 @@ class customerApi: NSObject, URLSessionDelegate {
                  let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
                  if let json = jsonData as? [String] {
                      print(json)
-                     completion(responseData)
+                     completion(json)
                     
                      
                  }

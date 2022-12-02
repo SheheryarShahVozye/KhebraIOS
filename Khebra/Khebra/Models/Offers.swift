@@ -13,3 +13,13 @@ class OffersClass: Codable {
 
    
 }
+
+class NotificationObjectElement: Codable {
+    var id, title, descripton, user: String?
+    var orderId: IncomingOrder?
+    var v: Int?
+    var createdAt: String?
+    var updatedAt: String?
+
+  
+}

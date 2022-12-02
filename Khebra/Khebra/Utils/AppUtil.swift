@@ -21,6 +21,8 @@ class AppUtil {
     public static let CREATE_FORMAT: String = "M-dd-yyyy"
     public static let SERVER_TIMESTAMP: String = "dd-MM-yyyy"
     public static let AM_PM_TIMESTAMP: String = "hh:mm a"
+    public static var documentsData: [Data]?
+    public static var businessCategories: [BusinessCategoryElement]?
     public static let SERVER_TIMESTAMP_FORMAT_WITH_TIME_ZONE: String = "yyyy-MM-dd'T'HH:mm:ssZ"
     
     public static func getNotch() -> Bool {
@@ -49,6 +51,25 @@ class AppUtil {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = SERVER_TIMESTAMP_FORMAT_WITH_TIME_ZONE
         return dateFormatter.string(from: value)
+    }
+    
+    public static func getDateAndtime(dateValue: String) -> String {
+        
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM d, h:mm a"
+        
+        if let date = dateFormatterGet.date(from: dateValue) {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        } else {
+            print("There was an error decoding the string")
+            return ""
+        }
+        
     }
     
     public static func getDateOnly(format : String,dateValue: String) -> String {
