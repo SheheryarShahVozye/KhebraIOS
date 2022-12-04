@@ -20,7 +20,7 @@ struct KhebraApp: App {
             ContentView()
                 .environmentObject(viewRouter)
                 .environmentObject(serviceManager)
-                .colorScheme(.light)
+                .preferredColorScheme(.light)
         }
     }
 }

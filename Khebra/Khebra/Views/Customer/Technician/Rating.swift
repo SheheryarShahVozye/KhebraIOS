@@ -9,6 +9,19 @@ import SwiftUI
 
 struct RatingScreen: View {
     @State var comments: String = ""
+    @State var Perfectcheck: Bool = false
+    @State var Clumsycheck: Bool = false
+    @State var ArrivalCheck: Bool = false
+    @State var latearrivalcheck: Bool = false
+    @State var Fastcheck: Bool = false
+    @State var Slowcheck: Bool = false
+    @State var Mannerscheck: Bool = false
+    @State var BadMannerscheck: Bool = false
+    @State var WelllookCheck: Bool = false
+    @State var BadLookingCheck: Bool = false
+    @State var showPreloader: Bool = false
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var serviceManager: ServiceManager
     var body: some View {
         ZStack{
             VStack{
@@ -23,12 +36,20 @@ struct RatingScreen: View {
                             Spacer()
                         }
                         HStack{
-                            CancellationTypes(checkMark: true, description: "Perfect")
-                            CancellationTypes(checkMark: true, description: "Clumsy")
+                            CancellationTypes(checkMark: $Perfectcheck, description: "Perfect")
+                                .onTapGesture {
+                                    Perfectcheck.toggle()
+                                    Clumsycheck = false
+                                }
+                            CancellationTypes(checkMark: $Clumsycheck, description: "Clumsy")
+                                .onTapGesture {
+                                    Perfectcheck = false
+                                    Clumsycheck.toggle()
+                                }
                             
                             Spacer()
                         }
-                      
+                        
                         
                         
                     }.padding(.horizontal)
@@ -43,12 +64,20 @@ struct RatingScreen: View {
                             Spacer()
                         }
                         HStack{
-                            CancellationTypes(checkMark: true, description: "Arrival time")
-                            CancellationTypes(checkMark: true, description: "late arrival")
+                            CancellationTypes(checkMark: $ArrivalCheck, description: "Arrival time")
+                                .onTapGesture {
+                                    latearrivalcheck = false
+                                    ArrivalCheck.toggle()
+                                }
+                            CancellationTypes(checkMark: $latearrivalcheck, description: "late arrival")
+                                .onTapGesture {
+                                    ArrivalCheck = false
+                                    latearrivalcheck.toggle()
+                                }
                             
                             Spacer()
                         }
-                      
+                        
                         
                         
                     }.padding(.horizontal)
@@ -63,12 +92,20 @@ struct RatingScreen: View {
                             Spacer()
                         }
                         HStack{
-                            CancellationTypes(checkMark: true, description: "Fast")
-                            CancellationTypes(checkMark: true, description: "Slow")
+                            CancellationTypes(checkMark: $Fastcheck, description: "Fast")
+                                .onTapGesture {
+                                    Slowcheck = false
+                                    Fastcheck.toggle()
+                                }
+                            CancellationTypes(checkMark: $Slowcheck, description: "Slow")
+                                .onTapGesture {
+                                    Fastcheck = false
+                                    Slowcheck.toggle()
+                                }
                             
                             Spacer()
                         }
-                      
+                        
                         
                         
                     }.padding(.horizontal)
@@ -83,12 +120,20 @@ struct RatingScreen: View {
                             Spacer()
                         }
                         HStack{
-                            CancellationTypes(checkMark: true, description: "Manners")
-                            CancellationTypes(checkMark: true, description: "Bad Manners")
+                            CancellationTypes(checkMark: $Mannerscheck, description: "Manners")
+                                .onTapGesture {
+                                    BadMannerscheck = false
+                                    Mannerscheck.toggle()
+                                }
+                            CancellationTypes(checkMark: $BadMannerscheck, description: "Bad Manners")
+                                .onTapGesture {
+                                    Mannerscheck = false
+                                    BadMannerscheck.toggle()
+                                }
                             
                             Spacer()
                         }
-                      
+                        
                         
                         
                     }.padding(.horizontal)
@@ -103,12 +148,20 @@ struct RatingScreen: View {
                             Spacer()
                         }
                         HStack{
-                            CancellationTypes(checkMark: true, description: "Well look")
-                            CancellationTypes(checkMark: true, description: "Bad Looking")
+                            CancellationTypes(checkMark: $WelllookCheck, description: "Well look")
+                                .onTapGesture {
+                                    BadLookingCheck = false
+                                    WelllookCheck.toggle()
+                                }
+                            CancellationTypes(checkMark: $BadLookingCheck, description: "Bad Looking")
+                                .onTapGesture {
+                                    WelllookCheck = false
+                                    BadLookingCheck.toggle()
+                                }
                             
                             Spacer()
                         }
-                      
+                        
                         
                         
                     }.padding(.horizontal)
@@ -129,15 +182,60 @@ struct RatingScreen: View {
                             .overlay(
                                 TextEditor(text: $comments)
                                     .padding(.leading)
-                                    
+                                
                             )
                     }.padding(.horizontal)
                         .padding(.vertical)
                     
                     CustomButton(title: "Send", callback: {
+                        showPreloader = true
+                        let obj = RatingObject()
+                        if Perfectcheck {
+                            obj.workPerfection = "Perfect"
+                        } else {
+                            obj.workPerfection = "Clumsy"
+                        }
+                        
+                        if Fastcheck {
+                            obj.performanceSpeed = "Fast Speed"
+                        } else {
+                            obj.performanceSpeed = "Well Speed"
+                        }
+                        
+                        if Mannerscheck {
+                            obj.behaviorManner =  "Well Mannered"
+                        } else {
+                            obj.behaviorManner =  "Bad Mannered"
+                        }
+                        
+                        if WelllookCheck {
+                            obj.appearance = "Decent"
+                        } else {
+                            obj.appearance = "Bad"
+                        }
+                        
+                        obj.comment = comments
+                        
+                        customerApi.createRating(serviceManager.selectedOrder?._id ?? "", technicianiD: serviceManager.selectedOrder?.assignedTo ?? "", body: obj, success: { _ in
+                            showPreloader = false
+                            viewRouter.currentPage = "DashboardScreen"
+                        }, failure: { f in
+                            showPreloader = false
+                        })
                         
                     })
                 }
+            }
+            if showPreloader {
+                VStack {}
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("B6BAC3"))
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.6)
+
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color("buttonbg")))
+                    .scaleEffect(x: 4, y: 4, anchor: .center)
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)

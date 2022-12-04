@@ -47,7 +47,7 @@ class IncomingOrder: Codable {
     var orderTime: OrderTime?
     var onDemant: Bool?
     var status, moreDetails: String?
-    var url: String?
+    var url: [String]?
     var cash, assigned, isPaid: Bool?
     var address, service, serviceName: String?
     var totalPrice: Int?

@@ -10,6 +10,7 @@ import SwiftUI
 struct DashboardScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var serviceManager: ServiceManager
+    @ObservedObject var locationSearchService = LocationSearchService()
     @State var showBusinessSector: Bool = false
     let columns = [
         GridItem(.flexible()),

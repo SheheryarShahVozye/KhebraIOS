@@ -26,11 +26,11 @@ struct OrderCancelScreen: View {
                         }.padding(.horizontal,20)
                             .padding(.top,5)
                        
-                        CancellationTypes(checkMark: true, description: "The technician is late")
-                        CancellationTypes(checkMark: true, description: "Technician request cancellation")
-                        CancellationTypes(checkMark: true, description: "The technician is not a professional")
-                        CancellationTypes(checkMark: true, description: "The price is high")
-                        CancellationTypes(checkMark: true, description: "Another reason, please write it down")
+                        CancellationTypes(checkMark: .constant(true), description: "The technician is late")
+                        CancellationTypes(checkMark: .constant(true), description: "Technician request cancellation")
+                        CancellationTypes(checkMark: .constant(true), description: "The technician is not a professional")
+                        CancellationTypes(checkMark: .constant(true), description: "The price is high")
+                        CancellationTypes(checkMark: .constant(true), description: "Another reason, please write it down")
                         
                         
                        
@@ -64,7 +64,7 @@ struct OrderCancelScreen_Previews: PreviewProvider {
 }
 
 struct CancellationTypes: View {
-    var checkMark: Bool = true
+    @Binding var checkMark: Bool
     var description: String = "The technician is late"
     var body: some View {
         HStack{
@@ -74,6 +74,11 @@ struct CancellationTypes: View {
                 
                 RoundedRectangle(cornerRadius: 3)
                     .stroke(Color("B2C1E3"),lineWidth: 1)
+            
+                if checkMark {
+                    Image("Icon color")
+                }
+               
                 
             }.frame(width: 27, height: 24, alignment: .center)
           

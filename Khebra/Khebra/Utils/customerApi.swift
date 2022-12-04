@@ -694,6 +694,42 @@ class customerApi: NSObject, URLSessionDelegate {
        
     }
     
+    public static func createRating(_ Orderid: String,technicianiD: String,body: RatingObject,success: @escaping (CreateOrderResponse) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/review/" + Orderid + "/technician/" + technicianiD
+        do{
+          
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
+            
+            put(url: url,data:jsonData, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: CreateOrderResponse = try JSONDecoder()
+                        .decode(CreateOrderResponse.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+       
+    }
+    
     public static func successPayment(orderId: String,paymentid: String,success: @escaping (PaymentResponse) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/order/success/" + orderId + "?id=" + paymentid + "&status=paid&message=successful"
         do{
