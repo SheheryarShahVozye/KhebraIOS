@@ -14,6 +14,7 @@ struct CreateOrder: View {
     @State var details: String = ""
     @State var schedulePopup: Bool = false
     @State var cash: Bool = false
+    @State var card: Bool = false
     @State var imageUrl: String = ""
     @State var onDemant: Bool = false
     @State var pickerResult: [UIImage] = []
@@ -290,9 +291,9 @@ struct CreateOrder: View {
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 0)
-                                    .foregroundColor(cash ? Color("fontBlue")  : Color("White"))
+                                    .foregroundColor(card ? Color("fontBlue")  : Color("White"))
                                 RoundedRectangle(cornerRadius: 0)
-                                    .stroke(cash ? Color("White") : Color("B2C1E3"),lineWidth: 1)
+                                    .stroke(card ? Color("White") : Color("B2C1E3"),lineWidth: 1)
                                     .overlay(
                                        
                                         HStack{
@@ -300,18 +301,20 @@ struct CreateOrder: View {
                                             Text("/")
                                                 .font(.system(size: 18))
                                                 .fontWeight(.medium)
-                                                .foregroundColor(cash ? Color("White") : Color("fontBlue"))
+                                                .foregroundColor(card ? Color("White") : Color("fontBlue"))
                                             Image("Visa_Inc._logo")
                                             Text("Card Payment")
                                                 .font(.system(size: 18))
                                                 .fontWeight(.medium)
-                                                .foregroundColor(cash ? Color("White") : Color("fontBlue"))
+                                                .foregroundColor(card ? Color("White") : Color("fontBlue"))
                                         }
                                         
                                     )
                             }.frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)
                                 .onTapGesture {
-                                    cash.toggle()
+                                    card.toggle()
+                                    cash = false
+                                    
                                 }
                             
                             ZStack{
@@ -328,6 +331,7 @@ struct CreateOrder: View {
                             }.frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)
                                 .onTapGesture {
                                     cash.toggle()
+                                    card = false
                                 }
                             
                             HStack{
@@ -595,6 +599,7 @@ struct CreateOrder: View {
         
         objBody.moreDetails = details
         objBody.cash = cash
+        objBody.card = card
         objBody.address = serviceManager.selectedLocation ?? ""
        // objBody.onDemant = onDemant
         objBody.couponCode = couponCode

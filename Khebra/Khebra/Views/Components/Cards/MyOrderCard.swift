@@ -13,6 +13,7 @@ struct MyOrderCard: View {
     var address: String = "As Sahafah, Olaya St. 6531, 30..."
     var serviceType: String = "Plumbing"
     var timeSlot: String = "6/6/2022, 05:30 PM"
+    var callback: () -> Void = {}
     var body: some View {
         RoundedRectangle(cornerRadius: 5)
             .frame(width: UIScreen.main.bounds.width - 50, height: 125, alignment: .center)
@@ -94,10 +95,12 @@ struct MyOrderCard: View {
                             .frame(width: 80, height: 60, alignment: .center)
                             .foregroundColor(Color("buttonbg"))
                             .overlay(
-                             Text("Postponement")
-                                .font(.system(size: 10))
-                                .foregroundColor(Color("White"))
-                            )
+                                    Text("Postponement")
+                                            .font(.system(size: 10))
+                                            .foregroundColor(Color("White"))
+                            ).onTapGesture {
+                                callback()
+                            }
 
                     }.padding(.horizontal)
                     Spacer()

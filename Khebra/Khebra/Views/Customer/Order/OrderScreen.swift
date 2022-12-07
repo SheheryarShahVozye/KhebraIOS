@@ -10,6 +10,7 @@ import SwiftUI
 struct OrderScreen: View {
     @State var selected: String = "Current"
     @State var textcolorNon: String = "B2C1E3"
+    @State var selectedId: String = ""
     @State var waitingOrders: [OrderObjectElement] = []
     @State var cancelledOrders: [OrderObjectElement] = []
     @State var ordersList: [OrderObjectElement] = []
@@ -17,6 +18,7 @@ struct OrderScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var serviceManager: ServiceManager
     @State var showPreloader: Bool = false
+    @State var showPostponement: Bool = false
     var body: some View {
         ZStack{
             VStack{
@@ -137,7 +139,11 @@ struct OrderScreen: View {
                                 MyOrderCard(orderNumber: String(waitingOrders[ind].orderNumber ?? 0),
                                             status: waitingOrders[ind].status ?? "",
                                             address: waitingOrders[ind].address ?? "",
-                                            serviceType: waitingOrders[ind].serviceName ?? "")
+                                            serviceType: waitingOrders[ind].serviceName ?? "",
+                                            callback: {
+                                    
+                                    
+                                })
                                 .onTapGesture{
                                     serviceManager.selectedOrder = waitingOrders[ind]
                                     viewRouter.currentPage = "TrackingOrderScreen"
@@ -150,7 +156,11 @@ struct OrderScreen: View {
                                 MyOrderCard(orderNumber: String(ordersList[ind].orderNumber ?? 0),
                                             status: ordersList[ind].status ?? "",
                                             address: ordersList[ind].address ?? "",
-                                            serviceType: ordersList[ind].serviceName ?? "")
+                                            serviceType: ordersList[ind].serviceName ?? "",
+                                            callback: {
+                                    selectedId = ordersList[ind]._id ?? ""
+                                    showPostponement.toggle()
+                                })
                                 .onTapGesture{
                                     serviceManager.selectedOrder = ordersList[ind]
                                     viewRouter.currentPage = "TrackingOrderScreen"
@@ -187,6 +197,148 @@ struct OrderScreen: View {
                 
             }
             
+            if showPostponement {
+                VStack {}
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("B6BAC3"))
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.6)
+                
+                VStack{
+                    VStack{
+                        
+                        HStack{
+                           Spacer()
+                            Text("Order Postponement")
+                                .foregroundColor(Color("fontBlue"))
+                                .font(.system(size: 17))
+                                .fontWeight(.bold)
+                                .padding(10)
+                            Spacer()
+                        }
+                        
+                       
+                        HStack{
+                            Text("Select Date & Time")
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("fontBlue"))
+                                .fontWeight(.light)
+                                .padding(.top,5)
+                        }
+                        
+                        
+                        HStack{
+                            Spacer()
+                            VStack{
+                                HStack{
+                                    Text("Time")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(Color("fontBlue"))
+                                        .fontWeight(.light)
+                                        .padding(.top,5)
+                                    
+                                    Spacer()
+                                }
+                                HStack{
+                                    Spacer()
+                                    Image("ondemand")
+                                        .scaledToFit()
+                                    DatePicker(selection: .constant(Date()),displayedComponents: .hourAndMinute, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
+                                        .labelsHidden()
+                                    
+                                    
+                                    Spacer()
+                                }.padding(.vertical,10)
+                                    .padding(.horizontal,10)
+                                    .background(Color("White"))
+                                    .border(Color("B2C1E3").opacity(0.6))
+                            }
+                            
+                            
+                            Group{
+                                VStack{
+                                    HStack{
+                                        Text("Date")
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color("fontBlue"))
+                                            .fontWeight(.light)
+                                            .padding(.top,5)
+                                        
+                                        Spacer()
+                                    }
+                                    HStack{
+                                        Spacer()
+                                        Image("appointment")
+                                            .scaledToFit()
+                                        DatePicker(selection: .constant(Date()) ,displayedComponents: .date, label: { Text("Date") })
+                                            .labelsHidden()
+                                        Spacer()
+                                    }.padding(.vertical,10)
+                                        .padding(.horizontal,10)
+                                        .background(Color("White"))
+                                        .border(Color("B2C1E3").opacity(0.6))
+                                }
+                                
+                            }.offset(x:-10)
+                            
+                            Spacer()
+                            
+                            
+                            
+                        }.frame(width: UIScreen.main.bounds.width - 50)
+                    }
+                    .padding(.top,10)
+                    
+                    
+                    
+                    
+                    OrderButton(title: "Send Request", callback: {
+                        customerApi.postponeOrder(selectedId, success: { _ in
+                            showPostponement = false
+                        }, failure: { _ in
+                            
+                        })
+                    }).padding(.top)
+                    Spacer()
+                }.frame(width: UIScreen.main.bounds.width - 20,
+                        height: 300, alignment: .center)
+                    .background(Color("White"))
+            }
+            /*
+            if showPostponement {
+                VStack {}
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("B6BAC3"))
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.6)
+                
+                VStack{
+                    VStack{
+                        HStack{
+                           Spacer()
+                            Text("Order Postponement")
+                                .foregroundColor(Color("fontBlue"))
+                                .font(.system(size: 17))
+                                .fontWeight(.bold)
+                                .padding(10)
+                            Spacer()
+                        }
+                        
+                        HStack{
+                           
+                            Text("Order Postponement")
+                                .foregroundColor(Color("fontBlue"))
+                                .font(.system(size: 17))
+                                .fontWeight(.bold)
+                                .padding(10)
+                            
+                        }
+                    }
+                  
+                }.frame(width: UIScreen.main.bounds.width - 100).background(Color("White"))
+                
+            }
+            */
             if showPreloader {
                 VStack {}
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-      
+    
         if viewRouter.currentPage == "splashscreen" {
             SplashScreen()
                 .onAppear(perform: {
@@ -32,7 +32,7 @@ struct ContentView: View {
             RouteManager()
         }
       
-        
+     //   OrderScreen()
         
      
     }

@@ -107,6 +107,7 @@
 		18655766292D576B001DC163 /* PaymentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655765292D576B001DC163 /* PaymentScreen.swift */; };
 		18655768292E2728001DC163 /* PaymentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655767292E2728001DC163 /* PaymentClass.swift */; };
 		18833E0B2928C2A100DF41DA /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833E0A2928C2A100DF41DA /* Offers.swift */; };
+		18BDE79A2940A72D0045A6B6 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDE7992940A72D0045A6B6 /* Points.swift */; };
 		18E587DB2920D0E3005F43C4 /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E587DA2920D0E3005F43C4 /* LocationScreen.swift */; };
 		D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */; };
 		EDB21BABB550BC82D988B938 /* Pods_KhebraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */; };
@@ -237,6 +238,7 @@
 		18655765292D576B001DC163 /* PaymentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScreen.swift; sourceTree = "<group>"; };
 		18655767292E2728001DC163 /* PaymentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClass.swift; sourceTree = "<group>"; };
 		18833E0A2928C2A100DF41DA /* Offers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
+		18BDE7992940A72D0045A6B6 /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 		18E587DA2920D0E3005F43C4 /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.release.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				18655767292E2728001DC163 /* PaymentClass.swift */,
 				185243422939DB5300B2E3B7 /* AddBusinessClass.swift */,
 				18276DD5293B30F300E5BA5F /* RatingClass.swift */,
+				18BDE7992940A72D0045A6B6 /* Points.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
 				143D352B28DE646200946FDD /* OrderLocation.swift in Sources */,
 				14D339BC28D07227006360D9 /* customerApi.swift in Sources */,
+				18BDE79A2940A72D0045A6B6 /* Points.swift in Sources */,
 				144635E928C4957600311865 /* NewOrderDetailScreen.swift in Sources */,
 				141B6D1B28C0DE5600EA7479 /* CreateOrder.swift in Sources */,
 				143D351C28D841BA00946FDD /* Services.swift in Sources */,

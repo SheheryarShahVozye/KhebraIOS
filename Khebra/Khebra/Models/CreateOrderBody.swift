@@ -9,7 +9,7 @@ import Foundation
 
 class CreateOrderObject: Codable {
     public var moreDetails, address, couponCode: String?
-    public var onDemand, cash: Bool?
+    public var onDemand, cash,card: Bool?
     public var url: String?
     public var scheduled: OrderTime?
     public var immediately: Bool?
@@ -23,6 +23,7 @@ class CreateOrderObject: Codable {
 class CreateOrderResponse: Codable {
     var orderNumber: Int?
     var postpone: Bool?
+    var card: Bool?
     var appliedTechnician: [String]?
     var customer: String?
     var scheduled: OrderTime?

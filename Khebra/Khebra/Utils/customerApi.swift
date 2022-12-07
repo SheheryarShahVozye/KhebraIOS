@@ -79,15 +79,11 @@ class customerApi: NSObject, URLSessionDelegate {
                    
                 
                 
-                if httpResponse?.statusCode == 400 {
+                if httpResponse?.statusCode == 200 || httpResponse?.statusCode == 201 || httpResponse?.statusCode == 202 {
+                    return completion(responseData!)
+                } else {
                     return incomplete(errorObject)
                 }
-                else if httpResponse?.statusCode == 401 {
-                    return incomplete(errorObject)
-                } else if httpResponse?.statusCode == 403 {
-                    return incomplete(errorObject)
-                }
-                return completion(responseData!)
             }
         })
         task.resume()
@@ -174,14 +170,31 @@ class customerApi: NSObject, URLSessionDelegate {
                 
                 return incomplete(error!.localizedDescription)
             } else {
+                
                 let httpResponse = response as? HTTPURLResponse
                 print("\nStatus code Post: \(httpResponse!.statusCode) \n")
-                if httpResponse?.statusCode == 401 {
-                    return incomplete(Strings.unAuthorizedUserError)
-                } else if httpResponse?.statusCode == 403 {
-                    return incomplete(Strings.accountInActiveError)
+               
+                let jsonString = String(data: responseData!, encoding: .utf8)
+                print("\n\n\(jsonString ?? "-")\n\n")
+                
+                let decoder = JSONDecoder()
+                var errorObject = "";
+                do {
+                    let people = try decoder.decode(ErrorObject.self, from: responseData!)
+                    errorObject = people.error ?? ""
+                    print(people)
+                } catch {
+                    print(error.localizedDescription)
                 }
-                return completion(responseData!)
+                
+                
+                if httpResponse?.statusCode == 200 || httpResponse?.statusCode == 201 || httpResponse?.statusCode == 202 {
+                    return completion(responseData!)
+                } else {
+                    return incomplete(errorObject)
+                }
+               
+              
             }
         })
         task.resume()
@@ -401,6 +414,38 @@ class customerApi: NSObject, URLSessionDelegate {
             }, incomplete: { incomp  in
                 failure(incomp)
             })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
+        }
+    }
+    
+    public static func postponeOrder(_ orderId: String,success: @escaping (OrderObjectElement) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/order/postpond/" + orderId
+        do{
+           
+            put(url: url,data:nil, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: OrderObjectElement = try JSONDecoder()
+                        .decode(OrderObjectElement.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+            
         }  catch {
             print("\n\n\(error)\n at line \(#line)")
             print("\n\nError in encoding \(error.localizedDescription)\n")
@@ -784,6 +829,193 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func getTermsAndCondition(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/terms-and-conditions"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getTechnicalTermsAndCondition(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/technical-terms-and-conditions"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getFaqs(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/faqs"
+        do{
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getSocialMedia(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/social-media"
+        do{
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getAboutkhebra(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/about-khebra"
+        do{
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    
+    public static func CoonectUs(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/connectus"
+        do{
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func privacy(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/privacy"
+        do{
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
+                        .decode([BusinessCategoryElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+
+    
     public static func getServices(success: @escaping ([Service]) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "admin/service"
         do{
@@ -850,6 +1082,33 @@ class customerApi: NSObject, URLSessionDelegate {
                     
                     let userObj: [OrderObjectElement] = try JSONDecoder()
                         .decode([OrderObjectElement].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
+    public static func getPointValue(success: @escaping (pointsobject) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/points"
+        do{
+           
+           
+            get(url: url, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: pointsobject = try JSONDecoder()
+                        .decode(pointsobject.self, from: result!)
                     
                     success(userObj)
                     

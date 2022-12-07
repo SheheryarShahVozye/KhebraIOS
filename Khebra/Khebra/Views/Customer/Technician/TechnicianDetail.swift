@@ -10,7 +10,7 @@ import SwiftUI
 struct TechnicianDetail: View {
     @EnvironmentObject var serviceManager: ServiceManager
     @EnvironmentObject var viewRouter: ViewRouter
-    @State var sentRequestToggle: Bool = true
+    @State var sentRequestToggle: Bool = false
     var body: some View {
         ZStack{
             
@@ -110,7 +110,15 @@ struct TechnicianDetail: View {
             }
           
             if sentRequestToggle {
+                VStack {}
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("B6BAC3"))
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.6)
+                
                 VStack{
+                    
+                    
                     
                     VStack{
                         Text("Request Sent")
