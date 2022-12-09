@@ -10,9 +10,9 @@ import SwiftUI
 struct MoreScreen: View {
     var moreItems:[String] = ["Wallet","My Point","Orders","Price List","User Agreements",
                               "Register as a service provider","Profile","About Khebra","Share App and win with us",
-    "Connect Us","Favorite Technicians","FAQ","Logout"]
+    "Connect Us","Favorite Technicians","FAQ","Setting","Logout"]
     var itemImages: [String] = ["wallet","points","orders-grat","pricelist","userAgreement","registerService","User","about","share",
-    "connect","heart","faq","logout"]
+    "connect","heart","faq","settings","logout"]
     @EnvironmentObject var viewRouter: ViewRouter
     let columns = [
         GridItem(.flexible()),
@@ -64,6 +64,11 @@ struct MoreScreen: View {
                                         if  moreItems[item] == "Orders" {
                                             viewRouter.currentPage = "OrderScreen"
                                         }
+                                        
+                                        if  moreItems[item] == "Setting" {
+                                            viewRouter.currentPage = "SettingScreen"
+                                        }
+                                        
                                         
                                         if moreItems[item] == "Favorite Technicians" {
                                             viewRouter.currentPage = "FavTechnicianScreen"

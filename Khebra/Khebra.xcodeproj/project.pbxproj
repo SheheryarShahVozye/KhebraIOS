@@ -465,7 +465,6 @@
 				149033D628C53D5C00FC0264 /* IncomeScreen.swift */,
 				14AEB9B828C64E6D006688BD /* HowToUseScreen.swift */,
 				14AEB9BC28C651F1006688BD /* TechProfileScreen.swift */,
-				14AEB9BE28C65756006688BD /* SettingScreen.swift */,
 				14AEB9C028C6839D006688BD /* IncentivePenaltyScreen.swift */,
 				14AEB9C228C68B23006688BD /* RatingFactorScreen.swift */,
 				14AEB9C428C72007006688BD /* InvoiceScreen.swift */,
@@ -575,6 +574,7 @@
 		14CEBC5128BFE415004A6FF2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				14AEB9BE28C65756006688BD /* SettingScreen.swift */,
 				14CEBC5228BFE429004A6FF2 /* MoreScreen.swift */,
 				145C746328BFFC27003E7164 /* ShareApp.swift */,
 				145C746528C0005A003E7164 /* ConnectScreen.swift */,

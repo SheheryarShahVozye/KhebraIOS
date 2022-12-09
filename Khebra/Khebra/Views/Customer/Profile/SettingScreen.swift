@@ -92,7 +92,15 @@ struct SettingScreen: View {
                                     
                                 }.padding(.horizontal,30)
                                 
-                            )
+                            ).onTapGesture {
+                                let defaults = UserDefaults.standard
+                                defaults.set("en", forKey: Keys.language)
+
+                                
+                                if let token = defaults.value(forKey: Keys.language) as? String {
+                                    print("defaults Token: \(token)")
+                                }
+                            }
                         
                         RoundedRectangle(cornerRadius: 5)
                             .frame(width: UIScreen.main.bounds.width - 50, height: 45, alignment: .center)

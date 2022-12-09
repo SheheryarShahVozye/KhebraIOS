@@ -125,6 +125,8 @@ struct RouteManager: View {
             LocationScreen()
         } else if viewRouter.currentPage == "PaymentScreen" {
             PaymentScreen()
+        } else if viewRouter.currentPage == "SettingScreen" {
+            SettingScreen()
         }
         
     }
@@ -143,6 +145,7 @@ struct Keys {
     static let selectedLat = "selectedLat"
     static let token = "token"
     static let userID = "userID"
+    static let language = "en"
     
 }
 
