@@ -15,11 +15,23 @@ struct NewOrderButton: View {
             .foregroundColor(Color("buttonbg"))
             .overlay(
                 HStack{
-                    Text(title)
-                        .font(.system(size: 16))
-                        .foregroundColor(Color("White"))
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
+                    
+                    if let language = UserDefaults.standard.value(forKey: Keys.language) as? String {
+                        if language == "ar" {
+                            Text(title.localized("ar"))
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("White"))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                        } else {
+                            Text(title)
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("White"))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                  
                 }
             )
 

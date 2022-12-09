@@ -21,7 +21,8 @@ struct KhebraApp: App {
                 .environmentObject(viewRouter)
                 .environmentObject(serviceManager)
                 .preferredColorScheme(.light)
-               // .environment(\.locale, .init(identifier:"ar"))
+                .environment(\.locale, .init(identifier: UserDefaults.standard.value(forKey: Keys.language) as? String ?? "en"))
+              
         }
     }
 }

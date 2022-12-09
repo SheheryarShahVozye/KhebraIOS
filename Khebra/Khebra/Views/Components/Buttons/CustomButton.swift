@@ -15,10 +15,22 @@ struct CustomButton: View {
             .foregroundColor(Color("buttonbg"))
             .frame(width: 175, height: 50, alignment: .center)
             .overlay(
-                        Text(title)
-                            .font(.system(size: 16))
-                            .foregroundColor(Color("White"))
-                            .fontWeight(.semibold)
+                HStack{
+                    if let language = UserDefaults.standard.value(forKey: Keys.language) as? String {
+                        if language == "ar" {
+                            Text(title.localized("ar"))
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("White"))
+                                .fontWeight(.semibold)
+                        } else {
+                            Text(title)
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("White"))
+                                .fontWeight(.semibold)
+                        }
+                    }
+                }
+                      
             ).onTapGesture {
                 callback()
             }

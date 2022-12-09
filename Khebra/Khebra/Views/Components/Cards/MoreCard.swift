@@ -23,9 +23,17 @@ struct MoreCard: View {
                                 .scaledToFit()
                         }.frame(width: 25, height: 25, alignment: .center)
                       
-                        Text(name)
-                            .font(.system(size: 16))
-                            .foregroundColor(Color("5A5A5A"))
+                        if let language = UserDefaults.standard.value(forKey: Keys.language) as? String {
+                            if language == "ar" {
+                                Text(name.localized("ar"))
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color("5A5A5A"))
+                            } else {
+                                Text(name)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color("5A5A5A"))
+                            }
+                        }
                         
                         Spacer()
                         
@@ -44,7 +52,7 @@ struct MoreCard_Previews: PreviewProvider {
 }
 
 struct MoreCardWallet: View {
-    var name: String = "wallet"
+    var name: String = "Wallet"
     var Imagename: String = "orders-grat"
     var value: String = "0.00"
     var body: some View {
@@ -68,10 +76,21 @@ struct MoreCardWallet: View {
                           
                             VStack{
                                 HStack {
-                                    Text(name)
-                                        .font(.system(size: 16))
-                                    .foregroundColor(Color("5A5A5A"))
                                     
+                                    if let language = UserDefaults.standard.value(forKey: Keys.language) as? String {
+                                        if language == "ar" {
+                                            Text(name.localized("ar"))
+                                                .font(.system(size: 16))
+                                            .foregroundColor(Color("5A5A5A"))
+                                            
+                                        } else {
+                                            Text(name)
+                                                .font(.system(size: 16))
+                                            .foregroundColor(Color("5A5A5A"))
+                                            
+                                        }
+                                    }
+                                  
                                     Spacer()
                                 }
                                 HStack {

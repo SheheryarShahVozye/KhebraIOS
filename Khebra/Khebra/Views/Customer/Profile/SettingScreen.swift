@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingScreen: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @State var selectedLang : String = "EN"
     var body: some View {
         ZStack{
             VStack{
@@ -84,7 +85,7 @@ struct SettingScreen: View {
                                         .foregroundColor(Color("5F5E5E"))
                                     
                                     Spacer()
-                                    Text("EN")
+                                    Text(selectedLang)
                                         .font(.system(size: 16))
                                         .fontWeight(.medium)
                                         .foregroundColor(Color("B2C1E3"))
@@ -93,13 +94,14 @@ struct SettingScreen: View {
                                 }.padding(.horizontal,30)
                                 
                             ).onTapGesture {
-                                let defaults = UserDefaults.standard
-                                defaults.set("en", forKey: Keys.language)
-
                                 
-                                if let token = defaults.value(forKey: Keys.language) as? String {
-                                    print("defaults Token: \(token)")
+                                if selectedLang == "EN" {
+                                    selectedLang = "AR"
+                                } else {
+                                    selectedLang = "EN"
                                 }
+                                
+                               
                             }
                         
                         RoundedRectangle(cornerRadius: 5)
@@ -125,6 +127,25 @@ struct SettingScreen: View {
                             )
                         
                         OrderButton(title: "Save", callback: {
+                            if selectedLang == "EN" {
+                                let defaults = UserDefaults.standard
+                                defaults.set("en", forKey: Keys.language)
+
+                                
+                                if let token = defaults.value(forKey: Keys.language) as? String {
+                                    print("defaults Token: \(token)")
+                                }
+                                viewRouter.goBack()
+                            } else {
+                                let defaults = UserDefaults.standard
+                                defaults.set("ar", forKey: Keys.language)
+
+                                
+                                if let token = defaults.value(forKey: Keys.language) as? String {
+                                    print("defaults Token: \(token)")
+                                }
+                                viewRouter.goBack()
+                            }
                             
                         })
                     }
@@ -134,6 +155,15 @@ struct SettingScreen: View {
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
+            .onAppear(perform: {
+                if let language = UserDefaults.standard.value(forKey: Keys.language) as? String {
+                    if language == "ar" {
+                       selectedLang = "AR"
+                    } else {
+                        selectedLang = "EN"
+                    }
+                }
+            })
     }
 }
 
