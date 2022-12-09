@@ -19,6 +19,8 @@ struct OrderScreen: View {
     @EnvironmentObject var serviceManager: ServiceManager
     @State var showPreloader: Bool = false
     @State var showPostponement: Bool = false
+    @State var orderDate: Date = Date()
+    @State var orderTime: Date = Date()
     var body: some View {
         ZStack{
             VStack{
@@ -140,6 +142,7 @@ struct OrderScreen: View {
                                             status: waitingOrders[ind].status ?? "",
                                             address: waitingOrders[ind].address ?? "",
                                             serviceType: waitingOrders[ind].serviceName ?? "",
+                                            timeSlot: AppUtil.getDateOnly(format: "", dateValue: waitingOrders[ind].scheduled?.date ?? "") ,
                                             callback: {
                                     
                                     
@@ -157,6 +160,7 @@ struct OrderScreen: View {
                                             status: ordersList[ind].status ?? "",
                                             address: ordersList[ind].address ?? "",
                                             serviceType: ordersList[ind].serviceName ?? "",
+                                            timeSlot: AppUtil.getDateOnly(format: "" ,dateValue: ordersList[ind].scheduled?.date ?? "") ,
                                             callback: {
                                     selectedId = ordersList[ind]._id ?? ""
                                     showPostponement.toggle()
@@ -243,7 +247,7 @@ struct OrderScreen: View {
                                     Spacer()
                                     Image("ondemand")
                                         .scaledToFit()
-                                    DatePicker(selection: .constant(Date()),displayedComponents: .hourAndMinute, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
+                                    DatePicker(selection: $orderTime,displayedComponents: .hourAndMinute, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
                                         .labelsHidden()
                                     
                                     
@@ -270,7 +274,7 @@ struct OrderScreen: View {
                                         Spacer()
                                         Image("appointment")
                                             .scaledToFit()
-                                        DatePicker(selection: .constant(Date()) ,displayedComponents: .date, label: { Text("Date") })
+                                        DatePicker(selection: $orderDate ,displayedComponents: .date, label: { Text("Date") })
                                             .labelsHidden()
                                         Spacer()
                                     }.padding(.vertical,10)
@@ -293,7 +297,10 @@ struct OrderScreen: View {
                     
                     
                     OrderButton(title: "Send Request", callback: {
-                        customerApi.postponeOrder(selectedId, success: { _ in
+                        let body = postponementRequest()
+                        body.date = AppUtil.getPostDateString(orderDate)
+                        body.time = AppUtil.getAmPmTime(orderTime)
+                        customerApi.postponeOrder(selectedId,body, success: { _ in
                             showPostponement = false
                         }, failure: { _ in
                             

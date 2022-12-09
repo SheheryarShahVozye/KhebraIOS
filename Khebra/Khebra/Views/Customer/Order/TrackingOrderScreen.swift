@@ -31,7 +31,7 @@ struct TrackingOrderScreen: View {
                                     }.padding(.leading)
                                     
                                     Spacer()
-                                    Text("#58256")
+                                    Text(String(serviceManager.selectedOrder?.orderNumber ?? 0))
                                         .font(.system(size: 14))
                                         .fontWeight(.regular)
                                         .foregroundColor(Color("fontBlue"))
@@ -185,7 +185,13 @@ struct TrackingOrderScreen: View {
                                     }.padding(.leading,10)
                                     
                                     Spacer()
-                                    Text("6/6/2022, 05:30 PM")
+                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.scheduled?.date ?? ""))
+                                        .font(.system(size: 14))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color("fontBlue"))
+                                        .padding(.trailing,20)
+                                    
+                                    Text(serviceManager.selectedOrder?.scheduled?.time ?? "")
                                         .font(.system(size: 14))
                                         .fontWeight(.regular)
                                         .foregroundColor(Color("fontBlue"))

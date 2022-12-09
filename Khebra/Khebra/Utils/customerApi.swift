@@ -422,11 +422,14 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
-    public static func postponeOrder(_ orderId: String,success: @escaping (OrderObjectElement) -> Void, failure: @escaping (String) -> Void) {
+    public static func postponeOrder(_ orderId: String,_ body: postponementRequest,success: @escaping (OrderObjectElement) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/order/postpond/" + orderId
         do{
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
            
-            put(url: url,data:nil, completion: { result in
+            put(url: url,data:jsonData, completion: { result in
                 do {
                     let jsonString = String(data: result!, encoding: .utf8)
                     print("\n\n\(jsonString ?? "-")\n\n")
@@ -445,7 +448,6 @@ class customerApi: NSObject, URLSessionDelegate {
             }, incomplete: { incomp  in
                 failure(incomp)
             })
-            
         }  catch {
             print("\n\n\(error)\n at line \(#line)")
             print("\n\nError in encoding \(error.localizedDescription)\n")
@@ -776,7 +778,7 @@ class customerApi: NSObject, URLSessionDelegate {
     }
     
     public static func successPayment(orderId: String,paymentid: String,success: @escaping (PaymentResponse) -> Void, failure: @escaping (String) -> Void) {
-        let url: String = "customer/order/success/" + orderId + "?id=" + paymentid + "&status=paid&message=successful"
+        let url: String = "customer/success/" + orderId + "?id=" + paymentid + "&status=paid&message=successful"
         do{
            
            
@@ -1044,7 +1046,7 @@ class customerApi: NSObject, URLSessionDelegate {
     }
     
     public static func getCurrentOrders(success: @escaping ([OrderObjectElement]) -> Void, failure: @escaping (String) -> Void) {
-        let url: String = "customer/order"
+        let url: String = "customer/order/current"
         do{
            
            

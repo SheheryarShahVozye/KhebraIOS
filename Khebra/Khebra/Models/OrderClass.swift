@@ -18,7 +18,8 @@ public class OrderObjectElement: Codable {
     var orderNumber: Int?
     var customer, createdAtTime, status, moreDetails: String?
     var approve, cash, assigned, isPaid: Bool?
-    var address, service, serviceName,assignedTo: String?
+    var address, service, serviceName: String?
+    var assignedTo: TechnicianProfile?
     var totalPrice: Int?
     var couponCode, createdAt, updatedAt: String?
     var v: Int?

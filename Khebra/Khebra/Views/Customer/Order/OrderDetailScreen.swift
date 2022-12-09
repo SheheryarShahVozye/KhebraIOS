@@ -12,6 +12,7 @@ struct OrderDetailScreen: View {
     @State var orderAccepted: Bool = false
     @State var waitingForTech: Bool = true
     @EnvironmentObject var serviceManager: ServiceManager
+    @State var technicians: [TechnicianProfile] = []
     var body: some View {
         ZStack{
             VStack{
@@ -246,11 +247,12 @@ struct OrderDetailScreen: View {
                                 }.padding(.horizontal)
                                 
                                 VStack{
-                                    ForEach(0 ..< 5, id:\.self) { _ in
-                                        TechnicianCard()
-                                            .onTapGesture{
-                                                viewRouter.currentPage = "TechnicianDetail"
-                                            }
+                                    ForEach(0 ..< technicians.count, id:\.self) { ind in
+                                        TechnicianCard(techName: technicians[ind].name ?? "" , rating: String(technicians[ind].rating ?? 0),
+                                                       fullfiledOrders: String(technicians[ind].fullFilledOrders ?? 0))                                            .onTapGesture{
+                                            serviceManager.selectedTechnician = technicians[ind]
+                                            viewRouter.currentPage = "TechnicianDetail"
+                                        }
                                     }
                                 }
                             }
@@ -527,9 +529,12 @@ struct OrderDetailScreen: View {
             .ignoresSafeArea(.all)
             .background(Color("appbg"))
             .task {
-                customerApi.getAvailableTechs(orderId: serviceManager.selectedOrder?._id ?? "", success: { res in
-                    waitingForTech = false
-                   // technicians = res
+                customerApi.getAvailableTechs(orderId: serviceManager.createdOrderData?._id ?? "", success: { res in
+                   
+                    if res.count > 0 {
+                        waitingForTech = false
+                    }
+                    technicians = res
                 }, failure: { _ in
                     
                 })

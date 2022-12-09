@@ -25,7 +25,7 @@ struct NotificationScreen: View {
                     }
                     
                 }
-                BottomNavTechnician()
+                BottomNavigation()
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)

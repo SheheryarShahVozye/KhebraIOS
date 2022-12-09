@@ -108,6 +108,8 @@
 		18655768292E2728001DC163 /* PaymentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655767292E2728001DC163 /* PaymentClass.swift */; };
 		18833E0B2928C2A100DF41DA /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833E0A2928C2A100DF41DA /* Offers.swift */; };
 		18BDE79A2940A72D0045A6B6 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDE7992940A72D0045A6B6 /* Points.swift */; };
+		18BDE79F29430BEC0045A6B6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18BDE79D29430BEC0045A6B6 /* Localizable.strings */; };
+		18BDE7A1294310720045A6B6 /* postponementRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDE7A0294310720045A6B6 /* postponementRequest.swift */; };
 		18E587DB2920D0E3005F43C4 /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E587DA2920D0E3005F43C4 /* LocationScreen.swift */; };
 		D538E454C4326F15D905C817 /* Pods_Khebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1BC8F9AEC4AB8FD2CFEC87 /* Pods_Khebra.framework */; };
 		EDB21BABB550BC82D988B938 /* Pods_KhebraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E600C2D0AE64ADA2148F0E7 /* Pods_KhebraTests.framework */; };
@@ -239,6 +241,8 @@
 		18655767292E2728001DC163 /* PaymentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClass.swift; sourceTree = "<group>"; };
 		18833E0A2928C2A100DF41DA /* Offers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
 		18BDE7992940A72D0045A6B6 /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
+		18BDE79E29430BEC0045A6B6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18BDE7A0294310720045A6B6 /* postponementRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postponementRequest.swift; sourceTree = "<group>"; };
 		18E587DA2920D0E3005F43C4 /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		1BAF8ABD7BD25686ABB95552 /* Pods-Khebra-KhebraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		373F5C19113DE477A12C1307 /* Pods-Khebra-KhebraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khebra-KhebraUITests.release.xcconfig"; path = "Target Support Files/Pods-Khebra-KhebraUITests/Pods-Khebra-KhebraUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				14C85D7528BD5DD30019066A /* STC Bold.ttf */,
 				14C85D7328BD5DC20019066A /* STCRegular.ttf */,
 				14C85D7228BD56200019066A /* Info.plist */,
+				18BDE79D29430BEC0045A6B6 /* Localizable.strings */,
 				145C29AD28B423FE00A317DC /* Observables */,
 				145C29AB28B423E500A317DC /* Utils */,
 				145C29AA28B423D800A317DC /* Views */,
@@ -595,6 +600,7 @@
 				185243422939DB5300B2E3B7 /* AddBusinessClass.swift */,
 				18276DD5293B30F300E5BA5F /* RatingClass.swift */,
 				18BDE7992940A72D0045A6B6 /* Points.swift */,
+				18BDE7A0294310720045A6B6 /* postponementRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 145C297428B41FB200A317DC;
 			productRefGroup = 145C297E28B41FB200A317DC /* Products */;
@@ -741,6 +748,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BDE79F29430BEC0045A6B6 /* Localizable.strings in Resources */,
 				14C85D7428BD5DC20019066A /* STCRegular.ttf in Resources */,
 				145C298828B41FB500A317DC /* Preview Assets.xcassets in Resources */,
 				145C298528B41FB500A317DC /* Assets.xcassets in Resources */,
@@ -915,6 +923,7 @@
 				14AEB9C528C72007006688BD /* InvoiceScreen.swift in Sources */,
 				144635E028C4795100311865 /* NotificationCrd.swift in Sources */,
 				143D351E28D8CCD200946FDD /* ServiceManager.swift in Sources */,
+				18BDE7A1294310720045A6B6 /* postponementRequest.swift in Sources */,
 				14D339BE28D0A108006360D9 /* Strings.swift in Sources */,
 				14C85D8D28BE44230019066A /* CustomTextField.swift in Sources */,
 				143D352B28DE646200946FDD /* OrderLocation.swift in Sources */,
@@ -1035,6 +1044,17 @@
 			targetProxy = 145C299828B41FB600A317DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18BDE79D29430BEC0045A6B6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18BDE79E29430BEC0045A6B6 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		145C299F28B41FB600A317DC /* Debug */ = {

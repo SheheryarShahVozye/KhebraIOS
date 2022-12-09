@@ -216,7 +216,7 @@ struct RatingScreen: View {
                         
                         obj.comment = comments
                         
-                        customerApi.createRating(serviceManager.selectedOrder?._id ?? "", technicianiD: serviceManager.selectedOrder?.assignedTo ?? "", body: obj, success: { _ in
+                        customerApi.createRating(serviceManager.selectedOrder?._id ?? "", technicianiD: serviceManager.selectedOrder?.assignedTo?._id ?? "", body: obj, success: { _ in
                             showPreloader = false
                             viewRouter.currentPage = "DashboardScreen"
                         }, failure: { f in
