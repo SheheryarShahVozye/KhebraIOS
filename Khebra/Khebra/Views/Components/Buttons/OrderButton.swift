@@ -30,6 +30,12 @@ struct NewOrderButton: View {
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
                         }
+                    } else {
+                        Text(title)
+                            .font(.system(size: 16))
+                            .foregroundColor(Color("White"))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
                     }
                   
                 }

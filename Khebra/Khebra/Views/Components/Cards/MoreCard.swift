@@ -33,6 +33,10 @@ struct MoreCard: View {
                                     .font(.system(size: 16))
                                     .foregroundColor(Color("5A5A5A"))
                             }
+                        } else {
+                            Text(name)
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("5A5A5A"))
                         }
                         
                         Spacer()
@@ -89,6 +93,10 @@ struct MoreCardWallet: View {
                                             .foregroundColor(Color("5A5A5A"))
                                             
                                         }
+                                    } else {
+                                        Text(name)
+                                            .font(.system(size: 16))
+                                        .foregroundColor(Color("5A5A5A"))
                                     }
                                   
                                     Spacer()

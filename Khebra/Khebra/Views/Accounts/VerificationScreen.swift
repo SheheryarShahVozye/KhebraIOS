@@ -80,8 +80,14 @@ struct VerificationScreen: View {
                             customerApi.verifyOtp(object, success: { res in
                                 AppUtil.user = res.user
                                 AppUtil.idToken = res.token ?? ""
-                                
-                                viewRouter.currentPage = "AccountCompletion"
+                                /*
+                                if AppUtil.user?.name != "" {
+                                    viewRouter.currentPage = "DashboardScreen"
+                                } else {
+                                    viewRouter.currentPage = "AccountCompletion"
+                                }
+                                */
+                                viewRouter.currentPage = "DashboardScreen"
                             }, failure: { f in
                                 errorMessage = f
                                 togglepopup.toggle()

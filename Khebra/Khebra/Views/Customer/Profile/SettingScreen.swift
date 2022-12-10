@@ -162,7 +162,7 @@ struct SettingScreen: View {
                     } else {
                         selectedLang = "EN"
                     }
-                }
+                } 
             })
     }
 }

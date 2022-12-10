@@ -64,12 +64,12 @@ struct SignUpScreen: View {
                     }
                    
                     
-                    HStack{
-                        Text("Skip")
-                            .fontWeight(.regular)
-                            .font(.system(size: 16))
-                            .foregroundColor(Color("fontBlue"))
-                    }.padding(.top)
+//                    HStack{
+//                        Text("Skip")
+//                            .fontWeight(.regular)
+//                            .font(.system(size: 16))
+//                            .foregroundColor(Color("fontBlue"))
+//                    }.padding(.top)
                     Spacer()
                     HStack{
                         Text("Don't have an account? ")

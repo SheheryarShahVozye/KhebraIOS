@@ -28,6 +28,11 @@ struct CustomButton: View {
                                 .foregroundColor(Color("White"))
                                 .fontWeight(.semibold)
                         }
+                    } else {
+                        Text(title)
+                            .font(.system(size: 16))
+                            .foregroundColor(Color("White"))
+                            .fontWeight(.semibold)
                     }
                 }
                       

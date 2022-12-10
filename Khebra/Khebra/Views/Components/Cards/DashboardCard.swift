@@ -47,6 +47,11 @@ struct DashboardCard: View {
                                     .fontWeight(.regular)
                                     .foregroundColor(Color("fontBlue"))
                             }
+                        } else {
+                            Text(serviceName)
+                                .font(.system(size: 14))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color("fontBlue"))
                         }
                         
                        

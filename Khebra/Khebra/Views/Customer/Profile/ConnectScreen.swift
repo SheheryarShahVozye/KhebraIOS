@@ -63,8 +63,8 @@ struct ConnectScreen: View {
     }
     
     func navigateToWhatsApp() {
-        var countryCode = "+91" //Country code
-        var mobileNumber = "1234567890" //Mobile number
+        let countryCode = "+91" //Country code
+        let mobileNumber = "1234567890" //Mobile number
         let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
 
         let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -73,7 +73,7 @@ struct ConnectScreen: View {
 
         if UIApplication.shared.canOpenURL(URL! as URL) {
             debugPrint("opening Whatsapp")
-            UIApplication.shared.open(URL as! URL, options: [:]) { status in
+            UIApplication.shared.open(URL! as URL, options: [:]) { status in
                 debugPrint("Opened WhatsApp Chat")
             }
         } else {
