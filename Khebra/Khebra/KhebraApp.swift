@@ -21,6 +21,7 @@ struct KhebraApp: App {
                 .environmentObject(viewRouter)
                 .environmentObject(serviceManager)
                 .preferredColorScheme(.light)
+                .environment(\.layoutDirection, (UserDefaults.standard.value(forKey: Keys.language) as? String? == "ar") ? .rightToLeft :  .leftToRight)
                 .environment(\.locale, .init(identifier: UserDefaults.standard.value(forKey: Keys.language) as? String ?? "en"))
               
         }
