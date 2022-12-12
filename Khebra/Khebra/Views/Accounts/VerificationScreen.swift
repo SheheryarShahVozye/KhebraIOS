@@ -80,13 +80,15 @@ struct VerificationScreen: View {
                             customerApi.verifyOtp(object, success: { res in
                                 AppUtil.user = res.user
                                 AppUtil.idToken = res.token ?? ""
-                                /*
-                                if AppUtil.user?.name != "" {
-                                    viewRouter.currentPage = "DashboardScreen"
-                                } else {
-                                    viewRouter.currentPage = "AccountCompletion"
+                              
+                                let defaults = UserDefaults.standard
+                                defaults.set(AppUtil.idToken, forKey: Keys.token)
+
+                                
+                                if let token = defaults.value(forKey: Keys.token) as? String {
+                                    print("defaults Token: \(token)")
                                 }
-                                */
+                                
                                 viewRouter.currentPage = "DashboardScreen"
                             }, failure: { f in
                                 errorMessage = f

@@ -31,6 +31,7 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
     @EnvironmentObject var serviceManager: ServiceManager
     @Binding var hotelsCheck: Bool
     var onAnimationEnded: () -> ()
+    var onDragStop: () -> ()
     var mapViewWillMove: (Bool) -> ()
     
     func makeUIViewController(context: Context) -> MapViewController {
@@ -44,7 +45,7 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
         selectedMarker?.map = uiViewController.map
     
         selectedMarker?.isDraggable = true
-        selectedMarker?.icon = UIImage(named: "Group 8274")
+        selectedMarker?.icon = UIImage(named: "Group 599")
         animateToSelectedMarker(viewController: uiViewController)
       
     }
@@ -78,7 +79,7 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
     
     final class MapViewCoordinator: NSObject, GMSMapViewDelegate {
         var mapViewControllerBridge: MapViewControllerBridge
-         var city: String
+        var city: String
 
         @ObservedObject var locationSearchService = LocationSearchService()
         init(_ mapViewControllerBridge: MapViewControllerBridge, _city: String) {
@@ -106,14 +107,40 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
                 
                 self.city = result.administrativeArea ?? ""
                 self.mapViewControllerBridge.serviceManager.selectedLocation = location
-//                self.mapViewControllerBridge.serviceManager.administrativeArea = result.administrativeArea ?? ""
-//                self.mapViewControllerBridge.serviceManager.subAdminArea = result.subAdministrativeArea ?? ""
-//                self.mapViewControllerBridge.serviceManager.locationCity = result.locality ?? ""
-//                self.mapViewControllerBridge.serviceManager.propertyaddres = location
-//
-                AppUtil.addServiceLocationLongitude = position.target.longitude
-                AppUtil.addServiceLocationLatitude = position.target.latitude
                 
+                AppUtil.addServiceLocationLatitude = coordinate.latitude
+                AppUtil.addServiceLocationLongitude = coordinate.longitude
+                
+                var center = CLLocationCoordinate2D()
+                center.latitude = coordinate.latitude
+                center.longitude = coordinate.longitude
+                
+                let geocoder = GMSGeocoder()
+                geocoder.reverseGeocodeCoordinate(center) { response, error in
+                  //
+                if error != nil {
+                                print("reverse geodcode fail: \(error!.localizedDescription)")
+                            } else {
+                                if let places = response?.results() {
+                                    if let place = places.first {
+
+
+                                        if let lines = place.lines {
+                                            for i in lines {
+                                                self.mapViewControllerBridge.cityname += i + " "
+                                            }
+                                            print("GEOCODE: Formatted Address: \(lines)")
+                                        }
+
+                                    } else {
+                                        print("GEOCODE: nil first in places")
+                                    }
+                                } else {
+                                    print("GEOCODE: nil in places")
+                                }
+                            }
+                }
+ 
             }, failure: { _ in
                 
             })

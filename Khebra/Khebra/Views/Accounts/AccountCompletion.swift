@@ -37,15 +37,7 @@ struct AccountCompletion: View {
                         let obj = registerName()
                         obj.name = name
                         
-                        let defaults = UserDefaults.standard
-                        defaults.set(AppUtil.idToken, forKey: Keys.token)
-
-                        
-                        if let token = defaults.value(forKey: Keys.token) as? String {
-                            print("defaults Token: \(token)")
-                        }
-                        
-                        
+                       
                         customerApi.customerName(obj, success: { _ in
                             viewRouter.currentPage = "DashboardScreen"
                         }, failure: { _ in

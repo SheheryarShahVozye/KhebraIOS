@@ -35,8 +35,21 @@ struct LocationScreen: View {
     @Namespace var namespace
     @State var addressArray:[String] = []
     @State var addressLatLong:[CLLocationCoordinate2D] = []
+    @State var hotelsCheck : Bool = true
+    @State var selectedMarker: GMSMarker?
+    @State var markers: [GMSMarker] =
+    AppUtil.serviceLocations.map {
+      let marker = GMSMarker(position: $0.coordinate)
+      marker.title = $0.name
+      marker.icon = UIImage(named: "Group 8274")
+
+      return marker
+    }
     @State private var coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.3348, longitude: -122.0090),
                                                              span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    
+    
+    
     
     var userLatitude: String {
         return "\(locationSearchService.lastLocation?.coordinate.latitude ?? 0)"
@@ -50,198 +63,40 @@ struct LocationScreen: View {
         ZStack{
             // Map(coordinateRegion: $coordinateRegion)
             VStack{
-                if stateChange {
-                    GoogleMapsView(longitude: $longitude, latitude: $latitude)
-                        .ignoresSafeArea(.all)
-                } else {
-                    GoogleMapsView(longitude: $longitude, latitude: $latitude)
-                        .ignoresSafeArea(.all)
-                }
+              
+               
+                
+                MapViewControllerBridge(markers: $markers, selectedMarker: $selectedMarker, cityname: $SearchText, locationSearchService: locationSearchService, hotelsCheck: $hotelsCheck, onAnimationEnded: {
+                    locationSearchService.getAddressFromLatLon(AppUtil.addServiceLocationLatitude ?? 0.0, AppUtil.addServiceLocationLongitude ?? 0.0, success: { result in
+                       // filterString = res
+                        placeAutocomplete(text_input: filterString)
+                        stateChange.toggle()
+                       
+                        SearchText += result.subThoroughfare ?? "" + " "
+                        SearchText += result.thoroughfare ?? "" + " "
+                        SearchText += result.subLocality ?? "" + " "
+                        SearchText += result.locality ?? ""  + " "
+                        SearchText += " "
+                        SearchText += result.country ?? "" + " "
+                        
+                        
+                        AppUtil.addServiceLocationLatitude =  AppUtil.CurrentLocationLatitude ?? 0.0
+                        AppUtil.addServiceLocationLongitude =  AppUtil.CurrentLocationLongitude ?? 0.0
+                        
+                       
+                        
+                    }, failure: { _ in
+                        stateChange.toggle()
+                    })
+                    hotelsCheck.toggle()
+                },onDragStop: {
+                    
+                }, mapViewWillMove: { (isGesture) in
+                  guard isGesture else { return }
+                 // self.zoomInCenter = false
+                })
                 
             }
-            
-           
-            
-            VStack{
-               
-                Spacer()
-               
-                VStack{
-                    if !serviceSelected {
-                        VStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 30)
-                                    .frame(width: UIScreen.main.bounds.width - 50, height: 50, alignment: .center)
-                                    .foregroundColor(Color.white)
-                                    .shadow(radius: 10)
-                                    .overlay(
-                                        HStack{
-                                            TextField("Searcch", text: $filterString,
-                                                      onEditingChanged: { changed in
-                                                              print("Changed")
-                                                             
-                                                            }, onCommit: {
-                                                              print("Commited")
-                                                                placeAutocomplete(text_input: filterString)
-                                                            }).onChange(of: filterString, perform: { value in
-                                                                placeAutocomplete(text_input: filterString)
-                                                            })
-                                                .padding()
-                                                
-
-                                            Spacer()
-                                            Image(systemName: "magnifyingglass")
-                                                .font(.title2)
-                                                .foregroundColor(Color.black)
-                                                .padding(.trailing)
-                                        }
-                                    )
-                            }
-                            .padding(.vertical,20)
-                            ScrollView(showsIndicators:false){
-                                VStack{
-                                    HStack{
-                                        Text("Current Location")
-                                            .font(.headline)
-                                            .foregroundColor(Color("black"))
-                                            .fontWeight(.bold)
-                                            .multilineTextAlignment(.leading)
-                                            .lineLimit(2)
-                                            
-                                        Spacer()
-                                        
-                                    }.padding(.horizontal,15)
-                                        .onTapGesture{
-                                            latitude = locationSearchService.lastLocation?.coordinate.latitude ?? 0.0
-                                            longitude = locationSearchService.lastLocation?.coordinate.longitude ?? 0.0
-                                            locationSearchService.getAddressFromLatLon(latitude, longitude, success: { _ in
-                                                
-                                            }, failure: { _ in
-                                                
-                                            })
-                                            SearchText = filterString
-                                            
-                                            hideKeyboard()
-                                            stateChange.toggle()
-                                            serviceSelected = true
-                                        }
-                                    
-                                    
-                                    ForEach(0 ..< addressArray.count,id:\.self) { arr in
-                                        VStack{
-                                            HStack{
-                                                Text(addressArray[arr])
-                                                    .font(.subheadline)
-                                                    .foregroundColor(Color("black"))
-                                                    .fontWeight(.light)
-                                                    .multilineTextAlignment(.leading)
-                                                    .lineLimit(2)
-                                                    
-                                                Spacer()
-                                                
-                                            }.padding(.horizontal,15)
-                                                .onTapGesture{
-                                                   latitude = addressLatLong[arr].latitude
-                                                    longitude = addressLatLong[arr].longitude
-                                                    SearchText = addressArray[arr]
-                                                    AppUtil.addServiceLocationLatitude = latitude
-                                                    AppUtil.addServiceLocationLongitude = longitude
-                                                    serviceManager.selectedLocation = SearchText
-                                                    hideKeyboard()
-                                                    stateChange.toggle()
-                                                    serviceSelected = true
-                                                }
-                                            
-                                         //   HorizontalLine(color: Color("White"))
-                                        }.padding(.horizontal,5)
-                                            .padding(.vertical,5)
-                                        
-                                       
-                                    }
-                                }
-                            }
-                        }.padding(.top,30)
-                        Spacer()
-                    } else {
-                        VStack{
-                            HStack{
-                                Text(SearchText)
-                                    .font(.system(size: 22))
-                                    .foregroundColor(Color("black"))
-                                    .multilineTextAlignment(.center)
-                                    .lineLimit(2)
-                               
-                            }.padding(.horizontal,30)
-                                .padding(.vertical,20)
-                                .padding(.top,10)
-                            Spacer()
-                            HStack{
-                                Image(systemName: "xmark.circle.fill")
-                                    .font(.title)
-                                    .foregroundColor(Color.red)
-                                    
-                                Text("Cancel")
-                                    .font(.headline)
-                                    .foregroundColor(Color("black"))
-                                    .onTapGesture{
-                                        serviceSelected = false
-                                    }
-                                Spacer()
-                                Text("Confirm")
-                                    .font(.headline)
-                                    .foregroundColor(Color("black"))
-                                    .onTapGesture{
-                                        
-                                        serviceManager.selectedLocation = SearchText
-                                        viewRouter.currentPage = "CreateOrder"
-                                        
-                                       
-                                    }
-                                Image(systemName: "arrow.right")
-                                    .font(.largeTitle)
-                                    .foregroundColor(Color("black"))
-                                    
-                                
-                            }.padding(.horizontal)
-                                .padding(.vertical,20)
-                                .padding(.bottom,30)
-                        }
-                    }
-                    
-                    
-                    
-                    
-                   
-                     
-                    
-                }
-                .frame(width: UIScreen.main.bounds.width, height: getSafeAreaTop() > 0 ? (serviceSelected == true ? 200 : 400)  : (serviceSelected == true ? 200 : 300), alignment: .center)
-                    .background(RoundedCorners(color: Color("B2C1E3"), tl: 0, tr: 0, bl: 0, br: 0))
-                    .offset(y: (keyboardcheck == true && keyboardHeight > 0) ? (getSafeAreaTop()  > 0 ? -(keyboardHeight - 30) :  -(keyboardHeight) ) : 0)
-
-                    .onReceive(Publishers.keyboardHeight) {
-                        self.keyboardHeight = $0
-
-                    }
-                    
-                    
-                    
-                    
-                   
-                
-                
-                
-//                if stateChange {
-//                    PlacePicker(address: $filterString,latitude: $latitude,longitude:$longitude,stateTogg: $stateChange)
-//                        .frame(height:300)
-//                } else {
-//                    PlacePicker(address: $filterString,latitude: $latitude,longitude:$longitude,stateTogg: $stateChange)
-//                        .frame(height:300)
-//                }
-                
-            }
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-            
             
             VStack{
                 HStack{
@@ -253,6 +108,23 @@ struct LocationScreen: View {
                             viewRouter.goBack()
                         }
                     
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 0)
+                           .foregroundColor(Color("FAFCFF"))
+                           
+                        RoundedRectangle(cornerRadius: 0)
+                            .stroke(Color("464646"),lineWidth: 1)
+                            .overlay(
+                                HStack{
+                                    
+                                    TextField("City Name, Location", text: $SearchText)
+                                }.padding(.leading)
+                                
+                            )
+                        
+                    }  .frame(width: UIScreen.main.bounds.width - 100 ,height: 40,alignment: .center)
+                   
+                    
                     Spacer()
                     
                    
@@ -260,6 +132,11 @@ struct LocationScreen: View {
                 }.padding(.horizontal,30)
                     .padding(.vertical,50)
                 Spacer()
+                
+                OrderButton(title: "Next", callback: {
+                    serviceManager.selectedLocation = SearchText
+                    viewRouter.currentPage = "CreateOrder"
+                }).padding(.vertical,30)
             }
             
 
@@ -270,16 +147,36 @@ struct LocationScreen: View {
            
             .onAppear(perform: {
                 
-              
+
                 latitude = locationSearchService.lastLocation?.coordinate.latitude ?? 0.0
                 longitude = locationSearchService.lastLocation?.coordinate.longitude ?? 0.0
-                locationSearchService.getAddressFromLatLon(latitude, longitude, success: { res in
+                locationSearchService.getAddressFromLatLon(latitude, longitude, success: { result in
                    // filterString = res
                     placeAutocomplete(text_input: filterString)
                     stateChange.toggle()
+                   
+                    SearchText += result.subThoroughfare ?? "" + " "
+                    SearchText += result.thoroughfare ?? "" + " "
+                    SearchText += result.subLocality ?? "" + " "
+                    SearchText += result.locality ?? ""  + " "
+                    SearchText += " "
+                    SearchText += result.country ?? "" + " "
+                    
+                    
+                    AppUtil.addServiceLocationLatitude =  AppUtil.CurrentLocationLatitude ?? 0.0
+                    AppUtil.addServiceLocationLongitude =  AppUtil.CurrentLocationLongitude ?? 0.0
+                    
+                    let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: AppUtil.CurrentLocationLatitude ?? 0.0,
+                                                                            longitude: AppUtil.CurrentLocationLongitude ?? 0.0))
+                    marker.title = "Your location"
+                    marker.icon = UIImage(named: "Group 599")
+                    selectedMarker = marker
+                    
                 }, failure: { _ in
                     stateChange.toggle()
                 })
+                
+                
                 
             }).onTapGesture{
                 hideKeyboard()

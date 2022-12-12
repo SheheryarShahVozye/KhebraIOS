@@ -22,6 +22,7 @@ class AppUtil {
     public static let SERVER_TIMESTAMP: String = "dd-MM-yyyy"
     public static let AM_PM_TIMESTAMP: String = "hh:mm a"
     public static var documentsData: [Data]?
+    public static var serviceLocations: [City] = []
     public static var businessCategories: [BusinessCategoryElement]?
     public static let SERVER_TIMESTAMP_FORMAT_WITH_TIME_ZONE: String = "yyyy-MM-dd'T'HH:mm:ssZ"
     
@@ -138,3 +139,8 @@ class AppUtil {
 }
 
 
+
+struct City {
+  var name: String
+  var coordinate: CLLocationCoordinate2D
+}

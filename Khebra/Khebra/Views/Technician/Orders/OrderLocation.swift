@@ -13,12 +13,12 @@ struct OrderLocation: View {
     @State var selectedMarker: GMSMarker?
     var body: some View {
         ZStack{
-            MapViewControllerBridge(markers: $markers, selectedMarker: $selectedMarker, cityname: .constant(""), locationSearchService: LocationSearchService(),hotelsCheck: .constant(false), onAnimationEnded: {
-                
-                }, mapViewWillMove: { (isGesture) in
-                  guard isGesture else { return }
-                
-                })
+//            MapViewControllerBridge(markers: $markers, selectedMarker: $selectedMarker, cityname: .constant(""), locationSearchService: LocationSearchService(),hotelsCheck: .constant(false), onAnimationEnded: {
+//
+//                }, mapViewWillMove: { (isGesture) in
+//                  guard isGesture else { return }
+//
+//                }, onDragStop: <#() -> ()#>)
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
     }

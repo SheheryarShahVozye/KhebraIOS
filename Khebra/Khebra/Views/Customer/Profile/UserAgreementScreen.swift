@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserAgreementScreen: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             VStack{
@@ -15,10 +16,19 @@ struct UserAgreementScreen: View {
                 ScrollView{
                     AgreementCard(name: "Privacy Policy", ImageName: "privacyPolicy")
                         .padding(.top,5)
+                        .onTapGesture {
+                            viewRouter.currentPage = "PrivacyPolicyScreen"
+                        }
                     AgreementCard(name: "Terms & Conditions", ImageName: "termCondition")
                         .padding(.top,5)
+                        .onTapGesture {
+                            viewRouter.currentPage = "TermsAndConditionScreen"
+                        }
                     AgreementCard(name: "Technical Terms & Conditions", ImageName: "termCondition")
                         .padding(.top,5)
+                        .onTapGesture {
+                            viewRouter.currentPage = "TechnicalTermsAndConditionScreen"
+                        }
                 }
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)

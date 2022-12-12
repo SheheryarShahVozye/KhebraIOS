@@ -19,7 +19,9 @@ struct ChooseOnMapScreen: View {
         ZStack{
             MapViewControllerBridge(markers: $markers, selectedMarker: $selectedMarker, cityname: .constant(""), locationSearchService: LocationSearchService(),hotelsCheck: .constant(false), onAnimationEnded: {
                 
-                }, mapViewWillMove: { (isGesture) in
+            },onDragStop: { 
+                
+            }, mapViewWillMove: { (isGesture) in
                   guard isGesture else { return }
                 
                 })

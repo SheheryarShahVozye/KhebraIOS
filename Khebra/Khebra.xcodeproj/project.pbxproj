@@ -104,6 +104,8 @@
 		1851139E290D75FD00C7D011 /* OrderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139D290D75FD00C7D011 /* OrderClass.swift */; };
 		185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */; };
 		185243432939DB5300B2E3B7 /* AddBusinessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185243422939DB5300B2E3B7 /* AddBusinessClass.swift */; };
+		186308AE2946536F00E69C15 /* AboutKhebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186308AD2946536F00E69C15 /* AboutKhebra.swift */; };
+		186308B02946557000E69C15 /* TermsAndCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186308AF2946557000E69C15 /* TermsAndCondition.swift */; };
 		18655766292D576B001DC163 /* PaymentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655765292D576B001DC163 /* PaymentScreen.swift */; };
 		18655768292E2728001DC163 /* PaymentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18655767292E2728001DC163 /* PaymentClass.swift */; };
 		18833E0B2928C2A100DF41DA /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18833E0A2928C2A100DF41DA /* Offers.swift */; };
@@ -237,6 +239,8 @@
 		1851139D290D75FD00C7D011 /* OrderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderClass.swift; sourceTree = "<group>"; };
 		1851139F290E696E00C7D011 /* TechnicianProfileClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicianProfileClass.swift; sourceTree = "<group>"; };
 		185243422939DB5300B2E3B7 /* AddBusinessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBusinessClass.swift; sourceTree = "<group>"; };
+		186308AD2946536F00E69C15 /* AboutKhebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKhebra.swift; sourceTree = "<group>"; };
+		186308AF2946557000E69C15 /* TermsAndCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndCondition.swift; sourceTree = "<group>"; };
 		18655765292D576B001DC163 /* PaymentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScreen.swift; sourceTree = "<group>"; };
 		18655767292E2728001DC163 /* PaymentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClass.swift; sourceTree = "<group>"; };
 		18833E0A2928C2A100DF41DA /* Offers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
@@ -582,6 +586,7 @@
 				141B6D1328C08FFD00EA7479 /* Profile.swift */,
 				141B6D1528C09A4300EA7479 /* MyPointScreen.swift */,
 				144635C828C2692000311865 /* FavTechnicianScreen.swift */,
+				186308AD2946536F00E69C15 /* AboutKhebra.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 				18276DD5293B30F300E5BA5F /* RatingClass.swift */,
 				18BDE7992940A72D0045A6B6 /* Points.swift */,
 				18BDE7A0294310720045A6B6 /* postponementRequest.swift */,
+				186308AF2946557000E69C15 /* TermsAndCondition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -959,6 +965,7 @@
 				141B6D1028C08C9200EA7479 /* UserAgreementScreen.swift in Sources */,
 				14D339BA28D0721C006360D9 /* technicianApi.swift in Sources */,
 				18E587DB2920D0E3005F43C4 /* LocationScreen.swift in Sources */,
+				186308B02946557000E69C15 /* TermsAndCondition.swift in Sources */,
 				18833E0B2928C2A100DF41DA /* Offers.swift in Sources */,
 				145C298328B41FB200A317DC /* ContentView.swift in Sources */,
 				18276DD6293B30F300E5BA5F /* RatingClass.swift in Sources */,
@@ -984,6 +991,7 @@
 				14AEB9C728C8A4FF006688BD /* NewInvoiceScreen.swift in Sources */,
 				185113A0290E696E00C7D011 /* TechnicianProfileClass.swift in Sources */,
 				14C85D7F28BDE22E0019066A /* CustomButton.swift in Sources */,
+				186308AE2946536F00E69C15 /* AboutKhebra.swift in Sources */,
 				144635C528C25D8400311865 /* OffersCard.swift in Sources */,
 				141B6D1628C09A4300EA7479 /* MyPointScreen.swift in Sources */,
 				145C746428BFFC28003E7164 /* ShareApp.swift in Sources */,
@@ -1180,7 +1188,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.9;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_ASSET_PATHS = "\"Khebra/Preview Content\"";
 				DEVELOPMENT_TEAM = 37WPF58MK7;
 				ENABLE_PREVIEWS = YES;
@@ -1212,7 +1220,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.9;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_ASSET_PATHS = "\"Khebra/Preview Content\"";
 				DEVELOPMENT_TEAM = 37WPF58MK7;
 				ENABLE_PREVIEWS = YES;

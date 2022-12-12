@@ -570,6 +570,33 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
+    public static func markTechFav(_ technicianId: String,success: @escaping ([TechnicianProfile]) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/fav/technician/" + technicianId
+        do{
+           
+           
+            put(url: url,data: nil, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: [TechnicianProfile] = try JSONDecoder()
+                        .decode([TechnicianProfile].self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }
+    }
+    
     public static func getAllfavTech(success: @escaping ([TechnicianProfile]) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/fav/technician"
         do{
@@ -831,7 +858,7 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
-    public static func getTermsAndCondition(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+    public static func getTermsAndCondition(success: @escaping (TermsAndCondition) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/terms-and-conditions"
         do{
            
@@ -841,8 +868,8 @@ class customerApi: NSObject, URLSessionDelegate {
                     let jsonString = String(data: result!, encoding: .utf8)
                     print("\n\n\(jsonString ?? "-")\n\n")
                     
-                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
-                        .decode([BusinessCategoryElement].self, from: result!)
+                    let userObj: TermsAndCondition = try JSONDecoder()
+                        .decode(TermsAndCondition.self, from: result!)
                     
                     success(userObj)
                     
@@ -858,7 +885,7 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
-    public static func getTechnicalTermsAndCondition(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+    public static func getTechnicalTermsAndCondition(success: @escaping (TechnicalTermsObject) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/technical-terms-and-conditions"
         do{
            
@@ -868,8 +895,8 @@ class customerApi: NSObject, URLSessionDelegate {
                     let jsonString = String(data: result!, encoding: .utf8)
                     print("\n\n\(jsonString ?? "-")\n\n")
                     
-                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
-                        .decode([BusinessCategoryElement].self, from: result!)
+                    let userObj: TechnicalTermsObject = try JSONDecoder()
+                        .decode(TechnicalTermsObject.self, from: result!)
                     
                     success(userObj)
                     
@@ -937,7 +964,7 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
-    public static func getAboutkhebra(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+    public static func getAboutkhebra(success: @escaping (AboutUsObject) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/about-khebra"
         do{
            
@@ -946,8 +973,8 @@ class customerApi: NSObject, URLSessionDelegate {
                     let jsonString = String(data: result!, encoding: .utf8)
                     print("\n\n\(jsonString ?? "-")\n\n")
                     
-                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
-                        .decode([BusinessCategoryElement].self, from: result!)
+                    let userObj: AboutUsObject = try JSONDecoder()
+                        .decode(AboutUsObject.self, from: result!)
                     
                     success(userObj)
                     
@@ -990,7 +1017,7 @@ class customerApi: NSObject, URLSessionDelegate {
         }
     }
     
-    public static func privacy(success: @escaping ([BusinessCategoryElement]) -> Void, failure: @escaping (String) -> Void) {
+    public static func privacy(success: @escaping (PrivacyObject) -> Void, failure: @escaping (String) -> Void) {
         let url: String = "customer/privacy"
         do{
            
@@ -999,8 +1026,8 @@ class customerApi: NSObject, URLSessionDelegate {
                     let jsonString = String(data: result!, encoding: .utf8)
                     print("\n\n\(jsonString ?? "-")\n\n")
                     
-                    let userObj: [BusinessCategoryElement] = try JSONDecoder()
-                        .decode([BusinessCategoryElement].self, from: result!)
+                    let userObj: PrivacyObject = try JSONDecoder()
+                        .decode(PrivacyObject.self, from: result!)
                     
                     success(userObj)
                     

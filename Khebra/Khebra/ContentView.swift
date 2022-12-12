@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-    
+  
         if viewRouter.currentPage == "splashscreen" {
             SplashScreen()
                 .onAppear(perform: {
@@ -31,8 +31,8 @@ struct ContentView: View {
         } else {
             RouteManager()
         }
-      
-     //   OrderScreen()
+    
+       // RatingScreen()
         
      
     }
@@ -127,6 +127,14 @@ struct RouteManager: View {
             PaymentScreen()
         } else if viewRouter.currentPage == "SettingScreen" {
             SettingScreen()
+        } else if viewRouter.currentPage == "AboutKhebra" {
+            AboutKhebra()
+        } else if viewRouter.currentPage == "TermsAndConditionScreen" {
+           TermsAndConditionScreen()
+        } else if viewRouter.currentPage == "TechnicalTermsAndConditionScreen" {
+            TechnicalTermsAndConditionScreen()
+        } else if viewRouter.currentPage == "PrivacyPolicyScreen"{
+            PrivacyPolicyScreen()
         }
         
     }

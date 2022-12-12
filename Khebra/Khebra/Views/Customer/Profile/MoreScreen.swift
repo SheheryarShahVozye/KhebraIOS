@@ -61,6 +61,10 @@ struct MoreScreen: View {
                                             viewRouter.currentPage = "LoginScreen"
                                         }
                                         
+                                        if  moreItems[item] == "About Khebra" {
+                                            viewRouter.currentPage = "AboutKhebra"
+                                        }
+                                        
                                         if  moreItems[item] == "Orders" {
                                             viewRouter.currentPage = "OrderScreen"
                                         }
