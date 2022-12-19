@@ -178,6 +178,7 @@ struct OrderScreen: View {
                                                      serviceType: completedOrders[ind].serviceName ?? "",
                                                      timeSlot: AppUtil.getDateOnly(format: "", dateValue: completedOrders[ind].scheduled?.date ?? ""))
                                     .onTapGesture{
+                                        serviceManager.selectedOrder = completedOrders[ind]
                                         viewRouter.currentPage = "TrackingOrderScreen"
                                     }
                             }
@@ -189,6 +190,7 @@ struct OrderScreen: View {
                                                           serviceType: cancelledOrders[ind].serviceName ?? "",
                                                           timeSlot: AppUtil.getDateOnly(format: "", dateValue: cancelledOrders[ind].scheduled?.date ?? ""))
                                 .onTapGesture{
+                                    serviceManager.selectedOrder = cancelledOrders[ind]
                                     viewRouter.currentPage = "TrackingOrderScreen"
                                 }
                             }

@@ -7,6 +7,7 @@ target 'Khebra' do
   pod 'Alamofire', '~>5.4.1'
   pod 'GoogleMaps', '4.1.0'
   pod 'GooglePlaces'
+  pod 'Firebase/Messaging'
   pod 'MoyasarSdk', git: 'https://github.com/moyasar/moyasar-ios-pod.git'
   # Pods for Khebra
 

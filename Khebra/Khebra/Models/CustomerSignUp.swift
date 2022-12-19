@@ -10,6 +10,7 @@ import Foundation
 
 class RegisterBody: Codable {
     public var phone: String?
+   
 }
 
 class RegisterTechnicianBody: Codable {
@@ -19,6 +20,7 @@ class RegisterTechnicianBody: Codable {
 
 class VerifyOtp: Codable {
     public var otp: Int?
+    public var deviceToken: String?
 }
 
 class registerName: Codable {
@@ -26,6 +28,9 @@ class registerName: Codable {
 }
 
 class ErrorObject: Codable {
+    var code: Int?
+    var msg: String?
+    var success: Bool?
     var error: String?
 
    

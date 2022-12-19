@@ -233,6 +233,7 @@ struct TrackingOrderScreen: View {
                         
                        
                         if serviceManager.selectedOrder?.assigned == true && serviceManager.selectedOrder?.invoice == nil  {
+                          
                             VStack{
                                 HStack{
                                     Text("Tracking Order")
@@ -275,10 +276,10 @@ struct TrackingOrderScreen: View {
                                                 HStack{
                                                     Image("time")
                                                         .scaledToFit()
-                                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.scheduled?.date ?? "") )
+                                                    Text(serviceManager.selectedOrder?.technicianStatus?[0].timing?.date ?? "")
                                                         .font(.system(size: 14))
                                                         .foregroundColor(Color("B2C1E3"))
-                                                    Text(serviceManager.selectedOrder?.scheduled?.time ?? "")
+                                                    Text(serviceManager.selectedOrder?.technicianStatus?[0].timing?.time ?? "")
                                                         .font(.system(size: 14))
                                                         .foregroundColor(Color("B2C1E3"))
                                                     
@@ -290,119 +291,120 @@ struct TrackingOrderScreen: View {
                                             
                                             Spacer()
                                         }
-                                        
-                                        
-                                        
-                                        
-                                    }.padding(.leading)
+                                     }.padding(.leading)
                                   
-                                    VStack{
-                                        HStack {
-                                            VStack{
-                                                ZStack{
-                                                    Circle()
-                                                        .foregroundColor(Color("White"))
+                                    if (serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 1 {
+                                        VStack{
+                                            HStack {
+                                                VStack{
+                                                    ZStack{
+                                                        Circle()
+                                                            .foregroundColor(Color("White"))
+                                                        
+                                                        Circle()
+                                                            .stroke(Color((serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 1 ? "buttonbg" : "B2C1E3"),lineWidth: 2)
+                                                            .overlay(
+                                                                
+                                                                Image((serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 1 ? "yellowtruck" : "bluetruck")
+                                                                    .scaledToFit())
+                                                    }.frame(width: 29, height: 29, alignment: .center)
+                                                    DottedLine()
+                                                        .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
+                                                        .frame(width: 1, height: 50)
+                                                        .foregroundColor(Color((serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 1 ? "buttonbg" : "B2C1E3"))
+                                                        .offset(y:-5)
                                                     
-                                                    Circle()
-                                                        .stroke(Color(serviceManager.selectedOrder?.technicianStatus?.order != "received" ? "buttonbg" : "B2C1E3"),lineWidth: 2)
-                                                        .overlay(
-                                                            
-                                                            Image(serviceManager.selectedOrder?.technicianStatus?.order != "received" ? "yellowtruck" : "bluetruck")
-                                                                .scaledToFit())
-                                                }.frame(width: 29, height: 29, alignment: .center)
-                                                DottedLine()
-                                                    .stroke(style: StrokeStyle(lineWidth: 2, dash: [3]))
-                                                    .frame(width: 1, height: 50)
-                                                    .foregroundColor(Color(serviceManager.selectedOrder?.technicianStatus?.order != "received" ? "buttonbg" : "B2C1E3"))
-                                                    .offset(y:-5)
-                                                
-                                                Spacer()
-                                            }
-                                            
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("In the way")
-                                                        .font(.system(size: 14))
-                                                        .foregroundColor(Color("5A5A5A"))
                                                     Spacer()
                                                 }
-                                                HStack{
-                                                    Image("time")
-                                                        .scaledToFit()
-                                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.technicianStatus?.timing?.date ?? ""))
-                                                        .font(.system(size: 14))
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    Text( serviceManager.selectedOrder?.technicianStatus?.timing?.time ?? "")
-                                                        .font(.system(size: 14))
-                                                        .foregroundColor(Color("B2C1E3"))
+                                                
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("In the way")
+                                                            .font(.system(size: 14))
+                                                            .foregroundColor(Color("5A5A5A"))
+                                                        Spacer()
+                                                    }
+                                                    HStack{
+                                                        Image("time")
+                                                            .scaledToFit()
+                                                        Text(serviceManager.selectedOrder?.technicianStatus?[1].timing?.date ?? "")
+                                                            .font(.system(size: 14))
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        Text(serviceManager.selectedOrder?.technicianStatus?[1].timing?.time ?? "")
+                                                            .font(.system(size: 14))
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        Spacer()
+                                                    }
+                                                    
                                                     Spacer()
                                                 }
                                                 
                                                 Spacer()
                                             }
                                             
-                                            Spacer()
-                                        }
+                                            
+                                            
+                                            
+                                        }.padding(.leading)
+                                            .offset(y:-10)
+                                    }
+                                    
+                                    if (serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 2 {
                                         
-                                        
-                                        
-                                        
-                                    }.padding(.leading)
-                                        .offset(y:-10)
+                                        VStack{
+                                            HStack {
+                                                VStack{
+                                                    ZStack{
+                                                        Circle()
+                                                            .foregroundColor(Color("White"))
+                                                        
+                                                        Circle()
+                                                            .stroke(Color((serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 2 ? "buttonbg" : "B2C1E3"),lineWidth: 2)
+                                                            .overlay(
+                                                                Image((serviceManager.selectedOrder?.technicianStatus?.count ?? 0) > 2 ? "arrived" : "arrivedblue")
+                                                                    .scaledToFit())
+                                                    }.frame(width: 29, height: 29, alignment: .center)
+                                                    
+                                                    
+                                                    Spacer()
+                                                }
+                                                
+                                                
+                                                VStack{
+                                                    HStack{
+                                                        Text("Arrived")
+                                                            .font(.system(size: 14))
+                                                            .foregroundColor(Color("5A5A5A"))
+                                                        Spacer()
+                                                    }
+                                                    HStack{
+                                                        Image("time")
+                                                            .scaledToFit()
+                                                        
+                                                        
+                                                        Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.technicianStatus?[2].timing?.date ?? ""))
+                                                            .font(.system(size: 14))
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        Text( serviceManager.selectedOrder?.technicianStatus?[2].timing?.time ?? "")
+                                                            .font(.system(size: 14))
+                                                            .foregroundColor(Color("B2C1E3"))
+                                                        Spacer()
+                                                    }
+                                                    Spacer()
+                                                }
+                                                
+                                                Spacer()
+                                            }
+                                            
+                                        }.padding(.leading).offset(y:-20)
+                                    }
                                    
-                                
-                                    VStack{
-                                        HStack {
-                                            VStack{
-                                                ZStack{
-                                                    Circle()
-                                                        .foregroundColor(Color("White"))
-                                                    
-                                                    Circle()
-                                                        .stroke(Color(serviceManager.selectedOrder?.technicianStatus?.order == "arrived" ? "buttonbg" : "B2C1E3"),lineWidth: 2)
-                                                        .overlay(
-                                                            Image(serviceManager.selectedOrder?.technicianStatus?.order == "arrived" ? "arrived" : "arrivedblue")
-                                                                .scaledToFit())
-                                                }.frame(width: 29, height: 29, alignment: .center)
-                                                
-                                                
-                                                Spacer()
-                                            }
-                                            
-                                            
-                                            VStack{
-                                                HStack{
-                                                    Text("Arrived")
-                                                        .font(.system(size: 14))
-                                                        .foregroundColor(Color("5A5A5A"))
-                                                    Spacer()
-                                                }
-                                                HStack{
-                                                    Image("time")
-                                                        .scaledToFit()
-                                                    
-                                                    
-                                                    Text(AppUtil.getDateOnly(format: "", dateValue: serviceManager.selectedOrder?.technicianStatus?.timing?.date ?? ""))
-                                                        .font(.system(size: 14))
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    Text( serviceManager.selectedOrder?.technicianStatus?.timing?.time ?? "")
-                                                        .font(.system(size: 14))
-                                                        .foregroundColor(Color("B2C1E3"))
-                                                    Spacer()
-                                                }
-                                                Spacer()
-                                            }
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                    }.padding(.leading).offset(y:-20)
                                   
                                 }
                                 
                             }.padding(.top)
-                            
+                          
                             ZStack{
                                 
                                 RoundedRectangle(cornerRadius: 5)
@@ -732,7 +734,40 @@ struct TrackingOrderScreen: View {
                                         }
                                     }
                                 }
+                               
+                              
+                                
                             }
+                        }
+                        
+                        if serviceManager.selectedOrder?.status != "cancelled" && serviceManager.selectedOrder?.status == "processing" && (serviceManager.selectedOrder?.technicianStatus?.count ?? 0) < 2  {
+                            ZStack{
+                                
+                                RoundedRectangle(cornerRadius: 5)
+                                    .foregroundColor(Color("White"))
+                                
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color("F44336"),lineWidth: 1)
+                                    .overlay(
+                                        HStack{
+//                                                Image("yellowphone")
+//                                                    .scaledToFit()
+                                            
+                                            Text("Cancel Order")
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color("F44336"))
+                                                .fontWeight(.regular)
+                                            
+                                            
+                                            
+                                        }.padding(.horizontal)
+                                    )
+                                
+                            }.frame(width: 240, height: 55, alignment: .center)
+                                .padding(.vertical,30)
+                                .onTapGesture{
+                                    viewRouter.currentPage = "OrderCancelScreen"
+                                }
                         }
                         
                         

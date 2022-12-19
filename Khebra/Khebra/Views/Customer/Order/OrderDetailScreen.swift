@@ -17,6 +17,7 @@ struct OrderDetailScreen: View {
         ZStack{
             VStack{
                 TopNavigation(titleText: "Order Details")
+                    .opacity(0)
                 ScrollView{
                     VStack{
                         

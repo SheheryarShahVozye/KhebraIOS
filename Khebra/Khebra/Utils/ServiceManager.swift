@@ -13,7 +13,10 @@ class ServiceManager: ObservableObject {
     @Published var selectedServiceId: Service?
     @Published var selectedTechnician: TechnicianProfile?
     @Published var createdOrderData: CreateOrderResponse?
-    @Published var selectedLocation: String?
+    @Published var selectedLocation: String = ""
+    @Published var selectedLat: Double = 0.0
+    @Published var selectedLong: Double = 0.0
+    
     @Published var selectedService: String?
     @Published var documentsData: [Data]?
     @Published var selectedOrder: OrderObjectElement?

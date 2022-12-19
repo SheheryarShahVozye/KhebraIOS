@@ -125,12 +125,25 @@ class customerApi: NSObject, URLSessionDelegate {
             } else {
                 let httpResponse = response as? HTTPURLResponse
                 print("\nStatus code Post: \(httpResponse!.statusCode) \n")
-                if httpResponse?.statusCode == 401 {
-                    return incomplete(Strings.unAuthorizedUserError)
-                } else if httpResponse?.statusCode == 403 {
-                    return incomplete(Strings.accountInActiveError)
+               
+                let jsonString = String(data: responseData!, encoding: .utf8)
+                print("\n\n\(jsonString ?? "-")\n\n")
+                
+                let decoder = JSONDecoder()
+                var errorObject = "";
+                do {
+                    let people = try decoder.decode(ErrorObject.self, from: responseData!)
+                    errorObject = people.error ?? ""
+                    print(people)
+                } catch {
+                    print(error.localizedDescription)
                 }
-                return completion(responseData!)
+                
+                if httpResponse?.statusCode == 200 || httpResponse?.statusCode == 201 || httpResponse?.statusCode == 202 {
+                    return completion(responseData!)
+                } else {
+                    return incomplete(errorObject)
+                }
             }
         })
         task.resume()
@@ -233,20 +246,35 @@ class customerApi: NSObject, URLSessionDelegate {
                 return incomplete(error!.localizedDescription)
             } else {
                 let httpResponse = response as? HTTPURLResponse
-                print("\nStatus code Get: \(httpResponse!.statusCode) \n")
-                if httpResponse?.statusCode == 401 {
-                    //                    AppUtil.idToken = ""
-                    return incomplete(Strings.unAuthorizedUserError)
-                } else if httpResponse?.statusCode == 403 {
-                    return incomplete(Strings.accountInActiveError)
-                }
+                print("\nStatus code Post: \(httpResponse!.statusCode) \n")
+               
+                let jsonString = String(data: responseData!, encoding: .utf8)
+                print("\n\n\(jsonString ?? "-")\n\n")
+                
                 print("\n --- DATA --- \n")
                 print(responseData!)
                 print("\n")
                 print("\n --- RESPONSE --- \n")
                 print(response!)
                 print("\n")
-                return completion(responseData!)
+                
+                let decoder = JSONDecoder()
+                var errorObject = "";
+                do {
+                    let people = try decoder.decode(ErrorObject.self, from: responseData!)
+                    errorObject = people.error ?? ""
+                    print(people)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                if httpResponse?.statusCode == 200 || httpResponse?.statusCode == 201 || httpResponse?.statusCode == 202 {
+                    return completion(responseData!)
+                } else {
+                    return incomplete(errorObject)
+                }
+              
+              
             }
         })
         task.resume()
@@ -1096,6 +1124,41 @@ class customerApi: NSObject, URLSessionDelegate {
             }, incomplete: { incomp  in
                 failure(incomp)
             })
+        }
+    }
+    
+    public static func cancelOrders(_ orderid: String,_ body: cancelationPostbody,success: @escaping (OrderObjectElement) -> Void, failure: @escaping (String) -> Void) {
+        let url: String = "customer/order/" + orderid + "/cancel"
+       
+        do{
+            let jsonData = try JSONEncoder().encode(body)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            print("\n\n\(json ?? "-")\n\n")
+           
+            put(url: url,data:jsonData, completion: { result in
+                do {
+                    let jsonString = String(data: result!, encoding: .utf8)
+                    print("\n\n\(jsonString ?? "-")\n\n")
+                    
+                    let userObj: OrderObjectElement = try JSONDecoder()
+                        .decode(OrderObjectElement.self, from: result!)
+                    
+                    success(userObj)
+                    
+                } catch {
+                    print("\n\n\(error)\n at line \(#line)")
+                    print("\n\nError in decoding \(error.localizedDescription)\n")
+                    failure(Strings.requestApiError)
+                    // failure("Error in decoding")
+                }
+            }, incomplete: { incomp  in
+                failure(incomp)
+            })
+        }  catch {
+            print("\n\n\(error)\n at line \(#line)")
+            print("\n\nError in encoding \(error.localizedDescription)\n")
+            failure(Strings.requestApiError)
+            // failure("Error in encoding")
         }
     }
     

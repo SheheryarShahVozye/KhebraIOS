@@ -380,6 +380,8 @@ struct CreateOrder: View {
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("buttonbg"))
                                     Spacer()
+                                }.onTapGesture {
+                                    viewRouter.goBack()
                                 }
                                 
                             }.padding(.horizontal,30)
@@ -424,7 +426,7 @@ struct CreateOrder: View {
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("buttonbg"))
                                     Spacer()
-                                }
+                                }.opacity(0)
                                 
                             }.padding(.horizontal,30)
                             
@@ -573,6 +575,7 @@ struct CreateOrder: View {
             
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
+            .keyboardAdaptive()
             .background(Color("appbg"))
             .onTapGesture {
                 hideKeyboard()
@@ -592,15 +595,15 @@ struct CreateOrder: View {
 //        coordiantes.append(AppUtil.addServiceLocationLatitude ?? 0)
 //        coordiantes.append(AppUtil.addServiceLocationLongitude ?? 0)
         
-        coordiantes.append(33.72148)
-        coordiantes.append(73.04329)
+        coordiantes.append(serviceManager.selectedLong)
+        coordiantes.append(serviceManager.selectedLat)
         
         location.coordinates = coordiantes
         
         objBody.moreDetails = details
         objBody.cash = cash
         objBody.card = card
-        objBody.address = serviceManager.selectedLocation ?? ""
+        objBody.address = serviceManager.selectedLocation
        // objBody.onDemant = onDemant
         objBody.couponCode = couponCode
         objBody.location = location
@@ -608,20 +611,25 @@ struct CreateOrder: View {
         
         if pickerResult.count > 0 {
             customerApi.uploadImageForService(paramName: "files", fileName: "any", image: pickerResult, success: { res in
-                objBody.url = res[0]
+                for i in res {
+                    objBody.url?.append(i)
+                }
+              
                 customerApi.createOrder(serviceManager.selectedServiceId?._id ?? "", body: objBody, success: { res in
                     DispatchQueue.main.async {
                         
                         serviceManager.createdOrderData = res
                         showPreloader = false
-                       
+                        serviceManager.selectedLocation = ""
                         viewRouter.currentPage = "OrderDetailScreen"
                     }
                   
                 }, failure: { _ in
+                    serviceManager.selectedLocation = ""
                     showPreloader = false
                 })
             }, failure: { _ in
+                
                 showPreloader = false
             })
         } else {
@@ -629,10 +637,12 @@ struct CreateOrder: View {
                 DispatchQueue.main.async {
                     showPreloader = false
                     serviceManager.createdOrderData = res
+                    serviceManager.selectedLocation = ""
                     viewRouter.currentPage = "OrderDetailScreen"
                 }
                 
             }, failure: { _ in
+                serviceManager.selectedLocation = ""
                 showPreloader = false
             })
         }

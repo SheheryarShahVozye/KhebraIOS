@@ -48,9 +48,9 @@ struct LoginScreen: View {
                         CustomButton(title: "Login", callback: {
                             let object = RegisterBody()
                             object.phone = textNumber
-                            
                             customerApi.loginCustomer(object, success: { res in
                                 AppUtil.otp = res.otp
+                                
                                 viewRouter.currentPage = "VerificationScreen"
                             
                             }, failure: { f in

@@ -27,9 +27,9 @@ struct RatingScreen: View {
             VStack{
                 TopNavigationHeart(titleText:"Rating",callback: {
                     customerApi.markTechFav(serviceManager.selectedOrder?.assignedTo?._id ?? "", success: { _ in
-
+                       
                     }, failure: { _ in
-
+                        
                     })
                 })
                 ScrollView{

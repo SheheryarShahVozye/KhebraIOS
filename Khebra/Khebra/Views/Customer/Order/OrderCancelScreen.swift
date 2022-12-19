@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct OrderCancelScreen: View {
+    @State var techLate: Bool = false
+    @State var reqCancel: Bool = false
+    @State var notprof: Bool = false
+    @State var pricehigh: Bool = false
+    @State var anotherreason: Bool = false
+    @State var details: String = ""
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var serviceManager: ServiceManager
     var body: some View {
         ZStack{
             VStack{
@@ -26,12 +34,31 @@ struct OrderCancelScreen: View {
                         }.padding(.horizontal,20)
                             .padding(.top,5)
                        
-                        CancellationTypes(checkMark: .constant(true), description: "The technician is late")
-                        CancellationTypes(checkMark: .constant(true), description: "Technician request cancellation")
-                        CancellationTypes(checkMark: .constant(true), description: "The technician is not a professional")
-                        CancellationTypes(checkMark: .constant(true), description: "The price is high")
-                        CancellationTypes(checkMark: .constant(true), description: "Another reason, please write it down")
+                        CancellationTypes(checkMark: $techLate, description: "The technician is late")
+                        CancellationTypes(checkMark: $reqCancel, description: "Technician request cancellation")
+                        CancellationTypes(checkMark: $notprof, description: "The technician is not a professional")
+                        CancellationTypes(checkMark: $pricehigh, description: "The price is high")
+                        CancellationTypes(checkMark: $anotherreason, description: "Another reason, please write it down")
                         
+                        
+                        VStack{
+                            HStack{
+                                Text("Comment")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color("black"))
+                                Spacer()
+                            }.padding(.horizontal,30)
+                            
+                            RoundedRectangle(cornerRadius: 0)
+                                .frame(width: UIScreen.main.bounds.width - 50, height: 110, alignment: .center)
+                                .foregroundColor(Color("White"))
+                                .overlay(
+                                    TextEditor(text: $details)
+                                        .padding(.leading)
+                                    
+                                )
+                            
+                        }
                         
                        
                         
@@ -46,7 +73,33 @@ struct OrderCancelScreen: View {
                                          .foregroundColor(Color("White"))
                                          .fontWeight(.semibold)
                          ).onTapGesture {
-                            
+                            var object =  cancelationPostbody()
+                             object.moreDetail = details
+                             if techLate {
+                                 object.reason = cancelationTypes.techLate
+                             }
+                             if reqCancel {
+                                 object.reason = cancelationTypes.requestCancelation
+                             }
+                             
+                             if notprof {
+                                 object.reason = cancelationTypes.technotprofesional
+                             }
+                             
+                             if pricehigh {
+                                 object.reason = cancelationTypes.priceHigh
+                             }
+                             
+                             if anotherreason {
+                                 object.reason = cancelationTypes.anothereason
+                             }
+                             
+                             customerApi.cancelOrders(serviceManager.selectedOrder?._id ?? "", object, success: { _ in
+                                 viewRouter.currentPage = "DashboardScreen"
+                             }, failure: { _ in
+                                 viewRouter.currentPage = "DashboardScreen"
+                             })
+                             
                          }.padding(.vertical)
                 }
               //  BottomNavigation()
@@ -77,10 +130,18 @@ struct CancellationTypes: View {
             
                 if checkMark {
                     Image("Icon color")
+                       
+                } else {
+                    Image("Icon color")
+                        .opacity(0)
+                    
                 }
                
                 
             }.frame(width: 27, height: 24, alignment: .center)
+                .onTapGesture {
+                    checkMark.toggle()
+                }
           
             Text(description)
                 .font(.system(size: 16))

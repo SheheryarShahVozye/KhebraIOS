@@ -11,7 +11,7 @@ import Foundation
 public class OrderObjectElement: Codable {
     var scheduled: OrderTime?
     var location: Location?
-    var technicianStatus: TechnicianStatus?
+    var technicianStatus: [TechnicianStatus]?
     var _id: String?
     var postpone: Bool?
     var appliedTechnician: [String]?
@@ -39,6 +39,8 @@ class InvoiceObject: Codable {
 
 class TechnicianStatus: Codable {
     var timing: OrderTime?
-    var order: String?
+    var title: String?
+    var status: Bool?
+    var _id: String?
 
 }

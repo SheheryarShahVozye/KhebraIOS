@@ -72,12 +72,12 @@ struct LocationScreen: View {
                         placeAutocomplete(text_input: filterString)
                         stateChange.toggle()
                        
-                        SearchText += result.subThoroughfare ?? "" + " "
-                        SearchText += result.thoroughfare ?? "" + " "
-                        SearchText += result.subLocality ?? "" + " "
-                        SearchText += result.locality ?? ""  + " "
-                        SearchText += " "
-                        SearchText += result.country ?? "" + " "
+                        serviceManager.selectedLocation += result.subThoroughfare ?? "" + " "
+                        serviceManager.selectedLocation += result.thoroughfare ?? "" + " "
+                        serviceManager.selectedLocation += result.subLocality ?? "" + " "
+                        serviceManager.selectedLocation += result.locality ?? ""  + " "
+                        serviceManager.selectedLocation += " "
+                        serviceManager.selectedLocation += result.country ?? "" + " "
                         
                         
                         AppUtil.addServiceLocationLatitude =  AppUtil.CurrentLocationLatitude ?? 0.0
@@ -97,6 +97,7 @@ struct LocationScreen: View {
                 })
                 
             }
+           
             
             VStack{
                 HStack{
@@ -117,7 +118,7 @@ struct LocationScreen: View {
                             .overlay(
                                 HStack{
                                     
-                                    TextField("City Name, Location", text: $SearchText)
+                                    TextField("City Name, Location", text: $serviceManager.selectedLocation)
                                 }.padding(.leading)
                                 
                             )
@@ -134,17 +135,20 @@ struct LocationScreen: View {
                 Spacer()
                 
                 OrderButton(title: "Next", callback: {
-                    serviceManager.selectedLocation = SearchText
+                    //serviceManager.selectedLocation = SearchText
                     viewRouter.currentPage = "CreateOrder"
                 }).padding(.vertical,30)
             }
+           
             
 
-        }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        }
+       
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .background(Color.white)
-           // .keyboardAdaptive()
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-           
+            
+            .ignoresSafeArea(.all)
+            .keyboardAdaptive()
             .onAppear(perform: {
                 
 

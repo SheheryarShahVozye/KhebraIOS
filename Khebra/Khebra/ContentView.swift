@@ -135,6 +135,8 @@ struct RouteManager: View {
             TechnicalTermsAndConditionScreen()
         } else if viewRouter.currentPage == "PrivacyPolicyScreen"{
             PrivacyPolicyScreen()
+        } else if viewRouter.currentPage == "OrderCancelScreen" {
+            OrderCancelScreen()
         }
         
     }

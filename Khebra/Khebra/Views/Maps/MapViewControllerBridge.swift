@@ -51,7 +51,7 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> MapViewCoordinator {
-        return MapViewCoordinator(self, _city: cityname)
+        return MapViewCoordinator(self,$cityname)
     }
     
     private func animateToSelectedMarker(viewController: MapViewController) {
@@ -79,12 +79,14 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
     
     final class MapViewCoordinator: NSObject, GMSMapViewDelegate {
         var mapViewControllerBridge: MapViewControllerBridge
-        var city: String
+        @Binding var cityname: String
+    
 
         @ObservedObject var locationSearchService = LocationSearchService()
-        init(_ mapViewControllerBridge: MapViewControllerBridge, _city: String) {
+        init(_ mapViewControllerBridge: MapViewControllerBridge,_ cityname: Binding<String>) {
             self.mapViewControllerBridge = mapViewControllerBridge
-            city = _city
+            self._cityname = cityname
+           
         }
         
         func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
@@ -105,9 +107,10 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
                 location += " "
                 location += result.country ?? "" + " "
                 
-                self.city = result.administrativeArea ?? ""
+              
                 self.mapViewControllerBridge.serviceManager.selectedLocation = location
-                
+                self.mapViewControllerBridge.serviceManager.selectedLat = coordinate.latitude
+                self.mapViewControllerBridge.serviceManager.selectedLong = coordinate.longitude
                 AppUtil.addServiceLocationLatitude = coordinate.latitude
                 AppUtil.addServiceLocationLongitude = coordinate.longitude
                 
@@ -128,6 +131,7 @@ struct MapViewControllerBridge: UIViewControllerRepresentable {
                                         if let lines = place.lines {
                                             for i in lines {
                                                 self.mapViewControllerBridge.cityname += i + " "
+                                                self.cityname += i + " "
                                             }
                                             print("GEOCODE: Formatted Address: \(lines)")
                                         }

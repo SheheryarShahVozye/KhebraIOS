@@ -138,6 +138,7 @@ struct ProfileScreen: View {
             }
         }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
             .ignoresSafeArea(.all)
+            .keyboardAdaptive()
             .background(Color("appbg"))
             .onAppear(perform: {
                 customerApi.getCustomerprofile(success: { res in

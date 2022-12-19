@@ -263,9 +263,14 @@ struct BusinessSectorScreen: View {
             }
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        
             .ignoresSafeArea(.all)
-            .background(Color("appbg"))
             .keyboardAdaptive()
+            .background(Color("appbg"))
+          
+            .onTapGesture {
+                hideKeyboard()
+            }
     }
 }
 

@@ -77,6 +77,7 @@ struct VerificationScreen: View {
                         CustomButton(title: "Next", callback: {
                             let object = VerifyOtp()
                             object.otp = AppUtil.otp
+                            object.deviceToken = AppUtil.deviceToken
                             customerApi.verifyOtp(object, success: { res in
                                 AppUtil.user = res.user
                                 AppUtil.idToken = res.token ?? ""
